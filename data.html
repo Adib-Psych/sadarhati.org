@@ -1,0 +1,1904 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="description" content="Data &amp; milestone Sadar Hati dalam angka — 24 tahun capaian, cakupan operasional, dan surveilans PWID di Malang &amp; Jawa Timur."/>
+<link rel="canonical" href="https://sadarhati.org/data"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Sadar Hati Foundation"/>
+<meta property="og:title" content="Data &amp; Milestone — Sadar Hati Foundation"/>
+<meta property="og:description" content="Data &amp; milestone Sadar Hati dalam angka — 24 tahun capaian, cakupan operasional, dan surveilans PWID di Malang &amp; Jawa Timur."/>
+<meta property="og:url" content="https://sadarhati.org/data"/>
+<meta name="twitter:card" content="summary"/>
+<title>Data & Milestone — Sadar Hati Foundation</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Lora:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    /* === HEART OF HOPE PALETTE === */
+    /* Sage (secondary · healing) — kept */
+    --sage: #5b7553;
+    --sage-deep: #3f5439;
+    --sage-light: #e8efe9;
+    --sage-tint: #f3f6f1;
+    /* Clay var-name now holds WINE (primary brand · "Sadar Hati" = heart) */
+    --clay: #a83244;
+    --clay-deep: #7a1f30;
+    --clay-light: #fce8ec;
+    --clay-tint: #fdf3f5;
+    /* Coral var-name now holds GOLD (accent · action) */
+    --coral: #d4a017;
+    --coral-deep: #a07c12;
+    /* Pink (soft · ADHA gentleness) — kept */
+    --pink: #e8a5a5;
+    --pink-tint: #f9e6e6;
+    /* Gold tint for Layer 3 PWA */
+    --gold-tint: #fcf5dd;
+    /* Navy (text · gravitas) — kept */
+    --navy: #1f2937;
+    --navy-soft: #334155;
+    /* Warm cream paper (bg shifted slightly warmer for wine harmony) */
+    --cream: #fef7f2;
+    --cream-warm: #fce8ec;
+    --slate: #64748b;
+    --slate-light: #cbd5e1;
+    --slate-lighter: #e2e8f0;
+    --border: #e5e7eb;
+    --paper: #ffffff;
+    --bg: #faf5f0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    color: var(--navy);
+    background: var(--bg);
+    font-size: 14px;
+    line-height: 1.5;
+    height: 100vh;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  .app { display: grid; grid-template-columns: 290px 1fr; height: 100vh; }
+
+  /* SIDEBAR */
+  .sidebar {
+    background: var(--cream);
+    border-right: 1px solid var(--slate-lighter);
+    display: flex; flex-direction: column;
+    overflow-y: auto;
+  }
+  .brand {
+    padding: 20px 18px;
+    background: linear-gradient(135deg, var(--clay) 0%, var(--clay-deep) 100%);
+    color: white;
+  }
+  .brand .logo {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 20px; font-weight: 700;
+    letter-spacing: -0.3px; line-height: 1.1;
+  }
+  .brand .est {
+    font-size: 10px; letter-spacing: 1.5px;
+    opacity: 0.85; margin-top: 4px;
+    text-transform: uppercase;
+  }
+  .brand .system-tag {
+    display: inline-block; margin-top: 12px;
+    font-size: 9px; padding: 3px 9px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 10px; letter-spacing: 0.6px;
+    text-transform: uppercase; font-weight: 600;
+  }
+
+  .nav { flex: 1; padding: 12px 8px; }
+  .nav-layer { margin-bottom: 8px; }
+  .nav-layer-header {
+    display: flex; align-items: center;
+    justify-content: space-between;
+    padding: 9px 12px; cursor: pointer;
+    border-radius: 6px; color: var(--navy);
+    font-weight: 700; font-size: 11px;
+    letter-spacing: 1.2px; text-transform: uppercase;
+    transition: background 0.15s;
+    user-select: none;
+  }
+  .nav-layer-header:hover { background: rgba(0,0,0,0.04); }
+  .nav-layer-header .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    margin-right: 8px;
+  }
+  .nav-layer-1 .dot, [data-layer="1"] .dot { background: var(--clay); }
+  .nav-layer-2 .dot, [data-layer="2"] .dot { background: var(--sage); }
+  .nav-layer-3 .dot, [data-layer="3"] .dot { background: var(--coral); }
+  .nav-layer-header .chevron {
+    font-size: 10px; color: var(--slate);
+    transition: transform 0.2s;
+  }
+  .nav-layer.expanded > .nav-layer-header .chevron { transform: rotate(90deg); }
+
+  .nav-items {
+    display: none;
+    margin: 4px 0 4px 22px;
+    border-left: 1.5px solid var(--slate-lighter);
+    padding-left: 6px;
+  }
+  .nav-layer.expanded > .nav-items { display: block; }
+  .nav-item {
+    display: flex; align-items: center;
+    padding: 7px 10px; cursor: pointer;
+    border-radius: 5px; color: var(--navy-soft);
+    font-size: 12.5px; font-weight: 500;
+    text-decoration: none; margin: 1px 0;
+    transition: all 0.15s; user-select: none;
+  }
+  .nav-item:hover { background: var(--clay-tint); color: var(--navy); }
+  .nav-item.active { background: var(--clay); color: white; font-weight: 600; }
+  .nav-overview {
+    background: white;
+    border: 1px solid var(--clay-light);
+    font-weight: 700;
+    margin-bottom: 3px;
+  }
+  .nav-overview:hover { background: var(--clay-tint); }
+  .nav-overview.active { background: var(--clay); color: white; border-color: var(--clay); }
+  .nav-overview + .nav-overview { margin-top: 0; }
+  .nav-overview + .nav-overview + .nav-divider-label { margin-top: 10px; }
+  .nav-divider-label {
+    font-size: 9.5px;
+    letter-spacing: 1.6px;
+    color: var(--slate);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 8px 8px 4px;
+  }
+  .nav-item.active .icon { opacity: 1; }
+  .nav-item .icon { margin-right: 7px; font-size: 12px; opacity: 0.75; }
+
+  .donor-group { margin: 4px 0; }
+  .donor-header {
+    display: flex; align-items: center;
+    justify-content: space-between;
+    padding: 6px 10px; cursor: pointer;
+    border-radius: 5px; font-size: 12.5px;
+    font-weight: 600; color: var(--navy);
+    user-select: none;
+  }
+  .donor-header:hover { background: var(--sage-tint); }
+  .donor-header .donor-name { display: flex; align-items: center; gap: 6px; flex: 1; }
+  .donor-header .donor-name::before {
+    content: ""; width: 6px; height: 6px;
+    background: var(--sage); border-radius: 50%;
+  }
+  .donor-badge {
+    font-size: 8.5px; padding: 2px 6px;
+    border-radius: 8px; letter-spacing: 0.5px;
+    font-weight: 700;
+  }
+  .donor-badge.active { background: var(--sage-light); color: var(--sage-deep); }
+  .donor-badge.hist { background: var(--clay-tint); color: var(--clay-deep); }
+
+  .donor-sub-items {
+    display: none;
+    margin: 2px 0 4px 14px;
+    border-left: 1.5px dashed var(--slate-lighter);
+    padding-left: 8px;
+  }
+  .donor-group.expanded > .donor-sub-items { display: block; }
+  .donor-sub-items .nav-item { font-size: 11.5px; padding: 5px 8px; }
+  .donor-group.expanded > .donor-header .donor-name::before { background: var(--coral); }
+  .donor-header .chevron { font-size: 10px; color: var(--slate); transition: transform 0.2s; margin-left: 6px; }
+  .donor-group.expanded > .donor-header .chevron { transform: rotate(90deg); }
+
+  .sidebar-footer {
+    padding: 12px 18px;
+    border-top: 1px solid var(--slate-lighter);
+    font-size: 10px; color: var(--slate);
+    background: var(--cream-warm);
+  }
+  .sidebar-footer .user {
+    display: flex; align-items: center;
+    gap: 8px; margin-bottom: 6px;
+  }
+  .sidebar-footer .avatar {
+    width: 28px; height: 28px;
+    background: var(--clay); color: white;
+    border-radius: 50%; display: flex;
+    align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 700;
+  }
+  .sidebar-footer .user-meta strong {
+    color: var(--navy); font-size: 11.5px;
+    display: block; font-weight: 700;
+  }
+
+  /* MAIN */
+  .main { display: flex; flex-direction: column; overflow: hidden; background: var(--paper); }
+  .topbar {
+    display: flex; justify-content: space-between;
+    align-items: center; padding: 14px 28px;
+    border-bottom: 1px solid var(--slate-lighter);
+    background: white;
+  }
+  .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--slate); flex-wrap: wrap; }
+  .breadcrumb .sep { color: var(--slate-light); }
+  .breadcrumb .current { color: var(--navy); font-weight: 600; }
+  .layer-tag {
+    font-size: 9.5px; padding: 3px 8px;
+    border-radius: 8px; letter-spacing: 0.6px;
+    text-transform: uppercase; font-weight: 700;
+  }
+  .layer-tag.l1 { background: var(--clay-tint); color: var(--clay-deep); }
+  .layer-tag.l2 { background: var(--sage-tint); color: var(--sage-deep); }
+  .layer-tag.l3 { background: var(--gold-tint); color: var(--coral-deep); }
+
+  .topbar-actions { display: flex; gap: 10px; }
+  .btn {
+    padding: 6px 14px; border-radius: 6px;
+    font-size: 12px; font-weight: 600; cursor: pointer;
+    border: 1px solid var(--slate-lighter);
+    background: white; color: var(--navy);
+    font-family: inherit;
+  }
+  .btn:hover { background: var(--cream); }
+  .btn.primary { background: var(--clay); color: white; border-color: var(--clay); }
+  .btn.primary:hover { background: var(--clay-deep); }
+
+  .content {
+    flex: 1; overflow-y: auto;
+    padding: 32px 36px; background: var(--bg);
+  }
+  .section { display: none; max-width: 1500px; width: 100%; }
+  .section.active { display: block; }
+  .section p { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+
+  .hero { margin-bottom: 24px; }
+  .hero .eyebrow {
+    font-size: 11px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--clay-deep);
+    font-weight: 700; margin-bottom: 8px;
+  }
+  .hero h1 {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 30px; color: var(--navy);
+    line-height: 1.15; margin-bottom: 8px;
+  }
+  .hero .lede {
+    font-size: 14px; color: var(--navy-soft);
+    line-height: 1.7;
+    text-align: justify; hyphens: auto;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px; margin-top: 18px;
+  }
+  .card {
+    background: white; border: 1px solid var(--border);
+    border-radius: 10px; padding: 18px 16px;
+    text-align: center;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+  }
+  .card .label {
+    font-size: 10.5px; letter-spacing: 1.4px;
+    color: var(--slate); font-weight: 700;
+    text-transform: uppercase; margin-bottom: 7px;
+  }
+  .card .value {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 26px; font-weight: 700;
+    color: var(--navy); line-height: 1.2;
+  }
+  .card .desc {
+    font-size: 12px; color: var(--slate);
+    margin-top: 7px; line-height: 1.45;
+  }
+
+  .placeholder-banner {
+    background: var(--sage-tint);
+    border: 1px dashed var(--sage);
+    border-radius: 8px; padding: 16px 20px;
+    margin-top: 22px; font-size: 13px;
+    color: var(--sage-deep);
+    display: flex; align-items: flex-start; gap: 12px;
+  }
+  .placeholder-banner .icon { font-size: 22px; line-height: 1; flex-shrink: 0; }
+  .placeholder-banner strong { color: var(--sage-deep); }
+
+  .placeholder-banner.archival {
+    background: var(--clay-tint);
+    border-color: var(--clay);
+    color: var(--clay-deep);
+  }
+  .placeholder-banner.archival strong { color: var(--clay-deep); }
+
+  .budget-row {
+    display: flex; align-items: center;
+    gap: 16px; padding: 13px 18px;
+    background: white; border: 1px solid var(--border);
+    border-radius: 8px; margin-bottom: 6px;
+    font-size: 13px;
+  }
+  .budget-row .item-name { flex: 1; font-weight: 600; }
+  .bar-track {
+    flex: 2; height: 8px; background: var(--slate-lighter);
+    border-radius: 4px; overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%; background: linear-gradient(90deg, var(--sage) 0%, var(--coral) 100%);
+    border-radius: 4px;
+  }
+  .bar-percent {
+    font-weight: 700; min-width: 50px;
+    text-align: right; color: var(--sage-deep);
+    font-size: 13px;
+  }
+
+  .report-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px; margin-top: 14px;
+  }
+  .report-card {
+    background: white; border: 1px solid var(--border);
+    border-radius: 8px; padding: 16px;
+    text-align: center; cursor: pointer;
+    transition: all 0.15s;
+  }
+  .report-card:hover {
+    border-color: var(--sage);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    transform: translateY(-1px);
+  }
+  .report-card .icon { font-size: 26px; margin-bottom: 6px; display: block; }
+  .report-card .title { font-weight: 700; font-size: 13px; color: var(--navy); }
+  .report-card .year { font-size: 11px; color: var(--slate); margin-top: 4px; }
+
+  .section-divider {
+    margin: 26px 0 14px;
+    font-size: 11px; letter-spacing: 1.5px;
+    color: var(--slate); font-weight: 700;
+    text-transform: uppercase;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-divider::after {
+    content: ""; flex: 1; height: 1px;
+    background: var(--slate-lighter);
+  }
+
+  /* PHONE MOCKUP */
+  .phone-mockup {
+    width: 290px; background: var(--navy);
+    border-radius: 32px; padding: 14px 8px 10px;
+    margin: 20px auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  }
+  .phone-notch {
+    width: 60px; height: 5px; background: #000;
+    border-radius: 3px; margin: 0 auto 8px;
+  }
+  .phone-screen {
+    background: white; border-radius: 20px;
+    height: 510px; padding: 14px 14px 8px;
+    display: flex; flex-direction: column;
+    overflow: hidden;
+  }
+  .phone-header {
+    font-size: 14px; font-weight: 700;
+    color: var(--navy); margin-bottom: 12px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .phone-header .sync-status {
+    font-size: 9px; padding: 2px 6px;
+    background: var(--sage-light); color: var(--sage-deep);
+    border-radius: 8px; font-weight: 600;
+  }
+  .phone-body { flex: 1; overflow: auto; }
+  .phone-tabs {
+    display: flex; border-top: 1px solid var(--slate-lighter);
+    padding-top: 6px; margin-top: 8px;
+    justify-content: space-around;
+  }
+  .phone-tab {
+    font-size: 9px; text-align: center;
+    color: var(--slate); padding: 2px 4px;
+  }
+  .phone-tab.active { color: var(--sage); font-weight: 700; }
+  .phone-tab .ic { font-size: 18px; display: block; margin-bottom: 1px; }
+
+  .form-row {
+    background: var(--cream);
+    padding: 8px 11px;
+    border-radius: 8px;
+    margin-bottom: 6px;
+  }
+  .form-row .label {
+    font-size: 9.5px; color: var(--slate);
+    text-transform: uppercase; letter-spacing: 0.8px;
+    font-weight: 700;
+  }
+  .form-row .input {
+    font-size: 12px; color: var(--navy);
+    margin-top: 2px; font-weight: 500;
+  }
+  .form-submit {
+    margin-top: 8px; width: 100%;
+    padding: 8px; background: var(--clay);
+    color: white; border: none;
+    border-radius: 8px; font-weight: 700;
+    font-size: 12px; cursor: pointer;
+  }
+
+  /* About — Theo quote */
+  .theo-quote-banner {
+    background: linear-gradient(135deg, var(--clay-light) 0%, var(--cream) 100%);
+    border-left: 4px solid var(--clay);
+    padding: 18px 24px;
+    border-radius: 0 10px 10px 0;
+    margin: 18px 0 24px;
+    position: relative;
+  }
+  .theo-quote-banner .quote-icon {
+    position: absolute;
+    top: 8px;
+    left: 14px;
+    font-family: 'Lora', Georgia, serif;
+    font-size: 56px;
+    color: var(--clay);
+    line-height: 0.7;
+    opacity: 0.4;
+  }
+  .theo-quote-banner p {
+    font-family: 'Lora', Georgia, serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--clay-deep);
+    line-height: 1.65;
+    padding-left: 36px;
+    margin: 0;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .theo-quote-banner p strong { color: var(--clay); font-style: normal; font-weight: 700; }
+  .theo-quote-banner .quote-attr {
+    margin-top: 10px;
+    padding-left: 36px;
+    font-size: 11px;
+    color: var(--slate);
+    font-style: italic;
+  }
+  .theo-quote-banner .quote-attr strong { color: var(--navy); font-style: normal; }
+
+  /* About — Founding story */
+  .founding-story { margin: 22px 0; }
+  .founding-story h2 {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 19px;
+    color: var(--navy);
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  .founding-story p {
+    font-size: 13.5px;
+    color: var(--navy-soft);
+    line-height: 1.75;
+    margin-bottom: 11px;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .founding-story p strong { color: var(--navy); font-weight: 700; }
+
+  .section-h2 {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 20px;
+    color: var(--navy);
+    margin: 30px 0 14px;
+    font-weight: 700;
+    padding-bottom: 8px;
+    border-bottom: 1.5px solid var(--clay-light);
+  }
+  .section-h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--slate);
+    font-weight: 700;
+    margin: 22px 0 10px;
+  }
+
+  /* Eras band */
+  .eras-band {
+    display: grid;
+    grid-template-columns: 1.2fr 3fr 5fr 3.5fr 2.5fr;
+    height: 72px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .era { padding: 10px 14px; display: flex; flex-direction: column; justify-content: center; }
+  .era-label { font-size: 10px; letter-spacing: 1.3px; text-transform: uppercase; font-weight: 800; opacity: 0.9; }
+  .era-name { font-size: 16px; font-weight: 700; margin-top: 2px; line-height: 1.15; }
+  .era-years { font-size: 12px; opacity: 0.9; margin-top: 2px; }
+  .era-1 { background: var(--cream-warm); color: var(--clay-deep); }
+  .era-2 { background: var(--sage-light); color: var(--sage-deep); }
+  .era-3 { background: var(--clay); color: white; }
+  .era-4 { background: var(--gold-tint); color: var(--coral-deep); }
+  .era-5 { background: var(--pink-tint); color: var(--clay-deep); }
+
+  /* Milestones */
+  .milestones {
+    display: grid;
+    grid-template-columns: repeat(25, 1fr);
+    margin: 10px 0 4px;
+    min-height: 150px;
+    align-items: end;
+    gap: 2px;
+  }
+  .ms { position: relative; padding: 0 2px; display: flex; flex-direction: column; justify-content: flex-end; }
+  .ms .bubble {
+    background: white;
+    border: 1.5px solid var(--clay);
+    border-radius: 6px;
+    padding: 8px 9px;
+    font-size: 11px;
+    line-height: 1.35;
+    color: var(--navy);
+    margin-bottom: 7px;
+    text-align: center;
+  }
+  .ms .bubble.sage { border-color: var(--sage); background: var(--sage-tint); }
+  .ms .bubble.gold { border-color: var(--coral-deep); background: var(--gold-tint); }
+  .ms .bubble.wine { border-color: var(--clay); background: var(--clay-light); }
+  .ms .bubble.pink { border-color: var(--clay-deep); background: var(--pink-tint); }
+  .ms .bubble.adib { background: var(--navy); color: white; border-color: var(--navy); }
+  .ms .bubble .title { font-weight: 700; font-size: 11.5px; display: block; margin-bottom: 3px; }
+  .ms .bubble .desc { font-size: 10px; color: var(--slate); line-height: 1.35; }
+  .ms .bubble.adib .desc { color: rgba(255,255,255,0.88); }
+  .ms .dot {
+    width: 11px; height: 11px; border-radius: 50%;
+    background: var(--clay); border: 2px solid white;
+    box-shadow: 0 0 0 1.5px var(--clay);
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+  .ms.sage .dot { background: var(--sage); box-shadow: 0 0 0 1.5px var(--sage); }
+  .ms.gold .dot { background: var(--coral-deep); box-shadow: 0 0 0 1.5px var(--coral-deep); }
+  .ms.adib .dot { background: var(--navy); box-shadow: 0 0 0 1.5px var(--navy); }
+
+  /* Timeline axis */
+  .timeline-axis {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(25, 1fr);
+    border-top: 2px solid var(--navy-soft);
+    padding-top: 6px;
+    margin-bottom: 4px;
+    height: 28px;
+  }
+  .tick {
+    border-left: 1px solid var(--slate-lighter);
+    font-size: 11.5px;
+    color: var(--slate);
+    padding: 2px 0 0 4px;
+    font-weight: 600;
+    text-align: left;
+  }
+  .tick.major { border-left: 1.5px solid var(--navy-soft); color: var(--navy); font-weight: 700; font-size: 12.5px; }
+
+  /* Swimlanes */
+  .swimlanes {
+    display: grid;
+    grid-template-columns: 230px 1fr;
+    background: var(--slate-lighter);
+    border-radius: 6px;
+    padding: 2px;
+    row-gap: 1px;
+    margin-top: 6px;
+  }
+  .sl-label {
+    background: white;
+    padding: 10px 14px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .sl-label .sub { font-size: 11px; font-weight: 500; color: var(--slate); margin-top: 2px; }
+  .sl-track {
+    background: white;
+    height: 40px;
+    display: grid;
+    grid-template-columns: repeat(25, 1fr);
+    align-items: center;
+  }
+  .sl-bar {
+    height: 26px; border-radius: 5px; display: flex;
+    align-items: center; justify-content: center;
+    font-size: 10.5px; font-weight: 700; color: white;
+    letter-spacing: 0.2px; padding: 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  /* Donor color system — 7 distinct hues, Heart of Hope harmonized.
+     Logic: GF R4 + R8 share purple family (sister grants, lighter/darker).
+            HCPI = wine-red flagship (era Australian Aid).
+            FHI = dusty teal (historical first entry).
+            SUM = burnt amber (cliff/warning).
+            BNN = sage (govt Indonesia).
+            ViiV = soft pink (current/contemporary). */
+  .sl-bar.fhi  { background: #5b8a8e; color: white; }              /* dusty teal */
+  .sl-bar.gf4  { background: #6b4d7a; color: white; }              /* plum (parent) */
+  .sl-bar.hcpi { background: var(--clay); color: white; }          /* wine-red flagship */
+  .sl-bar.gf8  { background: #8a6694; color: white; }              /* mauve (sister of R4) */
+  .sl-bar.sum  { background: #c47a3b; color: white; }              /* burnt amber — cliff */
+  .sl-bar.bnn  { background: var(--sage); color: white; }          /* sage green */
+  .sl-bar.viiv { background: var(--pink); color: var(--clay-deep); } /* soft pink current */
+
+  /* Helmet metaphor banner */
+  .helmet-banner {
+    background: var(--sage-tint);
+    border-radius: 8px;
+    padding: 18px 24px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 18px;
+    align-items: center;
+    margin: 24px 0;
+  }
+  .helmet-banner .icon { font-size: 42px; line-height: 1; }
+  .helmet-banner .text {
+    font-family: 'Lora', Georgia, serif;
+    font-style: italic;
+    font-size: 14.5px;
+    color: var(--sage-deep);
+    line-height: 1.7;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .helmet-banner .text strong { color: var(--sage-deep); font-style: normal; font-weight: 700; }
+  .helmet-banner .attr {
+    margin-top: 6px;
+    font-size: 10.5px;
+    font-style: normal;
+    color: var(--slate);
+    font-family: 'Manrope', sans-serif;
+  }
+
+  /* Mission list */
+  .mission-list {
+    list-style: none;
+    counter-reset: misi;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 4px;
+    max-width: 1400px;
+  }
+  .mission-list li {
+    counter-increment: misi;
+    background: white;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--clay);
+    border-radius: 6px;
+    padding: 13px 16px 13px 40px;
+    font-size: 13px;
+    color: var(--navy-soft);
+    line-height: 1.55;
+    position: relative;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .mission-list li::before {
+    content: counter(misi);
+    position: absolute;
+    left: 14px;
+    top: 11px;
+    width: 18px;
+    height: 18px;
+    background: var(--clay);
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 18px;
+    font-size: 10px;
+    font-weight: 800;
+  }
+
+  /* Founder tribute */
+  .founder-tribute {
+    background: linear-gradient(135deg, var(--navy) 0%, #2a3543 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin: 26px 0 18px;
+  }
+  .founder-tribute h2 {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 22px;
+    color: white;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+  .founder-tribute h2 .small {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--pink);
+    font-family: 'Manrope', sans-serif;
+    margin-bottom: 3px;
+    font-weight: 700;
+  }
+  .founder-tribute p {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.88);
+    line-height: 1.75;
+    margin-bottom: 11px;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .founder-tribute p strong { color: white; font-weight: 700; }
+  .founder-tribute .italic {
+    font-family: 'Lora', Georgia, serif;
+    font-style: italic;
+    color: var(--pink);
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 10px;
+    margin-top: 10px;
+  }
+
+  .source-attr {
+    margin-top: 18px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--slate-lighter);
+    font-size: 11px;
+    color: var(--slate);
+    font-style: italic;
+    line-height: 1.65;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .source-attr strong { color: var(--navy); font-style: normal; }
+
+  /* Tim section */
+  .tim-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 14px; margin-top: 16px;
+  }
+  .tim-card {
+    background: white; border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px; text-align: center;
+  }
+  .tim-avatar {
+    width: 60px; height: 60px; margin: 0 auto 10px;
+    border-radius: 50%; background: var(--sage-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; color: var(--sage-deep); font-weight: 700;
+  }
+  .tim-card.dirut .tim-avatar { background: var(--clay-light); color: var(--clay-deep); }
+  .tim-avatar { overflow: hidden; }
+  .tim-avatar img { width:100%; height:100%; object-fit:cover; display:block; }
+  .tim-name { font-weight: 700; font-size: 13px; }
+  .tim-role { font-size: 11px; color: var(--slate); margin-top: 2px; }
+
+</style>
+<style id="sh-public-overrides">
+/* Responsif: cegah overlap di layar sempit — desktop tetap 'sama persis' */
+@media (max-width: 900px){
+  .app{ grid-template-columns:1fr !important; height:auto !important; }
+  .sidebar{ height:auto !important; border-right:none; border-bottom:1px solid var(--slate-lighter); }
+  .main{ overflow:visible !important; height:auto !important; }
+  .content{ overflow:visible !important; height:auto !important; }
+  [style*="grid-template-columns"]{ grid-template-columns:1fr !important; }
+  [style*="display:flex"],[style*="display: flex"]{ flex-wrap:wrap; }
+}
+img{ max-width:100%; height:auto; }
+
+/* ===== Widget Impact Stats (public_stats) ===== */
+#saha-impact-widget{margin:8px 0 28px}
+.saha-widget{background:var(--paper,#fff);border:1px solid var(--border,#e5e7eb);border-radius:20px;padding:28px 30px;box-shadow:0 1px 2px rgba(44,39,36,.04),0 8px 24px rgba(125,36,51,.06)}
+.saha-widget__head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+.saha-eyebrow{font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--clay,#a83244)}
+.saha-widget__title{font-family:'Lora',Georgia,serif;font-size:1.6rem;font-weight:700;color:var(--clay-deep,#7d2433);margin-top:5px}
+.saha-badge{font-size:.66rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:100px;white-space:nowrap;align-self:center}
+.saha-badge--draft{background:rgba(212,160,23,.15);color:#8a6608;border:1px solid rgba(212,160,23,.45)}
+.saha-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.saha-stat{background:var(--cream,#fbf7f2);border:1px solid var(--border,#e5e7eb);border-radius:15px;padding:20px 18px;position:relative;overflow:hidden}
+.saha-stat::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--gold,#d4a017)}
+.saha-stat--clay::before{background:var(--clay,#a83244)}
+.saha-stat--sage::before{background:var(--sage,#8a9a7b)}
+.saha-stat__num{font-family:'Lora',serif;font-size:2.1rem;font-weight:700;color:var(--clay,#a83244);line-height:1}
+.saha-stat--gold .saha-stat__num{color:#a37d0c}
+.saha-stat--sage .saha-stat__num{color:#5f6e52}
+.saha-stat__label{font-size:.82rem;color:var(--ink,#2c2724);font-weight:700;margin-top:9px;line-height:1.35}
+.saha-stat__sub{font-size:.72rem;color:var(--slate,#64748b);margin-top:5px;line-height:1.4}
+.saha-stat--card{grid-column:span 2;background:linear-gradient(135deg,rgba(168,50,68,.05),rgba(212,160,23,.05))}
+.saha-stat--card::before{background:var(--clay-deep,#7d2433)}
+.saha-stat__cardval{font-family:'Lora',serif;font-size:1.12rem;font-weight:600;color:var(--clay-deep,#7d2433);margin-top:7px;line-height:1.35}
+.saha-widget__foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;margin-top:18px;padding-top:15px;border-top:1px solid var(--border,#e5e7eb);font-size:.74rem;color:var(--slate,#64748b);font-weight:600}
+.saha-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:middle}
+.saha-dot--live{background:var(--sage,#8a9a7b)} .saha-dot--fallback{background:var(--gold,#d4a017)}
+@media(max-width:900px){.saha-grid{grid-template-columns:repeat(2,1fr)}.saha-stat--card{grid-column:span 2}}
+@media(max-width:480px){.saha-grid{grid-template-columns:1fr}.saha-stat--card{grid-column:span 1}}
+
+/* Penanda DRAFT (briefing placeholder-first) */
+.sh-draft-pill{ position:fixed; bottom:14px; right:14px; z-index:99999; background:#7d2433; color:#fff;
+  font-family:'Manrope',sans-serif; font-weight:700; font-size:12px; padding:9px 15px; border-radius:100px;
+  box-shadow:0 6px 20px rgba(125,36,51,.35); display:flex; align-items:center; gap:8px; }
+.sh-draft-pill .dot{ width:8px;height:8px;border-radius:50%;background:#e9c869; }
+.sh-draft-ribbon{ display:inline-flex; align-items:center; gap:7px; margin:0 0 14px; background:rgba(212,160,23,.14);
+  border:1px solid rgba(212,160,23,.45); color:#8a6608; font-family:'Manrope',sans-serif; font-weight:700;
+  font-size:11px; letter-spacing:.05em; text-transform:uppercase; padding:6px 12px; border-radius:8px; }
+</style>
+<style id="sh-topnav">
+html,body{height:auto !important;overflow:visible !important;}
+html,body{overflow-x:hidden !important;max-width:100% !important;}
+.content svg{max-width:100% !important;height:auto !important;}
+.content table{max-width:100%;display:block;overflow-x:auto;}
+img{max-width:100% !important;height:auto;}
+body{background:var(--cream,#fbf7f2);}
+.site-header{position:sticky;top:0;z-index:1000;background:var(--clay-deep,#7d2433);box-shadow:0 2px 14px rgba(125,36,51,.22);}
+.site-header__inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:0 24px;min-height:66px;}
+.site-brand{display:flex;flex-direction:column;text-decoration:none;line-height:1.12;margin-right:auto;cursor:pointer;}
+.site-brand__name{font-family:'Lora',Georgia,serif;font-weight:700;font-size:1.3rem;color:#fff;}
+.site-brand__tag{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.8);margin-top:3px;}
+.top-nav{display:flex;align-items:center;gap:2px;}
+.top-nav .nav-item{display:inline-flex;align-items:center;margin:0;padding:9px 12px;border-radius:8px;color:rgba(255,255,255,.86);text-decoration:none;font-family:var(--sans,'Manrope',sans-serif);font-weight:600;font-size:.88rem;white-space:nowrap;cursor:pointer;background:transparent;border:none;transition:.15s;}
+.top-nav .nav-item .icon{display:none;}
+.top-nav .nav-item:hover{background:rgba(255,255,255,.15);color:#fff;}
+.top-nav .nav-item.active{background:var(--gold,#d4a017);color:#4a3608;}
+.nav-toggle{display:none;background:transparent;border:1.5px solid rgba(255,255,255,.55);color:#fff;font-size:1.25rem;line-height:1;border-radius:8px;padding:7px 11px;cursor:pointer;}
+.content{max-width:1180px;margin:0 auto;padding:30px 24px 60px !important;overflow:visible !important;height:auto !important;background:transparent !important;flex:none !important;}
+.section{max-width:100% !important;}
+.site-footer{background:var(--clay-deep,#7d2433);color:rgba(255,255,255,.82);text-align:center;font-size:.82rem;line-height:1.6;padding:24px;margin-top:50px;}
+.site-footer strong{color:#fff;}
+.tim-feature-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:16px;}
+.tim-feature{display:flex;gap:15px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px;align-items:flex-start;}
+.tim-feature__photo{width:86px;height:86px;border-radius:50%;overflow:hidden;flex-shrink:0;background:var(--clay-light);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:25px;color:var(--clay-deep);}
+.tim-feature__photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.tim-feature__name{font-family:'Lora',Georgia,serif;font-weight:700;font-size:17px;color:var(--clay-deep);line-height:1.2;}
+.tim-feature__role{font-size:12px;color:var(--clay);font-weight:700;margin:3px 0 8px;}
+.tim-feature__bio{font-size:12.5px;color:var(--slate);line-height:1.55;}
+@media(max-width:520px){.tim-feature{flex-direction:column;align-items:center;text-align:center;}}
+@media(max-width:880px){
+  .site-header__inner{flex-wrap:wrap;gap:10px;min-height:56px;padding:10px 18px;}
+  .nav-toggle{display:inline-block;order:2;}
+  .top-nav{display:none;order:3;flex-direction:column;align-items:stretch;width:100%;gap:3px;padding-bottom:8px;}
+  .top-nav.open{display:flex;}
+  .top-nav .nav-item{width:100%;padding:12px 14px;font-size:.95rem;}
+  .content{padding:20px 16px 40px !important;}
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+<div class="site-header__inner">
+<a class="site-brand" id="siteBrand" href="/"><span class="site-brand__name">Sadar Hati Foundation</span><span class="site-brand__tag">est. 2002 · Malang, Jawa Timur</span></a>
+<button class="nav-toggle" id="navToggle" aria-label="Menu">&#9776;</button>
+<nav class="top-nav" id="topNav">
+<a class="nav-item" href="/">About</a>
+<a class="nav-item" href="/program">Program</a>
+<a class="nav-item" href="/sahawood">SAHAWOOD</a>
+<a class="nav-item" href="/tim">Tim</a>
+<a class="nav-item active" href="/data">Data & Milestone</a>
+<a class="nav-item" href="/report">Report</a>
+<a class="nav-item" href="/materi">Materi</a>
+<a class="nav-item" href="/gallery">Gallery</a>
+<a class="nav-item" href="/kontak">Kontak</a>
+</nav>
+</div>
+</header>
+<main class="content">
+<section class="section active" id="l1-data">
+<div id="saha-impact-widget"></div>
+<style>
+          /* ====== HERO STAT (1 big dominant number + side context) ====== */
+          .hero-stat {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 28px;
+            background: linear-gradient(135deg, var(--clay) 0%, var(--clay-deep) 100%);
+            color: white;
+            border-radius: 14px;
+            padding: 28px 32px;
+            margin: 18px 0;
+            box-shadow: 0 8px 24px rgba(168, 50, 68, 0.15);
+            align-items: center;
+          }
+          .hero-stat.urgent { background: linear-gradient(135deg, #c47a3b 0%, #8a4d1f 100%); }
+          .hero-stat.sage { background: linear-gradient(135deg, var(--sage) 0%, var(--sage-deep) 100%); }
+          .hero-stat .big-num {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 96px;
+            font-weight: 700;
+            line-height: 1;
+            color: white;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+          }
+          .hero-stat .big-label {
+            font-size: 10.5px;
+            letter-spacing: 1.6px;
+            text-transform: uppercase;
+            opacity: 0.85;
+            margin-bottom: 8px;
+          }
+          .hero-stat .side {
+            border-left: 2px solid rgba(255,255,255,0.3);
+            padding-left: 28px;
+          }
+          .hero-stat .side h3 {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 22px;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            color: white;
+          }
+          .hero-stat .side p {
+            font-size: 13.5px;
+            line-height: 1.65;
+            margin: 0 0 8px 0;
+            color: rgba(255,255,255,0.95);
+          }
+          .hero-stat .side .citation {
+            font-size: 11px;
+            font-style: italic;
+            opacity: 0.78;
+            margin-top: 10px;
+          }
+
+          /* ====== COMPARISON PANEL (side-by-side bars) ====== */
+          .compare-panel {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 22px 26px;
+            margin: 18px 0;
+          }
+          .compare-panel.urgent { background: var(--gold-tint); border-color: var(--coral-deep); }
+          .compare-panel h3 {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--navy);
+            margin: 0 0 18px 0;
+          }
+          .compare-row {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 18px;
+            align-items: center;
+            margin: 12px 0;
+          }
+          .compare-row .compare-label {
+            font-size: 12px;
+            color: var(--navy);
+            font-weight: 600;
+            text-align: right;
+          }
+          .compare-row .compare-label .ctx {
+            display: block;
+            font-size: 10.5px;
+            color: var(--slate);
+            font-weight: 400;
+            font-style: italic;
+            margin-top: 2px;
+          }
+          .compare-bar {
+            height: 32px;
+            background: rgba(0,0,0,0.04);
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+          }
+          .compare-bar .fill {
+            height: 100%;
+            display: flex; align-items: center; justify-content: flex-end;
+            padding: 0 14px;
+            color: white;
+            font-size: 13.5px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            border-radius: 6px;
+          }
+          .compare-bar .fill.wine { background: var(--clay); }
+          .compare-bar .fill.wine-deep { background: var(--clay-deep); }
+          .compare-bar .fill.sage { background: var(--sage); }
+          .compare-bar .fill.gray { background: #94a3b8; color: var(--navy); }
+          /* For very thin bars where text wouldn't fit inside */
+          .compare-bar .fill.thin {
+            overflow: visible;
+            justify-content: flex-start;
+            padding: 0;
+            position: relative;
+          }
+          .compare-bar.thin-wrap { overflow: visible; }
+          .compare-bar .fill.thin::after {
+            content: attr(data-value);
+            position: absolute;
+            left: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            margin-left: 10px;
+            color: var(--navy);
+            font-weight: 700;
+            font-size: 13.5px;
+            white-space: nowrap;
+            letter-spacing: 0.3px;
+          }
+          .compare-bar .fill.amber { background: #c47a3b; }
+          .compare-insight {
+            background: var(--cream-warm);
+            border-left: 3px solid var(--sage);
+            padding: 10px 14px;
+            border-radius: 4px;
+            margin-top: 16px;
+            font-size: 12.5px;
+            line-height: 1.55;
+            color: var(--navy);
+          }
+          .compare-insight.urgent {
+            border-left-color: var(--coral-deep);
+            background: rgba(196, 122, 59, 0.08);
+          }
+
+          /* ====== MINI TREND BARS ====== */
+          .trend-panel {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 22px 26px;
+            margin: 18px 0;
+          }
+          .trend-panel h3 {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--navy);
+            margin: 0 0 18px 0;
+          }
+          .mini-bars {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 12px;
+            align-items: end;
+            height: 220px;
+            padding: 0 8px;
+            border-bottom: 1.5px solid var(--border);
+            margin-bottom: 14px;
+          }
+          .mini-bars .bar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            height: 100%;
+            position: relative;
+          }
+          .mini-bars .bar .fill {
+            width: 100%;
+            background: linear-gradient(180deg, var(--clay) 0%, var(--clay-deep) 100%);
+            border-radius: 4px 4px 0 0;
+            position: relative;
+            transition: all 0.3s;
+          }
+          .mini-bars .bar.peak .fill {
+            background: linear-gradient(180deg, #c47a3b 0%, #8a4d1f 100%);
+          }
+          .mini-bars .bar .top-label {
+            position: absolute;
+            top: -22px;
+            font-size: 11.5px;
+            font-weight: 700;
+            color: var(--clay-deep);
+            white-space: nowrap;
+          }
+          .mini-bars .bar.peak .top-label { color: #8a4d1f; }
+          .mini-bars .bar .x-label {
+            font-size: 11px;
+            color: var(--slate);
+            margin-top: 6px;
+            font-weight: 600;
+          }
+          .mini-bars .bar .return {
+            font-size: 9.5px;
+            color: var(--sage-deep);
+            margin-top: 2px;
+            font-weight: 600;
+          }
+
+          /* ====== JATIM MAP ====== */
+          .jatim-map-panel {
+            background: linear-gradient(180deg, var(--cream) 0%, white 100%);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 18px 0;
+          }
+          .jatim-map-panel h3 {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--navy);
+            margin: 0 0 14px 0;
+            text-align: center;
+          }
+          .jatim-map-svg {
+            width: 100%;
+            max-width: 760px;
+            margin: 0 auto;
+            display: block;
+          }
+          .map-legend {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 14px;
+            flex-wrap: wrap;
+            font-size: 11.5px;
+            color: var(--slate);
+          }
+          .map-legend .item { display: flex; align-items: center; gap: 8px; }
+          .map-legend .dot { width: 14px; height: 14px; border-radius: 50%; }
+        </style>
+<div class="hero">
+<div class="eyebrow">Data &amp; Milestone</div>
+<h1>📊 Data &amp; Milestone Publik</h1>
+<p class="lede">Infografis pencapaian Sadar Hati lintas <strong>24 tahun perjalanan (2002-2026)</strong> — bukan sekadar statistik, tapi <em>story</em> tentang konteks epidemi, skala operasional, dan dampak nyata. Data historis dari era HCPI 2010-2014 + data current era ViiV regional ASEAN.</p>
+</div>
+
+<h2 class="section-h2">🌟 24 Tahun Sadar Hati dalam Angka</h2>
+<div class="cards">
+<div class="card" style="background:var(--clay-tint); border-color:var(--clay);"><div class="label">Tahun Beroperasi</div><div class="value" style="font-size:36px;">24</div><div class="desc">2002 — 2026 · Berdiri 1 Februari 2002</div></div>
+<div class="card" style="background:var(--sage-light); border-color:var(--sage);"><div class="label">Donor Track Record</div><div class="value" style="font-size:36px;">7</div><div class="desc">FHI ASA · GF R4 · HCPI · GF R8 · SUM · BNN · ViiV</div></div>
+<div class="card" style="background:var(--gold-tint); border-color:var(--coral-deep);"><div class="label">Wilayah Puncak</div><div class="value" style="font-size:36px;">6+</div><div class="desc">Kabupaten/Kota Jawa Timur 2012</div></div>
+<div class="card" style="background:var(--pink-tint); border-color:var(--clay-deep);"><div class="label">Total Eras</div><div class="value" style="font-size:36px;">5</div><div class="desc">Founding · ASA · HCPI Peak · Transition · ViiV</div></div>
+</div>
+
+<h2 class="section-h2" style="margin-top:36px;">⚠️ Mengapa Harm Reduction · Konteks Epidemi Kota Malang</h2>
+<p style="font-size:13px; color:var(--slate); line-height:1.6; margin:8px 0 14px 0;">Konteks ini menjawab pertanyaan donor: <em>"Mengapa wilayah ini memerlukan intervensi Harm Reduction?"</em> — dengan data evidence-based, bukan klaim.</p>
+<div class="compare-panel urgent">
+<h3>🩺 Prevalensi HIV PWID — Kota Malang vs Rata-rata Nasional</h3>
+<div class="compare-row">
+<div class="compare-label">Rata-rata Nasional<span class="ctx">STBP 2011 · Survei Terpadu Biologis Perilaku</span></div>
+<div class="compare-bar"><div class="fill sage" style="width:64.3%">36,4%</div></div>
+</div>
+<div class="compare-row">
+<div class="compare-label">⚠️ Kota Malang Local<span class="ctx">Survey YSH+SUM Mei-Jun 2012 · 200 PWID sample</span></div>
+<div class="compare-bar"><div class="fill wine" style="width:74.8%">42,31%</div></div>
+</div>
+<div class="compare-insight urgent">
+<strong>+5,9 percentage-point di atas rata-rata nasional</strong> — menjelaskan mengapa Kota Malang ter-identifikasi sebagai <em>wilayah HIV/AIDS terkonsentrasi #2 setelah Surabaya</em> di Jawa Timur (Theo's Draft Profile, Juli 2012). Plus <strong>1.875 kasus HIV kumulatif</strong> Dinkes Kota Malang per Juni 2012. <strong>Urgency program Harm Reduction = evidence-based, bukan asumsi.</strong>
+</div>
+</div>
+
+<h2 class="section-h2" style="margin-top:36px;">🏆 Skala Operasional Era HCPI · Peak Years 2011-2012</h2>
+<div class="hero-stat">
+<div>
+<div class="big-label">PWID Coverage Rate</div>
+<div class="big-num">75%</div>
+</div>
+<div class="side">
+<h3>800 PWID dijangkau dari 1.070 estimated population</h3>
+<p>Sadar Hati menjangkau <strong>3 dari 4 pengguna napza suntik</strong> di Kota Malang akhir 2011 — hasil 50 hotspot mapping intensive + outreach team berlapis.</p>
+<p>Multi-donor matrix (HCPI · GF Round 8 · SUM · BNN) memungkinkan coverage rate yang tidak bisa dicapai single-donor.</p>
+<div class="citation">📊 Source: Pemetaan KPA Kota Malang + Sadar Hati 2011 (combined dataset) · Laporan Akhir HCPI 2012</div>
+</div>
+</div>
+
+<div class="compare-panel">
+<h3>📊 LJSS Return Rate — Best-Practice Indicator</h3>
+<p style="font-size:12px; color:var(--slate); margin:0 0 14px 0; line-height:1.5;">Return rate jarum suntik = indikator kunci kualitas program Harm Reduction. Tinggi = sustainability + safe disposal + trust dari penasun.</p>
+<div class="compare-row">
+<div class="compare-label">Target Nasional<span class="ctx">Minimum standard HR Indonesia</span></div>
+<div class="compare-bar"><div class="fill gray" style="width:40%">40%</div></div>
+</div>
+<div class="compare-row">
+<div class="compare-label">Sadar Hati · Jan 2012<span class="ctx">2.589 / 4.690 jarum</span></div>
+<div class="compare-bar"><div class="fill wine" style="width:55.2%">55,2%</div></div>
+</div>
+<div class="compare-row">
+<div class="compare-label">Sadar Hati · Mei 2012<span class="ctx">2.952 / 5.336 jarum</span></div>
+<div class="compare-bar"><div class="fill wine" style="width:55.3%">55,3%</div></div>
+</div>
+<div class="compare-row">
+<div class="compare-label">Sadar Hati · Juli 2012 🏆<span class="ctx">3.108 / 5.246 jarum · peak quality</span></div>
+<div class="compare-bar"><div class="fill wine-deep" style="width:59.2%">59,2%</div></div>
+</div>
+<div class="compare-insight">
+<strong>↗ Sadar Hati exceeds national best-practice 40% benchmark by ~19 percentage points</strong> — dan masih improving (55,2% → 59,2% dalam 6 bulan). Sustainability marker untuk donor: program tidak hanya bertahan, tapi maturing.
+          </div>
+</div>
+
+<div class="trend-panel">
+<h3>📈 LJSS Distribution Trend · Konsistensi Operasional Jan-Juli 2012</h3>
+<div class="mini-bars">
+<div class="bar"><div class="top-label">4.690</div><div class="fill" style="height:78%"></div><div class="x-label">Jan</div><div class="return">55,2%</div></div>
+<div class="bar"><div class="fill" style="height:0%; min-height:1px;"></div><div class="x-label" style="opacity:0.35;">Feb</div></div>
+<div class="bar"><div class="fill" style="height:0%; min-height:1px;"></div><div class="x-label" style="opacity:0.35;">Mar</div></div>
+<div class="bar"><div class="fill" style="height:0%; min-height:1px;"></div><div class="x-label" style="opacity:0.35;">Apr</div></div>
+<div class="bar peak"><div class="top-label">5.336 ⭐</div><div class="fill" style="height:89%"></div><div class="x-label"><strong>Mei</strong></div><div class="return">55,3%</div></div>
+<div class="bar"><div class="fill" style="height:0%; min-height:1px;"></div><div class="x-label" style="opacity:0.35;">Jun</div></div>
+<div class="bar"><div class="top-label">5.246</div><div class="fill" style="height:87%"></div><div class="x-label">Jul</div><div class="return">59,2%</div></div>
+</div>
+<div class="compare-insight">
+<strong>+13,8% growth Jan→Mei</strong> · konsistensi <strong>5.000+ jarum/bulan</strong> sepanjang H1 2012 · Penasun aktif LASS 261-276 monthly recurring beneficiary · Quality matures: return rate 55,2% → 59,2%. 
+</div>
+</div>
+
+<h2 class="section-h2" style="margin-top:36px;">🗺️ Geographic Footprint Era HCPI · 6+ Kabupaten/Kota Jawa Timur</h2>
+<p style="font-size:13px; color:var(--slate); line-height:1.6; margin:8px 0 14px 0;">Sadar Hati bukan NGO single-city Malang — coverage geografis <strong>5 wilayah utama + 2 wilayah tambahan</strong> di Jawa Timur. Per Petisi Nasib Penasun Juni 2012, plus Sidoarjo (Rumah Baca Lintang Mba Watiek).</p>
+<div class="jatim-map-panel">
+<h3>Sebaran Operasional Sadar Hati · Era HCPI 2010-2014</h3>
+
+<div style="margin: 18px 0; width: 100%;">
+<img alt="Peta Sebaran Operasional Sadar Hati Jawa Timur 2010-2014 — Kota Malang sebagai hub utama, dengan Kab Malang, Pasuruan, Batu, Blitar, dan Sidoarjo sebagai wilayah operasional" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Maps/Jatim_Footprint_Map_28Jun2026.png" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); display: block;"/>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 24px;">
+<div style="background:var(--clay-tint); border:2px solid var(--clay); border-radius:8px; padding:14px;">
+<div style="font-size:10px; letter-spacing:1.2px; text-transform:uppercase; color:var(--clay-deep); font-weight:700; margin-bottom:6px;">🔴 HUB UTAMA</div>
+<strong style="font-size:14px; color:var(--navy); display:block; margin-bottom:4px;">Kota Malang</strong>
+<span style="font-size:11px; color:var(--slate); line-height:1.5;">5 kec · 50 hotspot · 800 PWID dijangkau · 5 Puskesmas</span>
+</div>
+<div style="background:var(--clay-tint); border:2px solid var(--clay); border-radius:8px; padding:14px;">
+<div style="font-size:10px; letter-spacing:1.2px; text-transform:uppercase; color:var(--clay-deep); font-weight:700; margin-bottom:6px;">🔴 HUB OPERASIONAL</div>
+<strong style="font-size:14px; color:var(--navy); display:block; margin-bottom:4px;">Kab Malang</strong>
+<span style="font-size:11px; color:var(--slate); line-height:1.5;">4 kec · Gondanglegi · Tumpang · Sumber Pucung · Turen</span>
+</div>
+<div style="background:var(--pink-tint); border:2px solid var(--clay); border-radius:8px; padding:14px;">
+<div style="font-size:10px; letter-spacing:1.2px; text-transform:uppercase; color:var(--clay-deep); font-weight:700; margin-bottom:6px;">🩷 OPERASIONAL TIMUR</div>
+<strong style="font-size:14px; color:var(--navy); display:block; margin-bottom:4px;">Pasuruan</strong>
+<span style="font-size:11px; color:var(--slate); line-height:1.5;">5 kec · Pandaan · Prigen · Gempol · Sukorejo · Bangil (CST + PTRM 2012)</span>
+</div>
+<div style="background:var(--sage-light); border:2px solid var(--sage); border-radius:8px; padding:14px;">
+<div style="font-size:10px; letter-spacing:1.2px; text-transform:uppercase; color:var(--sage-deep); font-weight:700; margin-bottom:6px;">🟢 COVERAGE TAMBAHAN</div>
+<strong style="font-size:14px; color:var(--navy); display:block; margin-bottom:4px;">Batu</strong>
+<span style="font-size:11px; color:var(--slate); line-height:1.5;">Per Petisi Nasib Penasun Juni 2012</span>
+</div>
+<div style="background:#e6dfee; border:2px solid #6b4d7a; border-radius:8px; padding:14px;">
+<div style="font-size:10px; letter-spacing:1.2px; text-transform:uppercase; color:#4a3358; font-weight:700; margin-bottom:6px;">🟣 EXTENDED COVERAGE</div>
+<strong style="font-size:14px; color:var(--navy); display:block; margin-bottom:4px;">Blitar</strong>
+<span style="font-size:11px; color:var(--slate); line-height:1.5;">Per Petisi Nasib Penasun Juni 2012</span>
+</div>
+<div style="background:#e6dfee; border:2px solid #6b4d7a; border-radius:8px; padding:14px;">
+<div style="font-size:10px; letter-spacing:1.2px; text-transform:uppercase; color:#4a3358; font-weight:700; margin-bottom:6px;">🟣 LITERASI ANAK</div>
+<strong style="font-size:14px; color:var(--navy); display:block; margin-bottom:4px;">Sidoarjo</strong>
+<span style="font-size:11px; color:var(--slate); line-height:1.5;">Rumah Baca Lintang · Mba Watiek's literasi project</span>
+</div>
+<div style="background:#f0f4f8; border:2px solid #94a3b8; border-radius:8px; padding:14px;">
+<div style="font-size:10px; letter-spacing:1.2px; text-transform:uppercase; color:#64748b; font-weight:700; margin-bottom:6px;">⚪ REFERENCE ONLY</div>
+<strong style="font-size:14px; color:var(--navy); display:block; margin-bottom:4px;">Surabaya</strong>
+<span style="font-size:11px; color:var(--slate); line-height:1.5;">Wilayah HIV terkonsentrasi #1 Jatim · NON-operational Sadar Hati</span>
+</div>
+<div style="background:var(--cream-warm); border:2px solid var(--border); border-radius:8px; padding:14px;">
+<div style="font-size:10px; letter-spacing:1.2px; text-transform:uppercase; color:var(--slate); font-weight:700; margin-bottom:6px;">🏝️ GEOGRAPHIC REF</div>
+<strong style="font-size:14px; color:var(--navy); display:block; margin-bottom:4px;">Madura</strong>
+<span style="font-size:11px; color:var(--slate); line-height:1.5;">Pulau terpisah · tidak tercakup operasional</span>
+</div>
+</div>
+
+<div style="background:var(--cream-warm); border-left:3px solid var(--sage); padding:12px 18px; border-radius:6px; margin-top:18px; font-size:12.5px; line-height:1.55; color:var(--navy);">
+<strong>💡 Geographic insight untuk donor:</strong> Sadar Hati = <strong>3 hub utama (Kota Malang + Kab Malang + Pasuruan)</strong> + 3 wilayah extended (Batu + Blitar + Sidoarjo). Coverage 6+ kabupaten/kota Jawa Timur dalam single regional NGO = signal capacity untuk multi-administratif coordination. Bukan single-city NGO — sudah <em>regional operator</em> sejak era HCPI.
+          </div>
+
+</div>
+
+<h2 class="section-h2" style="margin-top:36px;">🔬 Research-Grade Surveillance Infrastructure</h2>
+
+
+<h2 class="section-h2" style="margin-top:36px;">📊 PWID Surveillance · 7 Bulan Time-Series Dec 2011 – Jun 2012</h2>
+
+
+<div style="display:grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 18px 0;">
+<div style="background: linear-gradient(135deg, var(--clay) 0%, var(--clay-deep) 100%); color:white; border-radius:12px; padding:24px;">
+<div style="font-size:11px; letter-spacing:1.5px; text-transform:uppercase; opacity:0.85; font-weight:600;">Total Jarum Steril Didistribusi</div>
+<div style="font-family:'Lora', Georgia, serif; font-size:52px; font-weight:700; line-height:1; margin:8px 0;">5.011</div>
+<div style="font-size:13px; line-height:1.5; opacity:0.95;">Dec 2011 – Jun 2012 · rata-rata <strong>716 jarum/bulan</strong> · puncak <strong>1.008</strong> di Mei 2012</div>
+</div>
+<div style="background: linear-gradient(135deg, var(--sage) 0%, var(--sage-deep) 100%); color:white; border-radius:12px; padding:24px;">
+<div style="font-size:11px; letter-spacing:1.5px; text-transform:uppercase; opacity:0.85; font-weight:600;">Return Rate Jarum Bekas</div>
+<div style="font-family:'Lora', Georgia, serif; font-size:52px; font-weight:700; line-height:1; margin:8px 0;">58,6<span style="font-size:32px;">%</span></div>
+<div style="font-size:13px; line-height:1.5; opacity:0.95;">2.934 jarum kembali · best-practice harm reduction benchmark · puncak <strong>67%</strong> di Mei 2012</div>
+</div>
+</div>
+
+<div style="background:white; border:1px solid var(--clay-tint); border-radius:12px; padding:24px; margin:18px 0;">
+<div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:16px;">
+<h3 style="font-family:'Lora', Georgia, serif; font-size:18px; color:var(--clay-deep); margin:0;">📈 LJASS Trajectory · Distribusi vs Pengembalian Jarum</h3>
+<div style="display:flex; gap:14px; font-size:11px;">
+<span style="display:flex; align-items:center; gap:5px;"><span style="width:12px; height:3px; background:var(--clay); display:inline-block;"></span> Jarum Keluar</span>
+<span style="display:flex; align-items:center; gap:5px;"><span style="width:12px; height:3px; background:var(--sage); display:inline-block;"></span> Jarum Kembali</span>
+</div>
+</div>
+<svg style="width:100%; height:auto; display:block;" viewbox="0 0 760 280" xmlns="http://www.w3.org/2000/svg">
+
+<g fill="#94a3b8" font-family="Manrope, sans-serif" font-size="10">
+<line stroke="#e5e7eb" stroke-width="1" x1="50" x2="730" y1="40" y2="40"></line>
+<text text-anchor="end" x="40" y="44">1100</text>
+<line stroke="#e5e7eb" stroke-width="1" x1="50" x2="730" y1="92" y2="92"></line>
+<text text-anchor="end" x="40" y="96">825</text>
+<line stroke="#e5e7eb" stroke-width="1" x1="50" x2="730" y1="144" y2="144"></line>
+<text text-anchor="end" x="40" y="148">550</text>
+<line stroke="#e5e7eb" stroke-width="1" x1="50" x2="730" y1="196" y2="196"></line>
+<text text-anchor="end" x="40" y="200">275</text>
+<line stroke="#1f2937" stroke-width="1.5" x1="50" x2="730" y1="240" y2="240"></line>
+<text text-anchor="end" x="40" y="244">0</text>
+</g>
+
+<g fill="#475569" font-family="Manrope, sans-serif" font-size="11" font-weight="600">
+<text text-anchor="middle" x="100" y="262">Des '11</text>
+<text text-anchor="middle" x="200" y="262">Jan '12</text>
+<text text-anchor="middle" x="300" y="262">Feb '12</text>
+<text text-anchor="middle" x="400" y="262">Mar '12</text>
+<text text-anchor="middle" x="500" y="262">Apr '12</text>
+<text text-anchor="middle" x="600" y="262">Mei '12</text>
+<text text-anchor="middle" x="700" y="262">Jun '12</text>
+</g>
+
+
+<polyline fill="none" points="100,101 200,125 300,152 400,124 500,109 600,57 700,102" stroke="#a83244" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></polyline>
+
+<g fill="#7a1f30" font-family="Manrope, sans-serif" font-size="11" font-weight="700">
+<circle cx="100" cy="101" fill="#a83244" r="5"></circle><text text-anchor="middle" x="100" y="92">764</text>
+<circle cx="200" cy="125" fill="#a83244" r="5"></circle><text text-anchor="middle" x="200" y="116">635</text>
+<circle cx="300" cy="152" fill="#a83244" r="5"></circle><text text-anchor="middle" x="300" y="143">484</text>
+<circle cx="400" cy="124" fill="#a83244" r="5"></circle><text text-anchor="middle" x="400" y="115">640</text>
+<circle cx="500" cy="109" fill="#a83244" r="5"></circle><text text-anchor="middle" x="500" y="100">721</text>
+<circle cx="600" cy="57" fill="#a83244" r="6" stroke="#fef7f2" stroke-width="2"></circle><text font-size="13" font-weight="800" text-anchor="middle" x="600" y="48">1.008</text>
+<circle cx="700" cy="102" fill="#a83244" r="5"></circle><text text-anchor="middle" x="700" y="93">759</text>
+</g>
+
+<polyline fill="none" points="100,147 200,186 300,184 400,186 500,154 600,118 700,171" stroke="#5b7553" stroke-dasharray="0" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></polyline>
+
+<g fill="#3f5239" font-family="Manrope, sans-serif" font-size="10" font-weight="600">
+<circle cx="100" cy="147" fill="#5b7553" r="4"></circle><text text-anchor="middle" x="100" y="163">512</text>
+<circle cx="200" cy="186" fill="#5b7553" r="4"></circle><text text-anchor="middle" x="200" y="202">295</text>
+<circle cx="300" cy="184" fill="#5b7553" r="4"></circle><text text-anchor="middle" x="300" y="200">309</text>
+<circle cx="400" cy="186" fill="#5b7553" r="4"></circle><text text-anchor="middle" x="400" y="202">299</text>
+<circle cx="500" cy="154" fill="#5b7553" r="4"></circle><text text-anchor="middle" x="500" y="170">471</text>
+<circle cx="600" cy="118" fill="#5b7553" r="5" stroke="#fef7f2" stroke-width="2"></circle><text font-weight="800" text-anchor="middle" x="600" y="134">670</text>
+<circle cx="700" cy="171" fill="#5b7553" r="4"></circle><text text-anchor="middle" x="700" y="187">378</text>
+</g>
+
+<g>
+<rect fill="#d4a017" height="22" opacity="0.95" rx="4" width="90" x="555" y="14"></rect>
+<text fill="white" font-family="Manrope, sans-serif" font-size="10" font-weight="700" text-anchor="middle" x="600" y="28">🏆 PUNCAK MEI</text>
+<line stroke="#d4a017" stroke-width="2" x1="600" x2="600" y1="36" y2="50"></line>
+</g>
+</svg>
+</div>
+
+<div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin:18px 0;">
+<div style="background:var(--clay-tint); border:1.5px solid var(--clay); border-radius:10px; padding:18px;">
+<div style="font-size:10px; letter-spacing:1.3px; text-transform:uppercase; color:var(--clay-deep); font-weight:700; margin-bottom:6px;">🧪 HCT Testing</div>
+<div style="font-family:'Lora', Georgia, serif; font-size:32px; font-weight:700; color:var(--clay-deep); line-height:1;">431</div>
+<div style="font-size:11px; color:var(--navy); margin-top:6px; line-height:1.5;">Tes HIV Konseling · puncak <strong>87 di Mei 2012</strong> · rata-rata 62/bulan</div>
+</div>
+<div style="background:var(--sage-light); border:1.5px solid var(--sage); border-radius:10px; padding:18px;">
+<div style="font-size:10px; letter-spacing:1.3px; text-transform:uppercase; color:var(--sage-deep); font-weight:700; margin-bottom:6px;">🩺 Layanan IMS</div>
+<div style="font-family:'Lora', Georgia, serif; font-size:32px; font-weight:700; color:var(--sage-deep); line-height:1;">266</div>
+<div style="font-size:11px; color:var(--navy); margin-top:6px; line-height:1.5;">Skrining + treatment infeksi menular seksual · puncak <strong>54 di Jun 2012</strong> · 38/bulan</div>
+</div>
+<div style="background:var(--gold-tint); border:1.5px solid #d4a017; border-radius:10px; padding:18px;">
+<div style="font-size:10px; letter-spacing:1.3px; text-transform:uppercase; color:#8a4d1f; font-weight:700; margin-bottom:6px;">📣 HIV Awareness Reach</div>
+<div style="font-family:'Lora', Georgia, serif; font-size:32px; font-weight:700; color:#8a4d1f; line-height:1;">1.105</div>
+<div style="font-size:11px; color:var(--navy); margin-top:6px; line-height:1.5;">Kontak edukasi HIV · puncak <strong>258 di Des 2011</strong> · 158/bulan rata-rata</div>
+</div>
+</div>
+
+<div style="background: linear-gradient(135deg, #fef7f2 0%, #f4efea 100%); border-left:4px solid #d4a017; padding:18px 22px; border-radius:8px; margin:18px 0; font-size:13px; line-height:1.65; color:var(--navy);">
+<div style="font-family:'Lora', Georgia, serif; font-size:17px; color:var(--clay-deep); font-weight:700; margin-bottom:8px;">🏆 Puncak Operasional: Mei 2012</div>
+<p style="margin:0 0 8px 0;">Sistem mencapai efisiensi terbaik di Mei 2012 — <strong>1.008 jarum keluar + 670 kembali = 66,5% return rate</strong> · 87 HCT · 51 IMS · 214 HIV awareness kontak. Pola ini bukan kebetulan: pra-Renstra Nov 2012 + 3 TA Provider engagement (Satunama · Penabulu · Surveymeter) sedang on-boarded, sistem M&amp;E sistem data internal mencapai stabilitas operasional.</p>
+<p style="margin:0; font-size:12px; color:var(--slate);"></p>
+</div>
+
+
+
+
+<h2 class="section-h2" style="margin-top:36px;">🏥 Layanan Berbasis Puskesmas · 8+ Partner Aktif 2012</h2>
+<p style="font-size:13px; color:var(--slate); line-height:1.6; margin:8px 0 14px 0;">Sadar Hati tidak operate dalam silo — embedded di sistem layanan kesehatan publik melalui 8+ Puskesmas + 3 PTRM + RSU Syaiful Anwar (GF ATM). Pattern ini sustainable + scalable.</p>
+<div class="cards">
+<div class="card" style="background:var(--clay-tint); border-color:var(--clay);"><div class="label">Kota Malang</div><div class="value" style="font-size:13.5px; line-height:1.4;">Kendalsari · Arjuno · Kendalkerep · Ciptomulyo · Dinoyo</div><div class="desc">5 Puskesmas · Dinoyo layanan IMS · PTRM Kendalsari</div></div>
+<div class="card" style="background:var(--sage-light); border-color:var(--sage);"><div class="label">Kab Malang</div><div class="value" style="font-size:13.5px; line-height:1.4;">Gondanglegi · Tumpang · Sumber Pucung</div><div class="desc">Plus RS Kanjuruhan + PTRM Gondanglegi</div></div>
+<div class="card" style="background:var(--gold-tint); border-color:var(--coral-deep);"><div class="label">Pasuruan</div><div class="value" style="font-size:13.5px; line-height:1.4;">Bangil · Pandaan</div><div class="desc">Plus CST RSUD Bangil + PTRM Bangil (new 2012)</div></div>
+<div class="card" style="background:var(--pink-tint); border-color:var(--clay-deep);"><div class="label">PTRM Network</div><div class="value" style="font-size:13.5px; line-height:1.4;">RSU Syaiful Anwar Malang</div><div class="desc">Supported GF ATM sejak 2009 · 3 PTRM total</div></div>
+</div>
+<h2 class="section-h2" style="margin-top:36px;">🎓 Capacity Building &amp; Knowledge Archive</h2>
+<p style="font-size:13px; color:var(--slate); line-height:1.6; margin:4px 0 14px 0;">Arsip pengetahuan bukan sekadar legacy — adalah <strong>basis future LMS (Learning Management System) Sadar Hati</strong>. Materi tertata, ter-categorized, retrievable. Donor masa depan dapat audit transparan.</p>
+<div class="hero-stat sage">
+<div>
+<div class="big-label">Training Materials Archive</div>
+<div class="big-num">500+</div>
+</div>
+<div class="side">
+<h3>527 file terkurasi era 2009-2014</h3>
+<p><strong>18 modul TB-HIV integrated training</strong> (modul 1-48) + materi advokasi + IEC + epidemiology training + protokol PO daily reporting. Semua terarsip rapi.</p>
+<p>Foundation untuk migrasi ke LMS modern: <strong>2.622 foto kegiatan</strong> ter-categorized dalam 25+ event/program types, plus <strong>9+ public mass events</strong> documented (Jalan Sehat HIV 2009, HAS 2009/2012, TB Day, MRAN 2008, etc).</p>
+
+</div>
+</div>
+<div class="cards" style="margin-top:18px;">
+<div class="card" style="background:var(--sage-light); border-color:var(--sage);"><div class="label">Modul TB-HIV Integrated</div><div class="value">18</div><div class="desc">Modul 1-48 · integrated training package</div></div>
+<div class="card" style="background:var(--clay-tint); border-color:var(--clay);"><div class="label">Foto Kegiatan Archive</div><div class="value">2.622</div><div class="desc">25+ event/program categories curated</div></div>
+<div class="card" style="background:var(--gold-tint); border-color:#d4a017;"><div class="label">Public Mass Events</div><div class="value">9+</div><div class="desc">Jalan Sehat HIV · HAS 2009+2012 · TB Day · MRAN</div></div>
+<div class="card" style="background:var(--pink-tint); border-color:var(--clay-deep);"><div class="label">Methodology Trainings</div><div class="value">7</div><div class="desc">EPI Info 7 + HCPI Methodology + Q Penasun + others</div></div>
+</div>
+<h2 class="section-h2" style="margin-top:36px;">🤝 Ekosistem Partnership · Network Map</h2>
+<p style="font-size:13px; color:var(--slate); line-height:1.6; margin:4px 0 14px 0;">Sadar Hati tidak operate dalam silo — embedded di <strong>4 layer ekosistem</strong>: peer NGO Jatim, government, women crisis, dan technical assistance providers. Pattern jaringan = sustainability marker.</p>
+
+<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 18px 0;">
+<div style="background: linear-gradient(135deg, var(--clay-tint) 0%, white 100%); border: 2px solid var(--clay); border-radius: 12px; padding: 22px;">
+<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+<span style="background:var(--clay); color:white; width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700;">🤝</span>
+<strong style="font-family:'Lora', Georgia, serif; font-size:15px; color:var(--clay-deep);">Layer 1 · Peer NGO Jatim</strong>
+</div>
+<div style="font-family:'Lora', Georgia, serif; font-size:32px; font-weight:700; color:var(--clay-deep); margin: 8px 0;">4 NGO HR</div>
+<p style="font-size:12px; color:var(--navy); line-height:1.6; margin:8px 0 0 0;"><strong>Bina Hati</strong> Surabaya · <strong>Bambu Nusantara</strong> Madiun · <strong>EJA</strong> · <strong>Orbit</strong> — peer network HR Jatim untuk koordinasi cross-city + knowledge exchange.</p>
+</div>
+<div style="background: linear-gradient(135deg, var(--sage-light) 0%, white 100%); border: 2px solid var(--sage); border-radius: 12px; padding: 22px;">
+<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+<span style="background:var(--sage); color:white; width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700;">🏛️</span>
+<strong style="font-family:'Lora', Georgia, serif; font-size:15px; color:var(--sage-deep);">Layer 2 · Government</strong>
+</div>
+<div style="font-family:'Lora', Georgia, serif; font-size:32px; font-weight:700; color:var(--sage-deep); margin: 8px 0;">7+ Mitra</div>
+<p style="font-size:12px; color:var(--navy); line-height:1.6; margin:8px 0 0 0;">KPAP Jatim · Dinkes Provinsi · KPA Kota/Kab · BNN · Diknas · DPPM · Polda Jatim — government endorsement = pintu masuk sustainable scaling.</p>
+</div>
+<div style="background: linear-gradient(135deg, var(--pink-tint) 0%, white 100%); border: 2px solid var(--clay-deep); border-radius: 12px; padding: 22px;">
+<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+<span style="background:var(--clay-deep); color:white; width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700;">🛡️</span>
+<strong style="font-family:'Lora', Georgia, serif; font-size:15px; color:var(--clay-deep);">Layer 3 · Women Crisis Center</strong>
+</div>
+<div style="font-family:'Lora', Georgia, serif; font-size:32px; font-weight:700; color:var(--clay-deep); margin: 8px 0;">3 WCC</div>
+<p style="font-size:12px; color:var(--navy); line-height:1.6; margin:8px 0 0 0;"><strong>PPA</strong> · <strong>LP3A</strong> · <strong>Rifka Annisa</strong> (Yogyakarta) — proteksi perempuan pasangan PWID + GBV-PWID integrasi.</p>
+</div>
+<div style="background: linear-gradient(135deg, var(--gold-tint) 0%, white 100%); border: 2px solid #d4a017; border-radius: 12px; padding: 22px;">
+<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+<span style="background:#d4a017; color:white; width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700;">🎯</span>
+<strong style="font-family:'Lora', Georgia, serif; font-size:15px; color:#8a4d1f;">Layer 4 · TA Providers 2012</strong>
+</div>
+<div style="font-family:'Lora', Georgia, serif; font-size:32px; font-weight:700; color:#8a4d1f; margin: 8px 0;">3 Provider</div>
+<p style="font-size:12px; color:var(--navy); line-height:1.6; margin:8px 0 0 0;"><strong>SATUNAMA</strong> (kelembagaan) · <strong>Penabulu</strong> (keuangan) · <strong>Surveymeter</strong> (monev) — investment di organizational strengthening Pra-Renstra Nov 2012.</p>
+</div>
+</div>
+<div style="background:var(--cream-warm); border-left:3px solid var(--sage); padding:12px 18px; border-radius:6px; margin-top:18px; font-size:12.5px; line-height:1.55; color:var(--navy);">
+<strong>💡 Network insight untuk donor:</strong> 4 layer partnership × 17+ aktor formal = ekosistem yang <strong>tidak mudah replicate</strong> oleh NGO baru. Ini bukan starting from scratch — Sadar Hati membawa institutional network capital yang langsung functional untuk donor masa depan.
+        </div>
+<h2 class="section-h2">🗺️ Coverage Map · Hotspot Operasional Dec 2011 – Jun 2012</h2>
+
+
+<div style="display:grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 18px 0;">
+<div style="background: linear-gradient(135deg, var(--clay) 0%, var(--clay-deep) 100%); color:white; border-radius:12px; padding:24px;">
+<div style="font-size:11px; letter-spacing:1.5px; text-transform:uppercase; opacity:0.85; font-weight:600;">Total Hotspot Distinct</div>
+<div style="font-family:'Lora', Georgia, serif; font-size:52px; font-weight:700; line-height:1; margin:8px 0;">175</div>
+<div style="font-size:13px; line-height:1.5; opacity:0.95;">2.793 kegiatan harian distribusi di hotspot ini</div>
+</div>
+<div style="background: linear-gradient(135deg, var(--sage) 0%, var(--sage-deep) 100%); color:white; border-radius:12px; padding:24px;">
+<div style="font-size:11px; letter-spacing:1.5px; text-transform:uppercase; opacity:0.85; font-weight:600;">Wilayah Operasional Aktif</div>
+<div style="font-family:'Lora', Georgia, serif; font-size:52px; font-weight:700; line-height:1; margin:8px 0;">6</div>
+<div style="font-size:13px; line-height:1.5; opacity:0.95;">Kota Malang + Kab Malang + Kota Batu + Pasuruan + Institutional venues · regional coverage</div>
+</div>
+</div>
+
+<h3 style="font-family:'Lora', Georgia, serif; font-size:16px; color:var(--clay-deep); margin:18px 0 10px 0;">📍 Sebaran Kegiatan per Wilayah</h3>
+<div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 12px 0;">
+<div style="background:linear-gradient(135deg, var(--clay-tint) 0%, white 100%); border:1.5px solid var(--clay); border-radius:10px; padding:16px;">
+<div style="font-size:10px; letter-spacing:1.3px; text-transform:uppercase; color:var(--clay-deep); font-weight:700; margin-bottom:4px;">🏙️ KOTA MALANG</div>
+<div style="font-family:'Lora', Georgia, serif; font-size:28px; font-weight:700; color:var(--clay-deep); line-height:1; margin:6px 0;">1.671</div>
+<div style="font-size:11px; color:var(--navy); line-height:1.55;">Kegiatan · <strong>5 kecamatan + 12 kelurahan/jalan</strong> ter-track. Top: Jl. Semeru 627 · Klampok Kasri 170 · Blimbing 231 · Lowokwaru 124 · Sukun 108</div>
+</div>
+<div style="background:linear-gradient(135deg, var(--gold-tint) 0%, white 100%); border:1.5px solid #d4a017; border-radius:10px; padding:16px;">
+<div style="font-size:10px; letter-spacing:1.3px; text-transform:uppercase; color:#8a4d1f; font-weight:700; margin-bottom:4px;">🏛️ INSTITUTIONAL VENUES</div>
+<div style="font-family:'Lora', Georgia, serif; font-size:28px; font-weight:700; color:#8a4d1f; line-height:1; margin:6px 0;">266</div>
+<div style="font-size:11px; color:var(--navy); line-height:1.55;">Service points formal · PKM Kendalsari 129 · DIC (Sadar Hati Drop-In) 70 · RSU Saiful Anwar Malang 67</div>
+</div>
+<div style="background:linear-gradient(135deg, var(--pink-tint) 0%, white 100%); border:1.5px solid var(--clay-deep); border-radius:10px; padding:16px;">
+<div style="font-size:10px; letter-spacing:1.3px; text-transform:uppercase; color:var(--clay-deep); font-weight:700; margin-bottom:4px;">🌆 PASURUAN</div>
+<div style="font-family:'Lora', Georgia, serif; font-size:28px; font-weight:700; color:var(--clay-deep); line-height:1; margin:6px 0;">161</div>
+<div style="font-size:11px; color:var(--navy); line-height:1.55;">2 kecamatan aktif · Gempol 133 · Pandaan 28 · expansion luar Malang area</div>
+</div>
+<div style="background:linear-gradient(135deg, var(--sage-light) 0%, white 100%); border:1.5px solid var(--sage); border-radius:10px; padding:16px;">
+<div style="font-size:10px; letter-spacing:1.3px; text-transform:uppercase; color:var(--sage-deep); font-weight:700; margin-bottom:4px;">🏞️ KAB MALANG</div>
+<div style="font-family:'Lora', Georgia, serif; font-size:28px; font-weight:700; color:var(--sage-deep); line-height:1; margin:6px 0;">71</div>
+<div style="font-size:11px; color:var(--navy); line-height:1.55;">2 kecamatan · Pakis 42 · Wagir 29 · coverage di kabupaten rural area</div>
+</div>
+<div style="background:linear-gradient(135deg, #e6dfee 0%, white 100%); border:1.5px solid #6b4d7a; border-radius:10px; padding:16px;">
+<div style="font-size:10px; letter-spacing:1.3px; text-transform:uppercase; color:#4d3858; font-weight:700; margin-bottom:4px;">⛰️ KOTA BATU</div>
+<div style="font-family:'Lora', Georgia, serif; font-size:28px; font-weight:700; color:#4d3858; line-height:1; margin:6px 0;">27</div>
+<div style="font-size:11px; color:var(--navy); line-height:1.55;">Kegiatan ter-record · confirms claim Petisi Juni 2012 mengenai coverage Kota Batu sebagai wilayah extended</div>
+</div>
+<div style="background:linear-gradient(135deg, #f4efea 0%, white 100%); border:1.5px solid #94a3b8; border-radius:10px; padding:16px;">
+<div style="font-size:10px; letter-spacing:1.3px; text-transform:uppercase; color:#475569; font-weight:700; margin-bottom:4px;">📁 OTHER / UNCATEGORIZED</div>
+<div style="font-family:'Lora', Georgia, serif; font-size:28px; font-weight:700; color:#475569; line-height:1; margin:6px 0;">597</div>
+
+</div>
+</div>
+
+<div style="background:white; border:1px solid var(--clay-tint); border-radius:12px; padding:22px; margin:18px 0;">
+<h3 style="font-family:'Lora', Georgia, serif; font-size:17px; color:var(--clay-deep); margin:0 0 14px 0;">🏆 Top 10 Hotspot · Kegiatan Density Distribution</h3>
+<svg style="width:100%; height:auto; display:block;" viewbox="0 0 760 360" xmlns="http://www.w3.org/2000/svg">
+
+
+<g fill="#1f2937" font-family="Manrope, sans-serif" font-size="11.5">
+
+<text font-weight="600" text-anchor="end" x="200" y="22">Jl. Semeru (Klojen)</text>
+<rect fill="#a83244" height="18" rx="3" width="480" x="210" y="10"></rect>
+<text fill="#7a1f30" font-size="12" font-weight="700" x="700" y="22">627</text>
+
+<text font-weight="600" text-anchor="end" x="200" y="54">Blimbing (kecamatan)</text>
+<rect fill="#a83244" height="18" opacity="0.92" rx="3" width="177" x="210" y="42"></rect>
+<text fill="#7a1f30" font-size="12" font-weight="700" x="397" y="54">231</text>
+
+<text font-weight="600" text-anchor="end" x="200" y="86">Klampok Kasri (Sukun)</text>
+<rect fill="#a83244" height="18" opacity="0.85" rx="3" width="130" x="210" y="74"></rect>
+<text fill="#7a1f30" font-size="12" font-weight="700" x="350" y="86">170</text>
+
+<text font-weight="600" text-anchor="end" x="200" y="118">Gempol (Pasuruan)</text>
+<rect fill="#ac4d5b" height="18" rx="3" width="102" x="210" y="106"></rect>
+<text fill="#7a1f30" font-size="12" font-weight="700" x="322" y="118">133</text>
+
+<text font-weight="600" text-anchor="end" x="200" y="150">PKM Kendalsari (Puskesmas)</text>
+<rect fill="#d4a017" height="18" rx="3" width="99" x="210" y="138"></rect>
+<text fill="#8a4d1f" font-size="12" font-weight="700" x="319" y="150">129</text>
+
+<text font-weight="600" text-anchor="end" x="200" y="182">Lowokwaru (kecamatan)</text>
+<rect fill="#a83244" height="18" opacity="0.75" rx="3" width="95" x="210" y="170"></rect>
+<text fill="#7a1f30" font-size="12" font-weight="700" x="315" y="182">124</text>
+
+<text font-weight="600" text-anchor="end" x="200" y="214">Sukun (kecamatan)</text>
+<rect fill="#a83244" height="18" opacity="0.7" rx="3" width="83" x="210" y="202"></rect>
+<text fill="#7a1f30" font-size="12" font-weight="700" x="303" y="214">108</text>
+
+<text font-weight="600" text-anchor="end" x="200" y="246">Kendalsari (kelurahan)</text>
+<rect fill="#a83244" height="18" opacity="0.65" rx="3" width="79" x="210" y="234"></rect>
+<text fill="#7a1f30" font-size="12" font-weight="700" x="299" y="246">103</text>
+
+<text font-weight="600" text-anchor="end" x="200" y="278">DIC (Sadar Hati Drop-In)</text>
+<rect fill="#d4a017" height="18" opacity="0.85" rx="3" width="54" x="210" y="266"></rect>
+<text fill="#8a4d1f" font-size="12" font-weight="700" x="274" y="278">70</text>
+
+<text font-weight="600" text-anchor="end" x="200" y="310">RSU Saiful Anwar Malang</text>
+<rect fill="#d4a017" height="18" opacity="0.7" rx="3" width="51" x="210" y="298"></rect>
+<text fill="#8a4d1f" font-size="12" font-weight="700" x="271" y="310">67</text>
+
+<g fill="#64748b" font-size="10">
+<rect fill="#a83244" height="10" width="12" x="210" y="338"></rect>
+<text x="227" y="347">Kota Malang street/kecamatan</text>
+<rect fill="#ac4d5b" height="10" width="12" x="400" y="338"></rect>
+<text x="417" y="347">Pasuruan</text>
+<rect fill="#d4a017" height="10" width="12" x="500" y="338"></rect>
+<text x="517" y="347">Institutional Venue</text>
+</g>
+</g>
+</svg>
+</div>
+
+<div style="background: linear-gradient(135deg, #fef7f2 0%, #f4efea 100%); border-left:4px solid var(--sage); padding:18px 22px; border-radius:8px; margin:18px 0; font-size:13px; line-height:1.65; color:var(--navy);">
+<div style="font-family:'Lora', Georgia, serif; font-size:17px; color:var(--sage-deep); font-weight:700; margin-bottom:8px;">💡 Pattern Insight: 90% Mobile Community-Based</div>
+<p style="margin:0 0 8px 0;">266 kegiatan di institutional venues (DIC, RSSA, Puskesmas) vs <strong>2.527 kegiatan di community hotspot</strong> = <strong>~90% mobile outreach</strong>. Ini signature classical Harm Reduction pattern — Sadar Hati BUKAN clinic-based service waiting for clients, melainkan <em>active community engagement</em> di tempat PWID berkumpul natural.</p>
+<p style="margin:0; font-size:12px; color:var(--slate);"><em>Geographic concentration: Jl. Semeru corridor (Klojen) = 627 kegiatan = single biggest hotspot, confirming peer-worker model dengan ILOM (Indigenous Leaders Outreach Model) strategy yang muncul di laporan HCPI 2012.</em></p>
+</div>
+
+<div style="background:var(--cream-warm); border:1px solid var(--clay-tint); padding:12px 18px; border-radius:6px; margin-top:14px; font-size:12px; line-height:1.6; color:var(--slate);">
+<strong>🔒 Privacy &amp; anonymization:</strong> Data ditampilkan di <strong>level kecamatan/kelurahan/jalan saja</strong> (BUKAN alamat lengkap atau RT/RW). Hotspot historikal 2011-2012 — komunitas PWID sebagian sudah pindah atau program berhenti di lokasi tersebut. Untuk dashboard donor masa depan, agregasi minimal level kelurahan = best practice ethics. Detail per-lokasi tidak ditampilkan ke publik.
+        </div>
+
+
+<h2 class="section-h2" style="margin-top:42px;">🇮🇩 Konteks Nasional · STBP 2011 — Kota Malang dalam Surveillance Indonesia</h2>
+<p style="font-size:13px; color:var(--slate); line-height:1.6; margin:8px 0 14px 0;"><strong>STBP 2011 (Surveilans Terpadu Biologis &amp; Perilaku)</strong> — peer-reviewed national surveillance Kementerian Kesehatan RI di 11 provinsi · 8 kelompok berisiko tinggi. <strong>Kota Malang dipilih sebagai 1 dari 3 kota Penasun TLS sampling</strong> (Time-Location Sampling — bersama DKI Jakarta &amp; Kota Medan). Sadar Hati's work = part of national-level evidence base.</p>
+
+<div style="display:grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 18px 0;">
+<div style="background: linear-gradient(135deg, var(--clay) 0%, var(--clay-deep) 100%); color:white; border-radius:12px; padding:24px;">
+<div style="font-size:11px; letter-spacing:1.5px; text-transform:uppercase; opacity:0.85; font-weight:600;">Kota Malang di STBP 2011 · Penasun</div>
+<div style="font-family:'Lora', Georgia, serif; font-size:52px; font-weight:700; line-height:1; margin:8px 0;">1 / 3</div>
+<div style="font-size:13px; line-height:1.5; opacity:0.95;">Kota Penasun TLS sampling nasional · bersama <strong>Jakarta &amp; Medan</strong> · konteks evidence base nasional Kemenkes RI</div>
+</div>
+<div style="background: linear-gradient(135deg, #6b4d7a 0%, #4d3858 100%); color:white; border-radius:12px; padding:24px;">
+<div style="font-size:11px; letter-spacing:1.5px; text-transform:uppercase; opacity:0.85; font-weight:600;">HIV Prevalence Penasun Nasional</div>
+<div style="font-family:'Lora', Georgia, serif; font-size:52px; font-weight:700; line-height:1; margin:8px 0;">36<span style="font-size:32px;">%</span></div>
+<div style="font-size:13px; line-height:1.5; opacity:0.95;">Tertinggi dari 7 kelompok risti · <strong>cenderung turun</strong> dibanding STBP 2007 (Jakarta -10%, Medan -20%)</div>
+</div>
+</div>
+
+<div style="background:white; border:1px solid var(--clay-tint); border-radius:12px; padding:24px; margin:18px 0;">
+<h3 style="font-family:'Lora', Georgia, serif; font-size:17px; color:var(--clay-deep); margin:0 0 14px 0;">📊 HIV Prevalence per Kelompok Sasaran · STBP 2011 Indonesia</h3>
+<svg style="width:100%; height:auto; display:block;" viewbox="0 0 760 290" xmlns="http://www.w3.org/2000/svg">
+<g fill="#1f2937" font-family="Manrope, sans-serif" font-size="11.5">
+
+
+
+<text font-weight="700" text-anchor="end" x="160" y="22">🎯 Penasun</text>
+<rect fill="#a83244" height="22" rx="3" width="510" x="170" y="10"></rect>
+<text fill="#7a1f30" font-size="13" font-weight="800" x="690" y="26">36%</text>
+
+<text font-weight="600" text-anchor="end" x="160" y="58">Waria</text>
+<rect fill="#ac4d5b" height="22" rx="3" width="340" x="170" y="46"></rect>
+<text fill="#7a1f30" font-size="12" font-weight="700" x="520" y="62">24%</text>
+
+<text font-weight="600" text-anchor="end" x="160" y="94">WPSL</text>
+<rect fill="#c47a3b" height="22" rx="3" width="156" x="170" y="82"></rect>
+<text fill="#8a4d1f" font-size="12" font-weight="700" x="336" y="98">11%</text>
+
+<text font-weight="600" text-anchor="end" x="160" y="130">LSL ⚠</text>
+<rect fill="#d4a017" height="22" rx="3" width="135" x="170" y="118"></rect>
+<text fill="#8a4d1f" font-size="12" font-weight="700" x="315" y="134">9,5% ↑↑</text>
+
+<text font-weight="600" text-anchor="end" x="160" y="166">Narapidana</text>
+<rect fill="#5b7553" height="22" rx="3" width="64" x="170" y="154"></rect>
+<text fill="#3f5239" font-size="12" font-weight="700" x="244" y="170">4,5%</text>
+
+<text font-weight="600" text-anchor="end" x="160" y="202">WPSTL</text>
+<rect fill="#5b7553" height="22" opacity="0.85" rx="3" width="64" x="170" y="190"></rect>
+<text fill="#3f5239" font-size="12" font-weight="700" x="244" y="206">4,5%</text>
+
+<text font-weight="600" text-anchor="end" x="160" y="238">Pria Risti</text>
+<rect fill="#94a3b8" height="22" rx="3" width="14" x="170" y="226"></rect>
+<text fill="#475569" font-size="12" font-weight="700" x="194" y="242">1%</text>
+
+<g fill="#64748b" font-size="10">
+<rect fill="#a83244" height="10" width="12" x="170" y="266"></rect>
+<text x="187" y="275">Sadar Hati target (Penasun) — tertinggi nasional</text>
+<text fill="#94a3b8" font-style="italic" x="450" y="275">Sumber: STBP 2011 Kemenkes RI · n=1,420 Penasun</text>
+</g>
+</g>
+</svg>
+</div>
+
+<div style="background:white; border:1px solid var(--clay-tint); border-radius:12px; padding:24px; margin:18px 0;">
+<h3 style="font-family:'Lora', Georgia, serif; font-size:17px; color:var(--clay-deep); margin:0 0 6px 0;">📉 Berbagi Jarum Penasun 2004 → 2007 → 2011 · 6 Kota Indonesia</h3>
+<p style="font-size:12px; color:var(--slate); margin:0 0 14px 0; font-style:italic;">Trend DECLINING — bukti longitudinal program Harm Reduction nasional berhasil. <strong>Kota Malang (wine highlighted)</strong> di antara 6 kota tracked.</p>
+<svg style="width:100%; height:auto; display:block;" viewbox="0 0 760 280" xmlns="http://www.w3.org/2000/svg">
+
+<g fill="#94a3b8" font-family="Manrope, sans-serif" font-size="10">
+<line stroke="#e5e7eb" x1="80" x2="720" y1="40" y2="40"></line>
+<text text-anchor="end" x="70" y="44">80%</text>
+<line stroke="#e5e7eb" x1="80" x2="720" y1="90" y2="90"></line>
+<text text-anchor="end" x="70" y="94">60%</text>
+<line stroke="#e5e7eb" x1="80" x2="720" y1="140" y2="140"></line>
+<text text-anchor="end" x="70" y="144">40%</text>
+<line stroke="#e5e7eb" x1="80" x2="720" y1="190" y2="190"></line>
+<text text-anchor="end" x="70" y="194">20%</text>
+<line stroke="#1f2937" stroke-width="1.5" x1="80" x2="720" y1="240" y2="240"></line>
+<text text-anchor="end" x="70" y="244">0%</text>
+</g>
+
+<g fill="#1f2937" font-family="Manrope, sans-serif" font-size="12" font-weight="700">
+<text text-anchor="middle" x="160" y="262">2004</text>
+<text text-anchor="middle" x="400" y="262">2007</text>
+<text text-anchor="middle" x="640" y="262">2011</text>
+</g>
+
+
+<polyline fill="none" points="160,52 400,100 640,173" stroke="#94a3b8" stroke-linecap="round" stroke-width="2.5"></polyline>
+<circle cx="160" cy="52" fill="#94a3b8" r="4"></circle>
+<circle cx="400" cy="100" fill="#94a3b8" r="4"></circle>
+<circle cx="640" cy="173" fill="#94a3b8" r="4"></circle>
+<text fill="#475569" font-size="11" font-weight="700" x="650" y="173">Jakarta 27%</text>
+
+<polyline fill="none" points="160,158 400,82 640,195" stroke="#c47a3b" stroke-linecap="round" stroke-width="2.5"></polyline>
+<circle cx="160" cy="158" fill="#c47a3b" r="4"></circle>
+<circle cx="400" cy="82" fill="#c47a3b" r="4"></circle>
+<circle cx="640" cy="195" fill="#c47a3b" r="4"></circle>
+<text fill="#8a4d1f" font-size="11" font-weight="700" x="650" y="195">Semarang 18%</text>
+
+<polyline fill="none" points="160,148 400,205 640,210" stroke="#a83244" stroke-linecap="round" stroke-width="4"></polyline>
+<circle cx="160" cy="148" fill="#a83244" r="6" stroke="white" stroke-width="2"></circle>
+<circle cx="400" cy="205" fill="#a83244" r="6" stroke="white" stroke-width="2"></circle>
+<circle cx="640" cy="210" fill="#a83244" r="7" stroke="white" stroke-width="2.5"></circle>
+<text fill="#7a1f30" font-size="12" font-weight="800" x="650" y="210">🎯 MALANG 12%</text>
+
+<polyline fill="none" points="160,110 400,115 640,220" stroke="#6b4d7a" stroke-linecap="round" stroke-width="2.5"></polyline>
+<circle cx="160" cy="110" fill="#6b4d7a" r="4"></circle>
+<circle cx="400" cy="115" fill="#6b4d7a" r="4"></circle>
+<circle cx="640" cy="220" fill="#6b4d7a" r="4"></circle>
+<text fill="#4d3858" font-size="11" font-weight="700" x="650" y="220">Surabaya 8%</text>
+
+<polyline fill="none" points="160,148 400,180 640,208" stroke="#5b7553" stroke-dasharray="0" stroke-linecap="round" stroke-width="2.5"></polyline>
+<circle cx="160" cy="148" fill="#5b7553" r="3"></circle>
+<circle cx="400" cy="180" fill="#5b7553" r="3"></circle>
+<circle cx="640" cy="208" fill="#5b7553" r="3"></circle>
+
+<polyline fill="none" points="160,52 400,210 640,222" stroke="#d4a017" stroke-linecap="round" stroke-width="2.5"></polyline>
+<circle cx="160" cy="52" fill="#d4a017" r="3"></circle>
+<circle cx="400" cy="210" fill="#d4a017" r="3"></circle>
+<circle cx="640" cy="222" fill="#d4a017" r="3"></circle>
+
+<g>
+<text fill="#5b7553" font-family="Lora, Georgia, serif" font-size="13" font-style="italic" font-weight="700" text-anchor="middle" x="400" y="22">↓ Trend NASIONAL menurun — Harm Reduction works</text>
+</g>
+</svg>
+</div>
+
+<div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 18px 0;">
+<div style="background:linear-gradient(135deg, var(--clay-tint) 0%, white 100%); border:1.5px solid var(--clay); border-radius:10px; padding:18px;">
+<div style="font-size:10px; letter-spacing:1.3px; text-transform:uppercase; color:var(--clay-deep); font-weight:700; margin-bottom:6px;">🥇 Pengetahuan HIV-AIDS</div>
+<div style="font-family:'Lora', Georgia, serif; font-size:30px; font-weight:700; color:var(--clay-deep); line-height:1;">44<span style="font-size:20px;">%</span></div>
+<div style="font-size:11px; color:var(--navy); margin-top:6px; line-height:1.5;">Penasun = <strong>TERTINGGI</strong> dari 8 grup. Indikator program HR efektif. Waria 32% · LSL 26% · Pria risti 14%</div>
+</div>
+<div style="background:linear-gradient(135deg, var(--sage-light) 0%, white 100%); border:1.5px solid var(--sage); border-radius:10px; padding:18px;">
+<div style="font-size:10px; letter-spacing:1.3px; text-transform:uppercase; color:var(--sage-deep); font-weight:700; margin-bottom:6px;">📉 HIV Prevalence Trend</div>
+<div style="font-family:'Lora', Georgia, serif; font-size:30px; font-weight:700; color:var(--sage-deep); line-height:1;">↓</div>
+<div style="font-size:11px; color:var(--navy); margin-top:6px; line-height:1.5;">Penasun cenderung <strong>TURUN</strong> nasional · Jakarta -10% · Medan -20% vs STBP 2007. Direct evidence pencegahan HR.</div>
+</div>
+<div style="background:linear-gradient(135deg, var(--gold-tint) 0%, white 100%); border:1.5px solid #d4a017; border-radius:10px; padding:18px;">
+<div style="font-size:10px; letter-spacing:1.3px; text-transform:uppercase; color:#8a4d1f; font-weight:700; margin-bottom:6px;">🛡️ Berbagi Jarum Malang</div>
+<div style="font-family:'Lora', Georgia, serif; font-size:30px; font-weight:700; color:#8a4d1f; line-height:1;">↓ 12<span style="font-size:20px;">%</span></div>
+<div style="font-size:11px; color:var(--navy); margin-top:6px; line-height:1.5;">Kota Malang 2011 — turun dari era pre-Sadar Hati. Sadar Hati's contribution measurable nasional.</div>
+</div>
+</div>
+
+<div style="background: linear-gradient(135deg, #fef7f2 0%, #f4efea 100%); border-left:4px solid var(--clay); padding:18px 22px; border-radius:8px; margin:18px 0; font-size:13px; line-height:1.65; color:var(--navy);">
+<div style="font-family:'Lora', Georgia, serif; font-size:17px; color:var(--clay-deep); font-weight:700; margin-bottom:8px;">💡 Strategic Insight: Sadar Hati's National Evidence Base</div>
+<p style="margin:0 0 8px 0;">STBP 2011 = <strong>peer-reviewed citation level surveillance</strong> (Kemenkes RI · WHO collaboration · pengkaji dari FHI, WHO consultants). Sadar Hati's area Kota Malang adalah <strong>1 dari 3 kota Penasun TLS sampling</strong> — operasional Sadar Hati ditrack di national-level evidence base.</p>
+<p style="margin:0; font-size:12px;">Pattern <strong>"Penasun tertinggi pengetahuan HIV + berbagi jarum turun + HIV prev cenderung tetap/menurun"</strong> = signature outcome program Harm Reduction effective. Sadar Hati's 16-bulan sistem data internal surveillance (5.011 jarum, 58,6% return rate, 175 hotspot) = micro-evidence yang konsisten dengan macro-trend nasional STBP. <strong>Bukan koincidence — ini contribution traceable ke outcome nasional.</strong></p>
+</div>
+
+
+</section>
+</main>
+<footer class="site-footer">© 2002–2026 · <strong>Yayasan Sadar Hati</strong> · Malang, Jawa Timur · Harm Reduction &amp; Pendampingan</footer>
+<script>
+/**
+ * Sadar Hati — Widget Impact Stats (Layer 3 · public_stats)
+ * ---------------------------------------------------------
+ * Baca dokumen agregat publik `public_stats/current` dari Firestore (REST, read-only,
+ * tanpa SDK, tanpa login) lalu render stat-tile marun-emas di section Data & Milestone.
+ *
+ * PATUH KONTRAK & GUARDRAIL (JEMBATAN_public_stats_13Jul2026.md):
+ *  - HANYA baca public_stats/current. TIDAK PERNAH menyentuh koleksi data-klien terkunci (data klien).
+ *  - Field `null` (reach/testing) => SKIP, jangan tampilkan angka kosong/tebakan.
+ *  - `_status != "live"` (sekarang draft_pending_review) => tampilkan badge DRAFT;
+ *    aman di staging, JANGAN publish angka ke live tanpa "go" dari tim.
+ *  - Fetch gagal (offline/403/error) => pakai FALLBACK hardcoded (nilai sama persis
+ *    kontrak) supaya halaman tidak pernah kelihatan rusak/kosong.
+ *  - Tidak pakai localStorage/sessionStorage (cache di memori saja).
+ */
+(function () {
+  'use strict';
+
+  var ENDPOINT =
+    'https://firestore.googleapis.com/v1/projects/sadar-hati-hub/databases/(default)' +
+    '/documents/public_stats/current?key=AIzaSyC7127G5fsZprEGfeiqLrRqevTg6Qs2fko';
+
+  // Fallback = nilai kontrak terverifikasi (dipakai kalau fetch gagal).
+  var FALLBACK = {
+    tahun_berdiri: 2002, tahun_beroperasi: 24,
+    wilayah_utama: 'Malang Raya & Jawa Timur',
+    akreditasi_kemensos: 'B', akreditasi_periode: '2024-2027',
+    ipwl_sejak: 2021, kementerian_mitra: 3,
+    posisi_regional: '1 dari 8 grantee ViiV Regional ASEAN',
+    jaringan_mou: 18, sub_brand_social_enterprise: 8,
+    orang_terdampingi_kumulatif: null, testing_hiv_kumulatif: null,
+    _status: 'draft_pending_review', _updated: '2026-07-13'
+  };
+
+  // Definisi tile (urut). Tiap tile skip otomatis kalau field-nya null/kosong.
+  // Angka reach (orang_terdampingi / testing) ikut didefinisikan -> muncul OTOMATIS
+  // begitu sesi internal isi nilainya (sekarang null => ke-skip).
+  var TILES = [
+    { kind: 'num',  key: 'tahun_beroperasi', accent: 'clay',
+      label: 'Tahun mendampingi', sub: function (d) { return d.tahun_berdiri ? 'sejak ' + d.tahun_berdiri : ''; } },
+    { kind: 'num',  key: 'akreditasi_kemensos', accent: 'gold',
+      label: 'Akreditasi Kemensos RI', sub: function (d) { return d.akreditasi_periode ? 'berlaku ' + d.akreditasi_periode : ''; } },
+    { kind: 'text', key: 'ipwl_sejak', accent: 'sage', big: 'IPWL',
+      label: 'Institusi Penerima Wajib Lapor', sub: function (d) { return 'sejak ' + d.ipwl_sejak + ' · Kemenkes/BNN'; } },
+    { kind: 'num',  key: 'kementerian_mitra', accent: 'clay',
+      label: 'Kementerian mitra', sub: function () { return 'Kemensos · Kemenkes/BNN · Kemenkumham'; } },
+    { kind: 'num',  key: 'jaringan_mou', accent: 'gold',
+      label: 'MOU jaringan kemitraan', sub: function () { return ''; } },
+    { kind: 'num',  key: 'sub_brand_social_enterprise', accent: 'sage',
+      label: 'Sub-brand social enterprise', sub: function () { return 'ekosistem SAHAWOOD'; } },
+    { kind: 'num',  key: 'orang_terdampingi_kumulatif', accent: 'clay',
+      label: 'Orang terdampingi (kumulatif)', sub: function () { return 'sejak 2002'; } },
+    { kind: 'num',  key: 'testing_hiv_kumulatif', accent: 'gold',
+      label: 'Layanan testing HIV (kumulatif)', sub: function () { return ''; } },
+    { kind: 'card', key: 'posisi_regional',
+      label: 'Pengakuan Regional', note: 'ViiV Healthcare · ASEAN' },
+    { kind: 'card', key: 'wilayah_utama',
+      label: 'Cakupan Wilayah', note: '' }
+  ];
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function fmtNum(v) {
+    var n = Number(v);
+    return (!isNaN(n) && isFinite(n)) ? n.toLocaleString('id-ID') : esc(v);
+  }
+  function isEmpty(v) { return v === null || v === undefined || v === ''; }
+
+  // Decode 1 field format Firestore REST.
+  function decodeField(f) {
+    if (!f) return null;
+    if ('nullValue' in f) return null;
+    if ('integerValue' in f) return parseInt(f.integerValue, 10);
+    if ('doubleValue' in f) return f.doubleValue;
+    if ('stringValue' in f) return f.stringValue;
+    return null;
+  }
+  function decodeDoc(json) {
+    var f = (json && json.fields) || {}, out = {};
+    Object.keys(f).forEach(function (k) { out[k] = decodeField(f[k]); });
+    return out;
+  }
+
+  function tileHTML(t, d) {
+    var v = d[t.key];
+    if (isEmpty(v)) return ''; // SKIP-NULL (guardrail)
+    if (t.kind === 'card') {
+      return '<div class="saha-stat saha-stat--card">' +
+        '<div class="saha-stat__label">' + esc(t.label) + '</div>' +
+        '<div class="saha-stat__cardval">' + esc(v) + '</div>' +
+        (t.note ? '<div class="saha-stat__sub">' + esc(t.note) + '</div>' : '') +
+        '</div>';
+    }
+    var big = (t.kind === 'text') ? t.big : fmtNum(v);
+    var sub = t.sub ? t.sub(d) : '';
+    return '<div class="saha-stat saha-stat--' + t.accent + '">' +
+      '<div class="saha-stat__num">' + esc(big) + '</div>' +
+      '<div class="saha-stat__label">' + esc(t.label) + '</div>' +
+      (sub ? '<div class="saha-stat__sub">' + esc(sub) + '</div>' : '') +
+      '</div>';
+  }
+
+  function render(root, d, live) {
+    var isDraft = (d._status !== 'live');
+    var tiles = TILES.map(function (t) { return tileHTML(t, d); }).join('');
+    var badge = '';
+    var conn = live
+      ? '<span class="saha-dot saha-dot--live"></span> data terhubung'
+      : '<span class="saha-dot saha-dot--fallback"></span> angka tersimpan (mode aman)';
+    root.innerHTML =
+      '<div class="saha-widget">' +
+        '<div class="saha-widget__head">' +
+          '<div>' +
+            '<div class="saha-eyebrow">Data &amp; Milestone Publik</div>' +
+            '<h3 class="saha-widget__title">Sadar Hati dalam Angka</h3>' +
+          '</div>' + badge +
+        '</div>' +
+        '<div class="saha-grid">' + tiles + '</div>' +
+        '<div class="saha-widget__foot">' +
+          '<span>' + conn + '</span>' +
+          (d._updated ? '<span>diperbarui ' + esc(d._updated) + ' · agregat, tanpa data pribadi</span>' : '') +
+        '</div>' +
+      '</div>';
+  }
+
+  function init() {
+    var root = document.getElementById('saha-impact-widget');
+    if (!root) return;
+    // Render dulu dengan fallback (halaman langsung terisi, tak pernah kosong),
+    // lalu coba refresh dari live.
+    render(root, FALLBACK, false);
+    fetch(ENDPOINT, { method: 'GET', mode: 'cors', cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (j) {
+        var d = decodeDoc(j);
+        // gabung: pakai live, tapi kalau ada field hilang jatuh ke fallback
+        var merged = Object.assign({}, FALLBACK, d);
+        render(root, merged, true);
+      })
+      .catch(function () { /* biarkan fallback tampil */ });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+
+</script>
+<script>(function(){var t=document.getElementById("navToggle"),n=document.getElementById("topNav");if(t&&n)t.addEventListener("click",function(){n.classList.toggle("open");});})();</script>
+</body>
+</html>

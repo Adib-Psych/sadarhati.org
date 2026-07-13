@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="description" content="Galeri foto Sadar Hati — dokumentasi kegiatan, pelatihan, dan aksi advokasi lintas era program di Jawa Timur."/>
+<link rel="canonical" href="https://sadarhati.org/gallery"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Sadar Hati Foundation"/>
+<meta property="og:title" content="Galeri — Sadar Hati Foundation"/>
+<meta property="og:description" content="Galeri foto Sadar Hati — dokumentasi kegiatan, pelatihan, dan aksi advokasi lintas era program di Jawa Timur."/>
+<meta property="og:url" content="https://sadarhati.org/gallery"/>
+<meta name="twitter:card" content="summary"/>
+<title>Galeri — Sadar Hati Foundation</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Lora:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    /* === HEART OF HOPE PALETTE === */
+    /* Sage (secondary · healing) — kept */
+    --sage: #5b7553;
+    --sage-deep: #3f5439;
+    --sage-light: #e8efe9;
+    --sage-tint: #f3f6f1;
+    /* Clay var-name now holds WINE (primary brand · "Sadar Hati" = heart) */
+    --clay: #a83244;
+    --clay-deep: #7a1f30;
+    --clay-light: #fce8ec;
+    --clay-tint: #fdf3f5;
+    /* Coral var-name now holds GOLD (accent · action) */
+    --coral: #d4a017;
+    --coral-deep: #a07c12;
+    /* Pink (soft · ADHA gentleness) — kept */
+    --pink: #e8a5a5;
+    --pink-tint: #f9e6e6;
+    /* Gold tint for Layer 3 PWA */
+    --gold-tint: #fcf5dd;
+    /* Navy (text · gravitas) — kept */
+    --navy: #1f2937;
+    --navy-soft: #334155;
+    /* Warm cream paper (bg shifted slightly warmer for wine harmony) */
+    --cream: #fef7f2;
+    --cream-warm: #fce8ec;
+    --slate: #64748b;
+    --slate-light: #cbd5e1;
+    --slate-lighter: #e2e8f0;
+    --border: #e5e7eb;
+    --paper: #ffffff;
+    --bg: #faf5f0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    color: var(--navy);
+    background: var(--bg);
+    font-size: 14px;
+    line-height: 1.5;
+    height: 100vh;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  .app { display: grid; grid-template-columns: 290px 1fr; height: 100vh; }
+
+  /* SIDEBAR */
+  .sidebar {
+    background: var(--cream);
+    border-right: 1px solid var(--slate-lighter);
+    display: flex; flex-direction: column;
+    overflow-y: auto;
+  }
+  .brand {
+    padding: 20px 18px;
+    background: linear-gradient(135deg, var(--clay) 0%, var(--clay-deep) 100%);
+    color: white;
+  }
+  .brand .logo {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 20px; font-weight: 700;
+    letter-spacing: -0.3px; line-height: 1.1;
+  }
+  .brand .est {
+    font-size: 10px; letter-spacing: 1.5px;
+    opacity: 0.85; margin-top: 4px;
+    text-transform: uppercase;
+  }
+  .brand .system-tag {
+    display: inline-block; margin-top: 12px;
+    font-size: 9px; padding: 3px 9px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 10px; letter-spacing: 0.6px;
+    text-transform: uppercase; font-weight: 600;
+  }
+
+  .nav { flex: 1; padding: 12px 8px; }
+  .nav-layer { margin-bottom: 8px; }
+  .nav-layer-header {
+    display: flex; align-items: center;
+    justify-content: space-between;
+    padding: 9px 12px; cursor: pointer;
+    border-radius: 6px; color: var(--navy);
+    font-weight: 700; font-size: 11px;
+    letter-spacing: 1.2px; text-transform: uppercase;
+    transition: background 0.15s;
+    user-select: none;
+  }
+  .nav-layer-header:hover { background: rgba(0,0,0,0.04); }
+  .nav-layer-header .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    margin-right: 8px;
+  }
+  .nav-layer-1 .dot, [data-layer="1"] .dot { background: var(--clay); }
+  .nav-layer-2 .dot, [data-layer="2"] .dot { background: var(--sage); }
+  .nav-layer-3 .dot, [data-layer="3"] .dot { background: var(--coral); }
+  .nav-layer-header .chevron {
+    font-size: 10px; color: var(--slate);
+    transition: transform 0.2s;
+  }
+  .nav-layer.expanded > .nav-layer-header .chevron { transform: rotate(90deg); }
+
+  .nav-items {
+    display: none;
+    margin: 4px 0 4px 22px;
+    border-left: 1.5px solid var(--slate-lighter);
+    padding-left: 6px;
+  }
+  .nav-layer.expanded > .nav-items { display: block; }
+  .nav-item {
+    display: flex; align-items: center;
+    padding: 7px 10px; cursor: pointer;
+    border-radius: 5px; color: var(--navy-soft);
+    font-size: 12.5px; font-weight: 500;
+    text-decoration: none; margin: 1px 0;
+    transition: all 0.15s; user-select: none;
+  }
+  .nav-item:hover { background: var(--clay-tint); color: var(--navy); }
+  .nav-item.active { background: var(--clay); color: white; font-weight: 600; }
+  .nav-overview {
+    background: white;
+    border: 1px solid var(--clay-light);
+    font-weight: 700;
+    margin-bottom: 3px;
+  }
+  .nav-overview:hover { background: var(--clay-tint); }
+  .nav-overview.active { background: var(--clay); color: white; border-color: var(--clay); }
+  .nav-overview + .nav-overview { margin-top: 0; }
+  .nav-overview + .nav-overview + .nav-divider-label { margin-top: 10px; }
+  .nav-divider-label {
+    font-size: 9.5px;
+    letter-spacing: 1.6px;
+    color: var(--slate);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 8px 8px 4px;
+  }
+  .nav-item.active .icon { opacity: 1; }
+  .nav-item .icon { margin-right: 7px; font-size: 12px; opacity: 0.75; }
+
+  .donor-group { margin: 4px 0; }
+  .donor-header {
+    display: flex; align-items: center;
+    justify-content: space-between;
+    padding: 6px 10px; cursor: pointer;
+    border-radius: 5px; font-size: 12.5px;
+    font-weight: 600; color: var(--navy);
+    user-select: none;
+  }
+  .donor-header:hover { background: var(--sage-tint); }
+  .donor-header .donor-name { display: flex; align-items: center; gap: 6px; flex: 1; }
+  .donor-header .donor-name::before {
+    content: ""; width: 6px; height: 6px;
+    background: var(--sage); border-radius: 50%;
+  }
+  .donor-badge {
+    font-size: 8.5px; padding: 2px 6px;
+    border-radius: 8px; letter-spacing: 0.5px;
+    font-weight: 700;
+  }
+  .donor-badge.active { background: var(--sage-light); color: var(--sage-deep); }
+  .donor-badge.hist { background: var(--clay-tint); color: var(--clay-deep); }
+
+  .donor-sub-items {
+    display: none;
+    margin: 2px 0 4px 14px;
+    border-left: 1.5px dashed var(--slate-lighter);
+    padding-left: 8px;
+  }
+  .donor-group.expanded > .donor-sub-items { display: block; }
+  .donor-sub-items .nav-item { font-size: 11.5px; padding: 5px 8px; }
+  .donor-group.expanded > .donor-header .donor-name::before { background: var(--coral); }
+  .donor-header .chevron { font-size: 10px; color: var(--slate); transition: transform 0.2s; margin-left: 6px; }
+  .donor-group.expanded > .donor-header .chevron { transform: rotate(90deg); }
+
+  .sidebar-footer {
+    padding: 12px 18px;
+    border-top: 1px solid var(--slate-lighter);
+    font-size: 10px; color: var(--slate);
+    background: var(--cream-warm);
+  }
+  .sidebar-footer .user {
+    display: flex; align-items: center;
+    gap: 8px; margin-bottom: 6px;
+  }
+  .sidebar-footer .avatar {
+    width: 28px; height: 28px;
+    background: var(--clay); color: white;
+    border-radius: 50%; display: flex;
+    align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 700;
+  }
+  .sidebar-footer .user-meta strong {
+    color: var(--navy); font-size: 11.5px;
+    display: block; font-weight: 700;
+  }
+
+  /* MAIN */
+  .main { display: flex; flex-direction: column; overflow: hidden; background: var(--paper); }
+  .topbar {
+    display: flex; justify-content: space-between;
+    align-items: center; padding: 14px 28px;
+    border-bottom: 1px solid var(--slate-lighter);
+    background: white;
+  }
+  .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--slate); flex-wrap: wrap; }
+  .breadcrumb .sep { color: var(--slate-light); }
+  .breadcrumb .current { color: var(--navy); font-weight: 600; }
+  .layer-tag {
+    font-size: 9.5px; padding: 3px 8px;
+    border-radius: 8px; letter-spacing: 0.6px;
+    text-transform: uppercase; font-weight: 700;
+  }
+  .layer-tag.l1 { background: var(--clay-tint); color: var(--clay-deep); }
+  .layer-tag.l2 { background: var(--sage-tint); color: var(--sage-deep); }
+  .layer-tag.l3 { background: var(--gold-tint); color: var(--coral-deep); }
+
+  .topbar-actions { display: flex; gap: 10px; }
+  .btn {
+    padding: 6px 14px; border-radius: 6px;
+    font-size: 12px; font-weight: 600; cursor: pointer;
+    border: 1px solid var(--slate-lighter);
+    background: white; color: var(--navy);
+    font-family: inherit;
+  }
+  .btn:hover { background: var(--cream); }
+  .btn.primary { background: var(--clay); color: white; border-color: var(--clay); }
+  .btn.primary:hover { background: var(--clay-deep); }
+
+  .content {
+    flex: 1; overflow-y: auto;
+    padding: 32px 36px; background: var(--bg);
+  }
+  .section { display: none; max-width: 1500px; width: 100%; }
+  .section.active { display: block; }
+  .section p { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+
+  .hero { margin-bottom: 24px; }
+  .hero .eyebrow {
+    font-size: 11px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--clay-deep);
+    font-weight: 700; margin-bottom: 8px;
+  }
+  .hero h1 {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 30px; color: var(--navy);
+    line-height: 1.15; margin-bottom: 8px;
+  }
+  .hero .lede {
+    font-size: 14px; color: var(--navy-soft);
+    line-height: 1.7;
+    text-align: justify; hyphens: auto;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px; margin-top: 18px;
+  }
+  .card {
+    background: white; border: 1px solid var(--border);
+    border-radius: 10px; padding: 18px 16px;
+    text-align: center;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+  }
+  .card .label {
+    font-size: 10.5px; letter-spacing: 1.4px;
+    color: var(--slate); font-weight: 700;
+    text-transform: uppercase; margin-bottom: 7px;
+  }
+  .card .value {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 26px; font-weight: 700;
+    color: var(--navy); line-height: 1.2;
+  }
+  .card .desc {
+    font-size: 12px; color: var(--slate);
+    margin-top: 7px; line-height: 1.45;
+  }
+
+  .placeholder-banner {
+    background: var(--sage-tint);
+    border: 1px dashed var(--sage);
+    border-radius: 8px; padding: 16px 20px;
+    margin-top: 22px; font-size: 13px;
+    color: var(--sage-deep);
+    display: flex; align-items: flex-start; gap: 12px;
+  }
+  .placeholder-banner .icon { font-size: 22px; line-height: 1; flex-shrink: 0; }
+  .placeholder-banner strong { color: var(--sage-deep); }
+
+  .placeholder-banner.archival {
+    background: var(--clay-tint);
+    border-color: var(--clay);
+    color: var(--clay-deep);
+  }
+  .placeholder-banner.archival strong { color: var(--clay-deep); }
+
+  .budget-row {
+    display: flex; align-items: center;
+    gap: 16px; padding: 13px 18px;
+    background: white; border: 1px solid var(--border);
+    border-radius: 8px; margin-bottom: 6px;
+    font-size: 13px;
+  }
+  .budget-row .item-name { flex: 1; font-weight: 600; }
+  .bar-track {
+    flex: 2; height: 8px; background: var(--slate-lighter);
+    border-radius: 4px; overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%; background: linear-gradient(90deg, var(--sage) 0%, var(--coral) 100%);
+    border-radius: 4px;
+  }
+  .bar-percent {
+    font-weight: 700; min-width: 50px;
+    text-align: right; color: var(--sage-deep);
+    font-size: 13px;
+  }
+
+  .report-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px; margin-top: 14px;
+  }
+  .report-card {
+    background: white; border: 1px solid var(--border);
+    border-radius: 8px; padding: 16px;
+    text-align: center; cursor: pointer;
+    transition: all 0.15s;
+  }
+  .report-card:hover {
+    border-color: var(--sage);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    transform: translateY(-1px);
+  }
+  .report-card .icon { font-size: 26px; margin-bottom: 6px; display: block; }
+  .report-card .title { font-weight: 700; font-size: 13px; color: var(--navy); }
+  .report-card .year { font-size: 11px; color: var(--slate); margin-top: 4px; }
+
+  .section-divider {
+    margin: 26px 0 14px;
+    font-size: 11px; letter-spacing: 1.5px;
+    color: var(--slate); font-weight: 700;
+    text-transform: uppercase;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-divider::after {
+    content: ""; flex: 1; height: 1px;
+    background: var(--slate-lighter);
+  }
+
+  /* PHONE MOCKUP */
+  .phone-mockup {
+    width: 290px; background: var(--navy);
+    border-radius: 32px; padding: 14px 8px 10px;
+    margin: 20px auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  }
+  .phone-notch {
+    width: 60px; height: 5px; background: #000;
+    border-radius: 3px; margin: 0 auto 8px;
+  }
+  .phone-screen {
+    background: white; border-radius: 20px;
+    height: 510px; padding: 14px 14px 8px;
+    display: flex; flex-direction: column;
+    overflow: hidden;
+  }
+  .phone-header {
+    font-size: 14px; font-weight: 700;
+    color: var(--navy); margin-bottom: 12px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .phone-header .sync-status {
+    font-size: 9px; padding: 2px 6px;
+    background: var(--sage-light); color: var(--sage-deep);
+    border-radius: 8px; font-weight: 600;
+  }
+  .phone-body { flex: 1; overflow: auto; }
+  .phone-tabs {
+    display: flex; border-top: 1px solid var(--slate-lighter);
+    padding-top: 6px; margin-top: 8px;
+    justify-content: space-around;
+  }
+  .phone-tab {
+    font-size: 9px; text-align: center;
+    color: var(--slate); padding: 2px 4px;
+  }
+  .phone-tab.active { color: var(--sage); font-weight: 700; }
+  .phone-tab .ic { font-size: 18px; display: block; margin-bottom: 1px; }
+
+  .form-row {
+    background: var(--cream);
+    padding: 8px 11px;
+    border-radius: 8px;
+    margin-bottom: 6px;
+  }
+  .form-row .label {
+    font-size: 9.5px; color: var(--slate);
+    text-transform: uppercase; letter-spacing: 0.8px;
+    font-weight: 700;
+  }
+  .form-row .input {
+    font-size: 12px; color: var(--navy);
+    margin-top: 2px; font-weight: 500;
+  }
+  .form-submit {
+    margin-top: 8px; width: 100%;
+    padding: 8px; background: var(--clay);
+    color: white; border: none;
+    border-radius: 8px; font-weight: 700;
+    font-size: 12px; cursor: pointer;
+  }
+
+  /* About — Theo quote */
+  .theo-quote-banner {
+    background: linear-gradient(135deg, var(--clay-light) 0%, var(--cream) 100%);
+    border-left: 4px solid var(--clay);
+    padding: 18px 24px;
+    border-radius: 0 10px 10px 0;
+    margin: 18px 0 24px;
+    position: relative;
+  }
+  .theo-quote-banner .quote-icon {
+    position: absolute;
+    top: 8px;
+    left: 14px;
+    font-family: 'Lora', Georgia, serif;
+    font-size: 56px;
+    color: var(--clay);
+    line-height: 0.7;
+    opacity: 0.4;
+  }
+  .theo-quote-banner p {
+    font-family: 'Lora', Georgia, serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--clay-deep);
+    line-height: 1.65;
+    padding-left: 36px;
+    margin: 0;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .theo-quote-banner p strong { color: var(--clay); font-style: normal; font-weight: 700; }
+  .theo-quote-banner .quote-attr {
+    margin-top: 10px;
+    padding-left: 36px;
+    font-size: 11px;
+    color: var(--slate);
+    font-style: italic;
+  }
+  .theo-quote-banner .quote-attr strong { color: var(--navy); font-style: normal; }
+
+  /* About — Founding story */
+  .founding-story { margin: 22px 0; }
+  .founding-story h2 {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 19px;
+    color: var(--navy);
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  .founding-story p {
+    font-size: 13.5px;
+    color: var(--navy-soft);
+    line-height: 1.75;
+    margin-bottom: 11px;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .founding-story p strong { color: var(--navy); font-weight: 700; }
+
+  .section-h2 {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 20px;
+    color: var(--navy);
+    margin: 30px 0 14px;
+    font-weight: 700;
+    padding-bottom: 8px;
+    border-bottom: 1.5px solid var(--clay-light);
+  }
+  .section-h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--slate);
+    font-weight: 700;
+    margin: 22px 0 10px;
+  }
+
+  /* Eras band */
+  .eras-band {
+    display: grid;
+    grid-template-columns: 1.2fr 3fr 5fr 3.5fr 2.5fr;
+    height: 72px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .era { padding: 10px 14px; display: flex; flex-direction: column; justify-content: center; }
+  .era-label { font-size: 10px; letter-spacing: 1.3px; text-transform: uppercase; font-weight: 800; opacity: 0.9; }
+  .era-name { font-size: 16px; font-weight: 700; margin-top: 2px; line-height: 1.15; }
+  .era-years { font-size: 12px; opacity: 0.9; margin-top: 2px; }
+  .era-1 { background: var(--cream-warm); color: var(--clay-deep); }
+  .era-2 { background: var(--sage-light); color: var(--sage-deep); }
+  .era-3 { background: var(--clay); color: white; }
+  .era-4 { background: var(--gold-tint); color: var(--coral-deep); }
+  .era-5 { background: var(--pink-tint); color: var(--clay-deep); }
+
+  /* Milestones */
+  .milestones {
+    display: grid;
+    grid-template-columns: repeat(25, 1fr);
+    margin: 10px 0 4px;
+    min-height: 150px;
+    align-items: end;
+    gap: 2px;
+  }
+  .ms { position: relative; padding: 0 2px; display: flex; flex-direction: column; justify-content: flex-end; }
+  .ms .bubble {
+    background: white;
+    border: 1.5px solid var(--clay);
+    border-radius: 6px;
+    padding: 8px 9px;
+    font-size: 11px;
+    line-height: 1.35;
+    color: var(--navy);
+    margin-bottom: 7px;
+    text-align: center;
+  }
+  .ms .bubble.sage { border-color: var(--sage); background: var(--sage-tint); }
+  .ms .bubble.gold { border-color: var(--coral-deep); background: var(--gold-tint); }
+  .ms .bubble.wine { border-color: var(--clay); background: var(--clay-light); }
+  .ms .bubble.pink { border-color: var(--clay-deep); background: var(--pink-tint); }
+  .ms .bubble.adib { background: var(--navy); color: white; border-color: var(--navy); }
+  .ms .bubble .title { font-weight: 700; font-size: 11.5px; display: block; margin-bottom: 3px; }
+  .ms .bubble .desc { font-size: 10px; color: var(--slate); line-height: 1.35; }
+  .ms .bubble.adib .desc { color: rgba(255,255,255,0.88); }
+  .ms .dot {
+    width: 11px; height: 11px; border-radius: 50%;
+    background: var(--clay); border: 2px solid white;
+    box-shadow: 0 0 0 1.5px var(--clay);
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+  .ms.sage .dot { background: var(--sage); box-shadow: 0 0 0 1.5px var(--sage); }
+  .ms.gold .dot { background: var(--coral-deep); box-shadow: 0 0 0 1.5px var(--coral-deep); }
+  .ms.adib .dot { background: var(--navy); box-shadow: 0 0 0 1.5px var(--navy); }
+
+  /* Timeline axis */
+  .timeline-axis {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(25, 1fr);
+    border-top: 2px solid var(--navy-soft);
+    padding-top: 6px;
+    margin-bottom: 4px;
+    height: 28px;
+  }
+  .tick {
+    border-left: 1px solid var(--slate-lighter);
+    font-size: 11.5px;
+    color: var(--slate);
+    padding: 2px 0 0 4px;
+    font-weight: 600;
+    text-align: left;
+  }
+  .tick.major { border-left: 1.5px solid var(--navy-soft); color: var(--navy); font-weight: 700; font-size: 12.5px; }
+
+  /* Swimlanes */
+  .swimlanes {
+    display: grid;
+    grid-template-columns: 230px 1fr;
+    background: var(--slate-lighter);
+    border-radius: 6px;
+    padding: 2px;
+    row-gap: 1px;
+    margin-top: 6px;
+  }
+  .sl-label {
+    background: white;
+    padding: 10px 14px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .sl-label .sub { font-size: 11px; font-weight: 500; color: var(--slate); margin-top: 2px; }
+  .sl-track {
+    background: white;
+    height: 40px;
+    display: grid;
+    grid-template-columns: repeat(25, 1fr);
+    align-items: center;
+  }
+  .sl-bar {
+    height: 26px; border-radius: 5px; display: flex;
+    align-items: center; justify-content: center;
+    font-size: 10.5px; font-weight: 700; color: white;
+    letter-spacing: 0.2px; padding: 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  /* Donor color system — 7 distinct hues, Heart of Hope harmonized.
+     Logic: GF R4 + R8 share purple family (sister grants, lighter/darker).
+            HCPI = wine-red flagship (era Australian Aid).
+            FHI = dusty teal (historical first entry).
+            SUM = burnt amber (cliff/warning).
+            BNN = sage (govt Indonesia).
+            ViiV = soft pink (current/contemporary). */
+  .sl-bar.fhi  { background: #5b8a8e; color: white; }              /* dusty teal */
+  .sl-bar.gf4  { background: #6b4d7a; color: white; }              /* plum (parent) */
+  .sl-bar.hcpi { background: var(--clay); color: white; }          /* wine-red flagship */
+  .sl-bar.gf8  { background: #8a6694; color: white; }              /* mauve (sister of R4) */
+  .sl-bar.sum  { background: #c47a3b; color: white; }              /* burnt amber — cliff */
+  .sl-bar.bnn  { background: var(--sage); color: white; }          /* sage green */
+  .sl-bar.viiv { background: var(--pink); color: var(--clay-deep); } /* soft pink current */
+
+  /* Helmet metaphor banner */
+  .helmet-banner {
+    background: var(--sage-tint);
+    border-radius: 8px;
+    padding: 18px 24px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 18px;
+    align-items: center;
+    margin: 24px 0;
+  }
+  .helmet-banner .icon { font-size: 42px; line-height: 1; }
+  .helmet-banner .text {
+    font-family: 'Lora', Georgia, serif;
+    font-style: italic;
+    font-size: 14.5px;
+    color: var(--sage-deep);
+    line-height: 1.7;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .helmet-banner .text strong { color: var(--sage-deep); font-style: normal; font-weight: 700; }
+  .helmet-banner .attr {
+    margin-top: 6px;
+    font-size: 10.5px;
+    font-style: normal;
+    color: var(--slate);
+    font-family: 'Manrope', sans-serif;
+  }
+
+  /* Mission list */
+  .mission-list {
+    list-style: none;
+    counter-reset: misi;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 4px;
+    max-width: 1400px;
+  }
+  .mission-list li {
+    counter-increment: misi;
+    background: white;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--clay);
+    border-radius: 6px;
+    padding: 13px 16px 13px 40px;
+    font-size: 13px;
+    color: var(--navy-soft);
+    line-height: 1.55;
+    position: relative;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .mission-list li::before {
+    content: counter(misi);
+    position: absolute;
+    left: 14px;
+    top: 11px;
+    width: 18px;
+    height: 18px;
+    background: var(--clay);
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 18px;
+    font-size: 10px;
+    font-weight: 800;
+  }
+
+  /* Founder tribute */
+  .founder-tribute {
+    background: linear-gradient(135deg, var(--navy) 0%, #2a3543 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin: 26px 0 18px;
+  }
+  .founder-tribute h2 {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 22px;
+    color: white;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+  .founder-tribute h2 .small {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--pink);
+    font-family: 'Manrope', sans-serif;
+    margin-bottom: 3px;
+    font-weight: 700;
+  }
+  .founder-tribute p {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.88);
+    line-height: 1.75;
+    margin-bottom: 11px;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .founder-tribute p strong { color: white; font-weight: 700; }
+  .founder-tribute .italic {
+    font-family: 'Lora', Georgia, serif;
+    font-style: italic;
+    color: var(--pink);
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 10px;
+    margin-top: 10px;
+  }
+
+  .source-attr {
+    margin-top: 18px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--slate-lighter);
+    font-size: 11px;
+    color: var(--slate);
+    font-style: italic;
+    line-height: 1.65;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .source-attr strong { color: var(--navy); font-style: normal; }
+
+  /* Tim section */
+  .tim-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 14px; margin-top: 16px;
+  }
+  .tim-card {
+    background: white; border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px; text-align: center;
+  }
+  .tim-avatar {
+    width: 60px; height: 60px; margin: 0 auto 10px;
+    border-radius: 50%; background: var(--sage-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; color: var(--sage-deep); font-weight: 700;
+  }
+  .tim-card.dirut .tim-avatar { background: var(--clay-light); color: var(--clay-deep); }
+  .tim-avatar { overflow: hidden; }
+  .tim-avatar img { width:100%; height:100%; object-fit:cover; display:block; }
+  .tim-name { font-weight: 700; font-size: 13px; }
+  .tim-role { font-size: 11px; color: var(--slate); margin-top: 2px; }
+
+</style>
+<style id="sh-public-overrides">
+/* Responsif: cegah overlap di layar sempit — desktop tetap 'sama persis' */
+@media (max-width: 900px){
+  .app{ grid-template-columns:1fr !important; height:auto !important; }
+  .sidebar{ height:auto !important; border-right:none; border-bottom:1px solid var(--slate-lighter); }
+  .main{ overflow:visible !important; height:auto !important; }
+  .content{ overflow:visible !important; height:auto !important; }
+  [style*="grid-template-columns"]{ grid-template-columns:1fr !important; }
+  [style*="display:flex"],[style*="display: flex"]{ flex-wrap:wrap; }
+}
+img{ max-width:100%; height:auto; }
+
+/* ===== Widget Impact Stats (public_stats) ===== */
+#saha-impact-widget{margin:8px 0 28px}
+.saha-widget{background:var(--paper,#fff);border:1px solid var(--border,#e5e7eb);border-radius:20px;padding:28px 30px;box-shadow:0 1px 2px rgba(44,39,36,.04),0 8px 24px rgba(125,36,51,.06)}
+.saha-widget__head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+.saha-eyebrow{font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--clay,#a83244)}
+.saha-widget__title{font-family:'Lora',Georgia,serif;font-size:1.6rem;font-weight:700;color:var(--clay-deep,#7d2433);margin-top:5px}
+.saha-badge{font-size:.66rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:100px;white-space:nowrap;align-self:center}
+.saha-badge--draft{background:rgba(212,160,23,.15);color:#8a6608;border:1px solid rgba(212,160,23,.45)}
+.saha-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.saha-stat{background:var(--cream,#fbf7f2);border:1px solid var(--border,#e5e7eb);border-radius:15px;padding:20px 18px;position:relative;overflow:hidden}
+.saha-stat::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--gold,#d4a017)}
+.saha-stat--clay::before{background:var(--clay,#a83244)}
+.saha-stat--sage::before{background:var(--sage,#8a9a7b)}
+.saha-stat__num{font-family:'Lora',serif;font-size:2.1rem;font-weight:700;color:var(--clay,#a83244);line-height:1}
+.saha-stat--gold .saha-stat__num{color:#a37d0c}
+.saha-stat--sage .saha-stat__num{color:#5f6e52}
+.saha-stat__label{font-size:.82rem;color:var(--ink,#2c2724);font-weight:700;margin-top:9px;line-height:1.35}
+.saha-stat__sub{font-size:.72rem;color:var(--slate,#64748b);margin-top:5px;line-height:1.4}
+.saha-stat--card{grid-column:span 2;background:linear-gradient(135deg,rgba(168,50,68,.05),rgba(212,160,23,.05))}
+.saha-stat--card::before{background:var(--clay-deep,#7d2433)}
+.saha-stat__cardval{font-family:'Lora',serif;font-size:1.12rem;font-weight:600;color:var(--clay-deep,#7d2433);margin-top:7px;line-height:1.35}
+.saha-widget__foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;margin-top:18px;padding-top:15px;border-top:1px solid var(--border,#e5e7eb);font-size:.74rem;color:var(--slate,#64748b);font-weight:600}
+.saha-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:middle}
+.saha-dot--live{background:var(--sage,#8a9a7b)} .saha-dot--fallback{background:var(--gold,#d4a017)}
+@media(max-width:900px){.saha-grid{grid-template-columns:repeat(2,1fr)}.saha-stat--card{grid-column:span 2}}
+@media(max-width:480px){.saha-grid{grid-template-columns:1fr}.saha-stat--card{grid-column:span 1}}
+
+/* Penanda DRAFT (briefing placeholder-first) */
+.sh-draft-pill{ position:fixed; bottom:14px; right:14px; z-index:99999; background:#7d2433; color:#fff;
+  font-family:'Manrope',sans-serif; font-weight:700; font-size:12px; padding:9px 15px; border-radius:100px;
+  box-shadow:0 6px 20px rgba(125,36,51,.35); display:flex; align-items:center; gap:8px; }
+.sh-draft-pill .dot{ width:8px;height:8px;border-radius:50%;background:#e9c869; }
+.sh-draft-ribbon{ display:inline-flex; align-items:center; gap:7px; margin:0 0 14px; background:rgba(212,160,23,.14);
+  border:1px solid rgba(212,160,23,.45); color:#8a6608; font-family:'Manrope',sans-serif; font-weight:700;
+  font-size:11px; letter-spacing:.05em; text-transform:uppercase; padding:6px 12px; border-radius:8px; }
+</style>
+<style id="sh-topnav">
+html,body{height:auto !important;overflow:visible !important;}
+html,body{overflow-x:hidden !important;max-width:100% !important;}
+.content svg{max-width:100% !important;height:auto !important;}
+.content table{max-width:100%;display:block;overflow-x:auto;}
+img{max-width:100% !important;height:auto;}
+body{background:var(--cream,#fbf7f2);}
+.site-header{position:sticky;top:0;z-index:1000;background:var(--clay-deep,#7d2433);box-shadow:0 2px 14px rgba(125,36,51,.22);}
+.site-header__inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:0 24px;min-height:66px;}
+.site-brand{display:flex;flex-direction:column;text-decoration:none;line-height:1.12;margin-right:auto;cursor:pointer;}
+.site-brand__name{font-family:'Lora',Georgia,serif;font-weight:700;font-size:1.3rem;color:#fff;}
+.site-brand__tag{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.8);margin-top:3px;}
+.top-nav{display:flex;align-items:center;gap:2px;}
+.top-nav .nav-item{display:inline-flex;align-items:center;margin:0;padding:9px 12px;border-radius:8px;color:rgba(255,255,255,.86);text-decoration:none;font-family:var(--sans,'Manrope',sans-serif);font-weight:600;font-size:.88rem;white-space:nowrap;cursor:pointer;background:transparent;border:none;transition:.15s;}
+.top-nav .nav-item .icon{display:none;}
+.top-nav .nav-item:hover{background:rgba(255,255,255,.15);color:#fff;}
+.top-nav .nav-item.active{background:var(--gold,#d4a017);color:#4a3608;}
+.nav-toggle{display:none;background:transparent;border:1.5px solid rgba(255,255,255,.55);color:#fff;font-size:1.25rem;line-height:1;border-radius:8px;padding:7px 11px;cursor:pointer;}
+.content{max-width:1180px;margin:0 auto;padding:30px 24px 60px !important;overflow:visible !important;height:auto !important;background:transparent !important;flex:none !important;}
+.section{max-width:100% !important;}
+.site-footer{background:var(--clay-deep,#7d2433);color:rgba(255,255,255,.82);text-align:center;font-size:.82rem;line-height:1.6;padding:24px;margin-top:50px;}
+.site-footer strong{color:#fff;}
+.tim-feature-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:16px;}
+.tim-feature{display:flex;gap:15px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px;align-items:flex-start;}
+.tim-feature__photo{width:86px;height:86px;border-radius:50%;overflow:hidden;flex-shrink:0;background:var(--clay-light);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:25px;color:var(--clay-deep);}
+.tim-feature__photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.tim-feature__name{font-family:'Lora',Georgia,serif;font-weight:700;font-size:17px;color:var(--clay-deep);line-height:1.2;}
+.tim-feature__role{font-size:12px;color:var(--clay);font-weight:700;margin:3px 0 8px;}
+.tim-feature__bio{font-size:12.5px;color:var(--slate);line-height:1.55;}
+@media(max-width:520px){.tim-feature{flex-direction:column;align-items:center;text-align:center;}}
+@media(max-width:880px){
+  .site-header__inner{flex-wrap:wrap;gap:10px;min-height:56px;padding:10px 18px;}
+  .nav-toggle{display:inline-block;order:2;}
+  .top-nav{display:none;order:3;flex-direction:column;align-items:stretch;width:100%;gap:3px;padding-bottom:8px;}
+  .top-nav.open{display:flex;}
+  .top-nav .nav-item{width:100%;padding:12px 14px;font-size:.95rem;}
+  .content{padding:20px 16px 40px !important;}
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+<div class="site-header__inner">
+<a class="site-brand" id="siteBrand" href="/"><span class="site-brand__name">Sadar Hati Foundation</span><span class="site-brand__tag">est. 2002 · Malang, Jawa Timur</span></a>
+<button class="nav-toggle" id="navToggle" aria-label="Menu">&#9776;</button>
+<nav class="top-nav" id="topNav">
+<a class="nav-item" href="/">About</a>
+<a class="nav-item" href="/program">Program</a>
+<a class="nav-item" href="/sahawood">SAHAWOOD</a>
+<a class="nav-item" href="/tim">Tim</a>
+<a class="nav-item" href="/data">Data & Milestone</a>
+<a class="nav-item" href="/report">Report</a>
+<a class="nav-item" href="/materi">Materi</a>
+<a class="nav-item active" href="/gallery">Gallery</a>
+<a class="nav-item" href="/kontak">Kontak</a>
+</nav>
+</div>
+</header>
+<main class="content">
+<section class="section active" id="l1-gallery">
+<div class="hero">
+<div class="eyebrow">Gallery</div>
+<h1>🖼️ Galeri Kegiatan Sadar Hati</h1>
+<p class="lede">Dokumentasi visual perjalanan Sadar Hati lintas era — sebagai bagian dari komitmen transparansi institusional. Setiap event diabadikan untuk akuntabilitas mitra, donor, dampingan, dan komunitas. <strong>2.622+ foto</strong> ter-archive di arsip era HCPI 2011-2014.</p>
+</div>
+<div style="display:flex; gap:24px; align-items:center; margin:18px 0; padding:14px 20px; background:white; border:1px solid var(--border); border-radius:10px;">
+<div style="text-align:center;"><div style="font-family:'Lora',serif; font-size:32px; font-weight:700; color:var(--clay);">2.622</div><div style="font-size:11px; color:var(--slate); letter-spacing:1px; text-transform:uppercase;">Total Foto Terarsip</div></div>
+<div style="text-align:center;"><div style="font-family:'Lora',serif; font-size:32px; font-weight:700; color:var(--sage-deep);">25+</div><div style="font-size:11px; color:var(--slate); letter-spacing:1px; text-transform:uppercase;">Kategori Event</div></div>
+<div style="text-align:center;"><div style="font-family:'Lora',serif; font-size:32px; font-weight:700; color:var(--coral-deep);">2009-2014</div><div style="font-size:11px; color:var(--slate); letter-spacing:1px; text-transform:uppercase;">Period Era HCPI</div></div>
+
+</div>
+
+<div style="background: linear-gradient(135deg, var(--gold-tint) 0%, var(--cream-warm) 100%); border-left: 4px solid var(--coral-deep); padding: 14px 20px; border-radius: 6px; margin: 20px 0; display: flex; gap: 14px; align-items: flex-start;">
+<span style="font-size: 24px;">⚠️</span>
+
+</div>
+<h2 class="section-h2">🖼️ Photo Gallery (DRAFT) — 5 Categories × 5 Photos · 25 Curated</h2>
+<p style="font-size: 12.5px; color: var(--slate); line-height: 1.6; margin: 8px 0 18px 0; font-style: italic;">5 kategori thematic (atas→bawah <strong>1-5</strong>), masing-masing 5 foto (kiri→kanan natural scan). <strong>Click thumbnail untuk lihat foto besar.</strong> Semua foto cross-verified via image recognition — fokus pada <em>storytelling visual tanpa caption</em>: aktivitas grup, event mass, banner/kontent terlihat. Timestamp era ditampilkan pojok kanan atas per thumbnail.</p>
+<style>
+          /* Gallery row: 1 title left + 5 thumbnails right */
+          .gallery-row {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 18px;
+            margin: 22px 0;
+            padding: 16px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            align-items: stretch;
+          }
+          @media (max-width: 900px) {
+            .gallery-row { grid-template-columns: 1fr; }
+          }
+          .gallery-row .row-title {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 14px;
+            border-radius: 8px;
+            color: white;
+            position: relative;
+          }
+          .gallery-row .row-title .cat-num {
+            font-size: 11px;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            opacity: 0.88;
+            margin-bottom: 6px;
+            font-weight: 700;
+          }
+          .gallery-row .row-title .big-row-num {
+            position: absolute;
+            top: 10px;
+            right: 14px;
+            font-family: 'Lora', Georgia, serif;
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1;
+            color: rgba(255,255,255,0.18);
+            pointer-events: none;
+          }
+          .gallery-row .thumb-item .ts-badge {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            font-size: 9.5px;
+            font-weight: 700;
+            padding: 3px 7px;
+            border-radius: 10px;
+            letter-spacing: 0.3px;
+            z-index: 2;
+            backdrop-filter: blur(2px);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+          }
+          .gallery-row .row-title h3 {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 17px;
+            font-weight: 700;
+            margin: 0 0 6px 0;
+            color: white;
+            line-height: 1.25;
+          }
+          .gallery-row .row-title .meta {
+            font-size: 11px;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.45;
+          }
+          .gallery-row .row-thumbs {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+          }
+          @media (max-width: 720px) {
+            .gallery-row .row-thumbs { grid-template-columns: repeat(3, 1fr); }
+          }
+          .gallery-row .thumb-item {
+            cursor: pointer;
+            border-radius: 6px;
+            overflow: hidden;
+            aspect-ratio: 1/1;
+            position: relative;
+            transition: transform 0.18s, box-shadow 0.18s;
+            background: var(--cream);
+          }
+          .gallery-row .thumb-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+          }
+          .gallery-row .thumb-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+          }
+          .gallery-row .thumb-item::after {
+            content: "🔍";
+            position: absolute;
+            bottom: 4px;
+            right: 4px;
+            background: rgba(0,0,0,0.55);
+            color: white;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 0.18s;
+          }
+          .gallery-row .thumb-item:hover::after { opacity: 1; }
+
+          /* Lightbox modal */
+          .lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            cursor: zoom-out;
+          }
+          .lightbox.active { display: flex; }
+          .lightbox img {
+            max-width: 95vw;
+            max-height: 90vh;
+            border-radius: 8px;
+            box-shadow: 0 12px 48px rgba(0,0,0,0.6);
+            cursor: default;
+          }
+          .lightbox-caption {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: white;
+            font-size: 13px;
+            padding: 12px 24px;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.7);
+          }
+          .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 28px;
+            color: white;
+            font-size: 32px;
+            font-weight: 700;
+            cursor: pointer;
+            line-height: 1;
+            background: rgba(255,255,255,0.1);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.18s;
+          }
+          .lightbox-close:hover { background: rgba(255,255,255,0.25); }
+        </style>
+
+<div class="gallery-row">
+<div class="row-title" style="background: linear-gradient(135deg, #6b4d7a 0%, #4a3358 100%);">
+<span class="big-row-num">1</span>
+<div class="cat-num">Category 1 · USAID Era</div>
+<h3>🎓 SUM Capacity Building</h3>
+<div class="meta">USAID-funded organizational strengthening — Sadar Hati team workshops, team-building, strategic meetings &amp; advocacy content development</div>
+</div>
+<div class="row-thumbs">
+<div class="thumb-item" data-caption="Sadar Hati team menggunakan laptop dalam SUM Capacity Building workshop · multi-participant hands-on training session · 2011-2012" onclick="openLightbox(this)">
+<span class="ts-badge">📅 2011-12</span>
+<img alt="Sadar Hati team group laptop training" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/01_SUM_Capacity_Building_Era/01A_Group_Laptops_Training.JPG"/>
+</div>
+<div class="thumb-item" data-caption='5 Sadar Hati team members dalam workshop saung · 1 presenter dengan mic + 4 listeners · staff t-shirt "Saya Siap" terlihat · interactive learning session · SUM Capacity Building era 2011-2012' onclick="openLightbox(this)">
+<span class="ts-badge">📅 2011-12</span>
+<img alt="Sadar Hati team workshop with mic" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/01_SUM_Capacity_Building_Era/01B_v2_Team_Workshop_Mic.JPG"/>
+</div>
+<div class="thumb-item" data-caption="Workshop icebreaker · participants dengan PERLINE materials · ice-breaking stretching session · SUM Capacity Building 2012" onclick="openLightbox(this)">
+<span class="ts-badge">📅 2012</span>
+<img alt="Workshop icebreaker" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/01_SUM_Capacity_Building_Era/01C_Workshop_Icebreaker.JPG"/>
+</div>
+<div class="thumb-item" data-caption="Strategic meeting · 4-person diskusi · western consultant + Sadar Hati team · interview/strategy session · SUM era" onclick="openLightbox(this)">
+<span class="ts-badge">📅 2011-12</span>
+<img alt="Strategic meeting western consultant" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/01_SUM_Capacity_Building_Era/01D_Strategic_Meeting.JPG"/>
+</div>
+<div class="thumb-item" data-caption='Flipchart "Advokasi Kab Malang · Pedoman Pelaksanaan PEKDA HIV &amp; AIDS" · workshop output content · Renstra KPA Kab Mlg · strategi advokasi Kab Malang HIV PERDA · 2011-2012' onclick="openLightbox(this)">
+<span class="ts-badge">📅 2011-12</span>
+<img alt="Advokasi PERDA HIV flipchart" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/01_SUM_Capacity_Building_Era/01E_Advokasi_PERDA_Flipchart.JPG"/>
+</div>
+</div>
+</div>
+
+<div class="gallery-row">
+<div class="row-title" style="background: linear-gradient(135deg, var(--clay) 0%, var(--clay-deep) 100%);">
+<span class="big-row-num">2</span>
+<div class="cat-num">Category 2 · Era 2009-2012</div>
+<h3>🎗️ Public Mass Events &amp; Advocacy</h3>
+<div class="meta">World AIDS Day · Hari AIDS Sedunia · TB Day Public Action · educational distribution · cultural performance · mass mobilization</div>
+</div>
+<div class="row-thumbs">
+<div class="thumb-item" data-caption="TB Day Public Action · crowd of activists outdoor distributing leaflets · public health advocacy · turun jalan TB-HIV co-infection awareness · Kota Malang" onclick="openLightbox(this)">
+<span class="ts-badge">📅 24 Mar</span>
+<img alt="TB Day public action crowd outdoor" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/08_TB_Day_Public_Action/IMG_0268_public_action_crowd.JPG"/>
+</div>
+<div class="thumb-item" data-caption='World AIDS Day 2009 · komunitas dampingan + family gathering · boy with awareness t-shirt "WHAT DO YOU KNOW ABOUT HIV AIDS?" · era FHI ASA · Desember 2009' onclick="openLightbox(this)">
+<span class="ts-badge">📅 Des 2009</span>
+<img alt="WAD 2009 boy + community + family" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/06_World_AIDS_Day_2009/DSC08305.JPG"/>
+</div>
+<div class="thumb-item" data-caption="World AIDS Day 2009 · pertemuan komunitas perempuan + keluarga dampingan dalam saung · circle discussion · era FHI ASA · Desember 2009" onclick="openLightbox(this)">
+<span class="ts-badge">📅 Des 2009</span>
+<img alt="WAD 2009 community circle" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/06_World_AIDS_Day_2009/DSC08304.JPG"/>
+</div>
+<div class="thumb-item" data-caption='"SARASEHAN HARI AIDS SEDUNIA TAHUN 2012 — Dengan Tema: Lindungi Perempuan dan Anak dari HIV/AIDS" · KOMISI PENANGGULANGAN AIDS KOTA MALANG · speaker dengan peci di podium + panelist desk visible · Malang 29 November 2012' onclick="openLightbox(this)">
+<span class="ts-badge">📅 29 Nov 2012</span>
+<img alt="HAS 2012 Sarasehan speaker banner" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/02_HAS_2012/MG_1474_Sarasehan_HAS_speaker.jpg"/>
+</div>
+<div "jangan="" action'="" activist="" advocacy="" banner="" class="thumb-item" data-caption='Pernas Jogja 2012 · "Women Won\' di="" installation="" kami"="" mass="" nasional="" onclick="openLightbox(this)" pertemuan="" photographing="" placard="" potong="" public="" rahim="" setup="" space="" t="" wait"="" yogyakarta="" ·="">
+<span class="ts-badge">📅 2012</span>
+<img alt="Women Won't Wait banner installation Pernas Jogja" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/05_Pernas_Yogyakarta/IMG_6492_WW_banner_installation.JPG"/>
+</div>
+</div>
+</div>
+
+<div class="gallery-row">
+<div class="row-title" style="background: linear-gradient(135deg, var(--sage) 0%, var(--sage-deep) 100%);">
+<span class="big-row-num">3</span>
+<div class="cat-num">Category 3 · Era 2011-2012</div>
+<h3>📚 Training &amp; Capacity Building</h3>
+<div class="meta">TB-HIV integrated workshop · HR methodology role-play · KDS family-inclusive · Paralegal training · cross-discipline programs</div>
+</div>
+<div class="row-thumbs">
+<div class="thumb-item" data-caption='Skill Building TB-HIV Workshop · banner "Pendidik Pengobatan TB-HIV" + multiple participants U-shape table + presenter at flipchart · 13-14 Juli 2012 · Hotel Pasiar Asri Surabaya · jejaring LSM HR Jatim' onclick="openLightbox(this)">
+<span class="ts-badge">📅 13-14 Jul</span>
+<img alt="TB-HIV Workshop banner participants" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/04_Pelatihan_TB/P1010468_workshop_full.JPG"/>
+</div>
+<div class="thumb-item" data-caption='Harm Reduction Training · role-play workshop · 2 facilitator dengan mic + whiteboard "Pengetahuan" sticky notes · cross-city methodology exchange Yogyakarta · 2011-2012' onclick="openLightbox(this)">
+<span class="ts-badge">📅 2011-12</span>
+<img alt="HR Training Yogyakarta role-play" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/09_HR_Training_Yogyakarta/IMG_0739.JPG"/>
+</div>
+<div class="thumb-item" data-caption="Pelatihan KDS (Kelompok Dukungan Sebaya) · group photo · family-inclusive · ibu memegang anak + child sitting · sistem support sebaya peer-to-peer · 2011-2012" onclick="openLightbox(this)">
+<span class="ts-badge">📅 2011-12</span>
+<img alt="KDS family-inclusive group" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/13_Pelatihan_KDS/IMG_1140.JPG"/>
+</div>
+<div class="thumb-item" data-caption="Pelatihan Mahasiswa · sesi diskusi mahasiswa magang + tim lapangan di warung · academic-practitioner exchange informal · 11 Oktober 2012" onclick="openLightbox(this)">
+<span class="ts-badge">📅 11 Okt 2012</span>
+<img alt="Pelatihan Mahasiswa academic" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/14_Pelatihan_Mahasiswa/20121011_125526.jpg"/>
+</div>
+<div class="thumb-item" data-caption='Paralegal Training · 4 women participants + banner "BUILDING KNOWLEDGE ABOUT HIV AND AIDS" · organizational logos FHI Family Health International · legal advocacy capacity building · 20 September 2011' onclick="openLightbox(this)">
+<span class="ts-badge">📅 20 Sep 2011</span>
+<img alt="Paralegal Training 4 women banner" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/07_Paralegal_Training/SDC18349.JPG"/>
+</div>
+</div>
+</div>
+
+<div class="gallery-row">
+<div class="row-title" style="background: linear-gradient(135deg, #c47a3b 0%, #8a4d1f 100%);">
+<span class="big-row-num">4</span>
+<div class="cat-num">Category 4 · Era 2011-2012</div>
+<h3>🚐 Mobile VCT &amp; Outreach Lapangan</h3>
+<div class="meta">Layanan keliling komunitas · paket pencegahan · RT/RW grassroots · shelter operasional · field engagement multi-stakeholder</div>
+</div>
+<div class="row-thumbs">
+<div class="thumb-item" data-caption="Mobile VCT Community · layanan VCT keliling di rumah komunitas Sukun · konselor (hijab + headphones) + petugas lapangan · multi-person service delivery · Kota Malang · 20 Oktober 2011" onclick="openLightbox(this)">
+<span class="ts-badge">📅 20 Okt 2011</span>
+<img alt="Mobile VCT Sukun" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/15_Mobile_VCT_Sukun_RSI/SDC18617.JPG"/>
+</div>
+<div class="thumb-item" data-caption="Pertemuan RT/RW · grassroots engagement evening meeting · pemuka warga dengan peci + microphone · sosialisasi HR ke neighborhood structure · 27 Mei 2012 · Gempol Pasuruan" onclick="openLightbox(this)">
+<span class="ts-badge">📅 27 Mei 2012</span>
+<img alt="RT/RW Gempol grassroots" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/11_RT_RW_Gempol/120527_193911.jpg"/>
+</div>
+<div class="thumb-item" data-caption="Shelter Sadar Hati Pandaan · sosialisasi shelter operasional · expansion ke Kab Pasuruan beyond DIC Malang · 13 September 2012" onclick="openLightbox(this)">
+<span class="ts-badge">📅 13 Sep 2012</span>
+<img alt="Shelter Pandaan sosialisasi" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/10_Shelter_Pandaan/20120913_140638.jpg"/>
+</div>
+<div class="thumb-item" data-caption="Pertemuan BNN · peer outreach session di warung · diskusi multi-stakeholder dengan dokumen di meja · 23 Mei 2012" onclick="openLightbox(this)">
+<span class="ts-badge">📅 23 Mei 2012</span>
+<img alt="Pertemuan BNN peer outreach" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/12_Pertemuan_BNN/IMG_1480.JPG"/>
+</div>
+<div class="thumb-item" data-caption="Paket Pencegahan · distribusi paket kondom + IEC + materi edukasi ke dampingan · field outreach standard protocol Sadar Hati" onclick="openLightbox(this)">
+<span class="ts-badge">📅 2011-12</span>
+<img alt="Paket Pencegahan distribusi" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/16_Paket_Pencegahan/Image071.jpg"/>
+</div>
+</div>
+</div>
+
+<div class="gallery-row">
+<div class="row-title" style="background: linear-gradient(135deg, var(--clay-deep) 0%, #5a1521 100%);">
+<span class="big-row-num">5</span>
+<div class="cat-num">Category 5 · Era 2011-2012</div>
+<h3>🤝 Peer Support Groups &amp; Komunitas</h3>
+<div class="meta">KPK Dewandaru · Support Group Pandaan · FGD multi-stakeholder · Dokumenter HCPI · sistema dukungan sebaya peer-to-peer model Sadar Hati signature</div>
+</div>
+<div class="row-thumbs">
+<div class="thumb-item" data-caption='KPK Dewandaru · "Kita Peduli Kami" support group meeting di Dewandaru restaurant · venue komunitas · group photo · 2011-2012' onclick="openLightbox(this)">
+<span class="ts-badge">📅 2011-12</span>
+<img alt="KPK Dewandaru group" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/17_KPK_Dewandaru/DSC00807.jpg"/>
+</div>
+<div class="thumb-item" data-caption="Support Group Pasuruan · pertemuan rutin SG · suasana intim komunitas · blue tarp peer gathering on floor · bukti reach wilayah Pasuruan · 2011-2012 Pandaan" onclick="openLightbox(this)">
+<span class="ts-badge">📅 2011-12</span>
+<img alt="SG Pandaan blue tarp" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/18_SG_Pandaan/ABCD0001.JPG"/>
+</div>
+<div class="thumb-item" data-caption="FGD BNN · Focus Group Discussion bersama BNN · methodology exchange multi-stakeholder · 2011-2012" onclick="openLightbox(this)">
+<span class="ts-badge">📅 2011-12</span>
+<img alt="FGD BNN" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/19_FGD_BNN/Image1308.jpg"/>
+</div>
+<div class="thumb-item" data-caption="Dokumenter HCPI · keseharian operasional Sadar Hati era HCPI · field documentation · 2011-2012" onclick="openLightbox(this)">
+<span class="ts-badge">📅 2011-12</span>
+<img alt="Dokumenter HCPI" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/03_Dokumenter_HCPI/090712-1506(002).jpg"/>
+</div>
+<div class="thumb-item" data-caption="Brochure event photos · Kita Peduli Kami (Klmpk Pecandu) · visual untuk brochure marketing material · 2011-2012" onclick="openLightbox(this)">
+<span class="ts-badge">📅 2011-12</span>
+<img alt="Brochure KPK event" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/20_Brochure_Event_Photos/Kita%20Peduli%20Kami%20(Klmpk%20Pecandu).JPG"/>
+</div>
+</div>
+</div>
+
+<div class="lightbox" id="photoLightbox" onclick="closeLightbox(event)">
+<span class="lightbox-close" onclick="closeLightbox(event)">×</span>
+<img alt="" id="lightboxImage" src=""/>
+<div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+<script>
+          function openLightbox(thumbItem) {
+            const img = thumbItem.querySelector('img');
+            const caption = thumbItem.dataset.caption || '';
+            const lightbox = document.getElementById('photoLightbox');
+            document.getElementById('lightboxImage').src = img.src;
+            document.getElementById('lightboxImage').alt = img.alt;
+            document.getElementById('lightboxCaption').textContent = caption;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+          }
+          function closeLightbox(event) {
+            if (event.target.id === 'lightboxImage') return; // clicking image itself doesn't close
+            const lightbox = document.getElementById('photoLightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+          }
+          // ESC key closes lightbox
+          document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+              const lightbox = document.getElementById('photoLightbox');
+              if (lightbox.classList.contains('active')) closeLightbox({ target: lightbox });
+            }
+          });
+        </script>
+
+<div style="background: var(--cream-warm); border-left: 3px solid var(--sage); padding: 12px 18px; border-radius: 6px; margin: 22px 0; font-size: 12px; color: var(--slate); line-height: 1.6;">
+<strong>📋 Catatan curation:</strong> 10 foto di atas dipilih dari 20 kategori event awal melalui image recognition verification — hanya foto yang visual content-nya match dengan tagline yang dipertahankan. <strong>10 kategori lain di-skip</strong> karena (a) foto isi tidak match tagline (mis. folder yang ternyata berisi foto pernikahan tradisional yang tidak relevan operasional), atau (b) interior DIC routine tanpa konteks event spesifik. <strong>Nama personal tim lama tidak ditampilkan</strong> sesuai sensitivity rule.
+        </div>
+<h2 class="section-h2">📅 Sample Event Archive (representative selection)</h2>
+<div class="cards">
+<div class="card" style="background:var(--clay-tint); border-color:var(--clay);">
+<div class="label">🎗️ World AIDS Day 2009</div>
+<div class="value" style="font-size:18px;">WW WAD 2009</div>
+<div class="desc">68 foto · Public mass event komunitas Sadar Hati untuk Hari AIDS Sedunia 2009. Kolaborasi dengan KPA Kota Malang + Dinkes.</div>
+</div>
+<div class="card" style="background:var(--clay-tint); border-color:var(--clay);">
+<div class="label">🎗️ Hari AIDS Sedunia 2012</div>
+<div class="value" style="font-size:18px;">HAS 2012</div>
+<div class="desc">511 foto · Event terbesar Sadar Hati 2012 · 1 Desember 2012 · Jalan Sehat + advocacy public Kota Malang</div>
+</div>
+<div class="card" style="background:var(--sage-light); border-color:var(--sage);">
+<div class="label">🦠 TB Day Public Action</div>
+<div class="value" style="font-size:18px;">TB Day</div>
+<div class="desc">60 foto · Aksi turun jalan TB Day · awareness TB-HIV co-infection di Kota Malang</div>
+</div>
+<div class="card" style="background:var(--sage-light); border-color:var(--sage);">
+<div class="label">📚 Pelatihan TB-HIV</div>
+<div class="value" style="font-size:18px;">Foto Pelat TB</div>
+<div class="desc">101 foto · Training sesi 18-module HIV-TB integrated untuk staff &amp; partner LSM</div>
+</div>
+<div class="card" style="background:var(--gold-tint); border-color:var(--coral-deep);">
+<div class="label">🏥 Mobile VCT Sukun</div>
+<div class="value" style="font-size:18px;">Mobile VCT</div>
+<div class="desc">15 foto · Mobile VCT (Voluntary Counseling &amp; Testing) di Sukun Kota Malang bersama RSI · 2011</div>
+</div>
+<div class="card" style="background:var(--gold-tint); border-color:var(--coral-deep);">
+<div class="label">👮 Pertemuan BNN</div>
+<div class="value" style="font-size:18px;">Pertemuan BNN</div>
+<div class="desc">40 foto · Koordinasi BNN PABM (Pemulihan Adiksi Berbasis Masyarakat) era 2011-2012</div>
+</div>
+<div class="card" style="background:var(--pink-tint); border-color:var(--clay-deep);">
+<div class="label">🤝 KPK at Dewandaru</div>
+<div class="value" style="font-size:18px;">KPK Dewandaru</div>
+<div class="desc">12 foto · Pertemuan support group "Kita Peduli Kami" di Dewandaru — venue komunitas</div>
+</div>
+<div class="card" style="background:var(--pink-tint); border-color:var(--clay-deep);">
+<div class="label">🤝 Support Group Pandaan</div>
+<div class="value" style="font-size:18px;">SG Pandaan</div>
+<div class="desc">11 foto · Support Group operasional di Kecamatan Pandaan Pasuruan — bukti reach Pasuruan</div>
+</div>
+<div class="card" style="background:var(--clay-light); border-color:var(--clay);">
+<div class="label">🏠 Sosialisasi Shelter Pandaan</div>
+<div class="value" style="font-size:18px;">Shelter Pandaan</div>
+<div class="desc">42 foto · Shelter Yayasan Sadar Hati operasional di Pandaan — confirms operational scope expansion</div>
+</div>
+<div class="card" style="background:var(--sage-tint); border-color:var(--sage);">
+<div class="label">🏘️ Pertemuan RT/RW Gempol</div>
+<div class="value" style="font-size:18px;">RT/RW Gempol</div>
+<div class="desc">40 foto · Community-level engagement dengan neighborhood leaders di Gempol Pasuruan</div>
+</div>
+<div class="card" style="background:var(--cream-warm); border-color:#d4a017;">
+<div class="label">⚖️ Paralegal Training</div>
+<div class="value" style="font-size:18px;">Paralegal</div>
+<div class="desc">63 + 15 foto · <strong>NEW DISCOVERY:</strong> Sadar Hati had paralegal training capacity — legal advocacy untuk dampingan</div>
+</div>
+<div class="card" style="background:var(--cream-warm); border-color:#d4a017;">
+<div class="label">🎓 Pelatihan Mahasiswa</div>
+<div class="value" style="font-size:18px;">Pelatihan Mhsw</div>
+<div class="desc">37 foto · Internship matrix engagement — mahasiswa psikologi/sosial magang di Sadar Hati</div>
+</div>
+<div class="card" style="background:var(--clay-tint); border-color:var(--clay);">
+<div class="label">📍 KPK Dewandaru &amp; Komunitas</div>
+<div class="value" style="font-size:18px;">foto dokumenter</div>
+<div class="desc">355 foto · Dokumentasi keseharian operasional Sadar Hati 2011-2012</div>
+</div>
+<div class="card" style="background:var(--sage-light); border-color:var(--sage);">
+<div class="label">📸 Koleksi Era SUM/USAID</div>
+<div class="value" style="font-size:18px;">Era SUM/USAID</div>
+<div class="desc">834 foto · Koleksi dari <strong>kontributor (SUM/USAID Regional Coordinator Malang)</strong> · documenting era SUM project 2011-2012</div>
+</div>
+<div class="card" style="background:var(--gold-tint); border-color:var(--coral-deep);">
+<div class="label">🎯 Jogja Pernas</div>
+<div class="value" style="font-size:18px;">jogjapernas</div>
+<div class="desc">83 foto · Pertemuan Nasional di Yogyakarta · network engagement nasional</div>
+</div>
+<div class="card" style="background:var(--gold-tint); border-color:var(--coral-deep);">
+<div class="label">🎓 HR Training Yogya</div>
+<div class="value" style="font-size:18px;">HR Training Yk</div>
+<div class="desc">45 foto · Harm Reduction training Yogyakarta · cross-city methodology exchange</div>
+</div>
+</div>
+<h2 class="section-h2">🗂️ Kategori Master untuk Gallery Lengkap</h2>
+<ol class="mission-list">
+<li><strong>Founding Era (2002-2008)</strong> — Photos founding tim, awal aktivitas Malang, ASA-FHI era</li>
+<li><strong>Era HCPI 2010-2014</strong> — bulk dari 2.622 foto era ini (current sample di atas)</li>
+<li><strong>Public Advocacy Events</strong> — HAS · TB Day · Jalan Sehat Peduli HIV 2009 · MRAN 2008</li>
+<li><strong>Internal Capacity Building</strong> — Training TB-HIV, MMT, Advokasi IDEA, Pernas OST</li>
+<li><strong>Support Group Activities</strong> — KPK Dewandaru, SG Pandaan, Want to Stop, Stay Clean, OHIDHA</li>
+<li><strong>Community Engagement</strong> — RT/RW meetings, BNN, Puskesmas, Kader PKK, Polda Jatim</li>
+<li><strong>Mobile Services</strong> — Mobile VCT Sukun, outreach hotspot Kota Malang/Pasuruan</li>
+<li><strong>Service Operations</strong> — DIC (Drop In Center), Shelter Pandaan, PTRM Klinik</li>
+<li><strong>Donor/Partner Events</strong> — HCPI · GF · SUM · BNN · SATUNAMA · Penabulu · Surveymeter visits</li>
+<li><strong>ViiV Era 2022-now</strong> — Chemsex education · ADHA support · current activities (in sadarhati.org existing)</li>
+</ol>
+
+
+</section>
+</main>
+<footer class="site-footer">© 2002–2026 · <strong>Yayasan Sadar Hati</strong> · Malang, Jawa Timur · Harm Reduction &amp; Pendampingan</footer>
+<script>(function(){var t=document.getElementById("navToggle"),n=document.getElementById("topNav");if(t&&n)t.addEventListener("click",function(){n.classList.toggle("open");});})();</script>
+</body>
+</html>

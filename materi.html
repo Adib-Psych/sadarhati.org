@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="description" content="Arsip 500+ materi training Sadar Hati sejak 2009 — modul HIV-TB, harm reduction, advokasi; fondasi Learning Management System (LMS) publik."/>
+<link rel="canonical" href="https://sadarhati.org/materi"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Sadar Hati Foundation"/>
+<meta property="og:title" content="Materi Training — Sadar Hati Foundation"/>
+<meta property="og:description" content="Arsip 500+ materi training Sadar Hati sejak 2009 — modul HIV-TB, harm reduction, advokasi; fondasi Learning Management System (LMS) publik."/>
+<meta property="og:url" content="https://sadarhati.org/materi"/>
+<meta name="twitter:card" content="summary"/>
+<title>Materi Training — Sadar Hati Foundation</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Lora:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    /* === HEART OF HOPE PALETTE === */
+    /* Sage (secondary · healing) — kept */
+    --sage: #5b7553;
+    --sage-deep: #3f5439;
+    --sage-light: #e8efe9;
+    --sage-tint: #f3f6f1;
+    /* Clay var-name now holds WINE (primary brand · "Sadar Hati" = heart) */
+    --clay: #a83244;
+    --clay-deep: #7a1f30;
+    --clay-light: #fce8ec;
+    --clay-tint: #fdf3f5;
+    /* Coral var-name now holds GOLD (accent · action) */
+    --coral: #d4a017;
+    --coral-deep: #a07c12;
+    /* Pink (soft · ADHA gentleness) — kept */
+    --pink: #e8a5a5;
+    --pink-tint: #f9e6e6;
+    /* Gold tint for Layer 3 PWA */
+    --gold-tint: #fcf5dd;
+    /* Navy (text · gravitas) — kept */
+    --navy: #1f2937;
+    --navy-soft: #334155;
+    /* Warm cream paper (bg shifted slightly warmer for wine harmony) */
+    --cream: #fef7f2;
+    --cream-warm: #fce8ec;
+    --slate: #64748b;
+    --slate-light: #cbd5e1;
+    --slate-lighter: #e2e8f0;
+    --border: #e5e7eb;
+    --paper: #ffffff;
+    --bg: #faf5f0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    color: var(--navy);
+    background: var(--bg);
+    font-size: 14px;
+    line-height: 1.5;
+    height: 100vh;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  .app { display: grid; grid-template-columns: 290px 1fr; height: 100vh; }
+
+  /* SIDEBAR */
+  .sidebar {
+    background: var(--cream);
+    border-right: 1px solid var(--slate-lighter);
+    display: flex; flex-direction: column;
+    overflow-y: auto;
+  }
+  .brand {
+    padding: 20px 18px;
+    background: linear-gradient(135deg, var(--clay) 0%, var(--clay-deep) 100%);
+    color: white;
+  }
+  .brand .logo {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 20px; font-weight: 700;
+    letter-spacing: -0.3px; line-height: 1.1;
+  }
+  .brand .est {
+    font-size: 10px; letter-spacing: 1.5px;
+    opacity: 0.85; margin-top: 4px;
+    text-transform: uppercase;
+  }
+  .brand .system-tag {
+    display: inline-block; margin-top: 12px;
+    font-size: 9px; padding: 3px 9px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 10px; letter-spacing: 0.6px;
+    text-transform: uppercase; font-weight: 600;
+  }
+
+  .nav { flex: 1; padding: 12px 8px; }
+  .nav-layer { margin-bottom: 8px; }
+  .nav-layer-header {
+    display: flex; align-items: center;
+    justify-content: space-between;
+    padding: 9px 12px; cursor: pointer;
+    border-radius: 6px; color: var(--navy);
+    font-weight: 700; font-size: 11px;
+    letter-spacing: 1.2px; text-transform: uppercase;
+    transition: background 0.15s;
+    user-select: none;
+  }
+  .nav-layer-header:hover { background: rgba(0,0,0,0.04); }
+  .nav-layer-header .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    margin-right: 8px;
+  }
+  .nav-layer-1 .dot, [data-layer="1"] .dot { background: var(--clay); }
+  .nav-layer-2 .dot, [data-layer="2"] .dot { background: var(--sage); }
+  .nav-layer-3 .dot, [data-layer="3"] .dot { background: var(--coral); }
+  .nav-layer-header .chevron {
+    font-size: 10px; color: var(--slate);
+    transition: transform 0.2s;
+  }
+  .nav-layer.expanded > .nav-layer-header .chevron { transform: rotate(90deg); }
+
+  .nav-items {
+    display: none;
+    margin: 4px 0 4px 22px;
+    border-left: 1.5px solid var(--slate-lighter);
+    padding-left: 6px;
+  }
+  .nav-layer.expanded > .nav-items { display: block; }
+  .nav-item {
+    display: flex; align-items: center;
+    padding: 7px 10px; cursor: pointer;
+    border-radius: 5px; color: var(--navy-soft);
+    font-size: 12.5px; font-weight: 500;
+    text-decoration: none; margin: 1px 0;
+    transition: all 0.15s; user-select: none;
+  }
+  .nav-item:hover { background: var(--clay-tint); color: var(--navy); }
+  .nav-item.active { background: var(--clay); color: white; font-weight: 600; }
+  .nav-overview {
+    background: white;
+    border: 1px solid var(--clay-light);
+    font-weight: 700;
+    margin-bottom: 3px;
+  }
+  .nav-overview:hover { background: var(--clay-tint); }
+  .nav-overview.active { background: var(--clay); color: white; border-color: var(--clay); }
+  .nav-overview + .nav-overview { margin-top: 0; }
+  .nav-overview + .nav-overview + .nav-divider-label { margin-top: 10px; }
+  .nav-divider-label {
+    font-size: 9.5px;
+    letter-spacing: 1.6px;
+    color: var(--slate);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 8px 8px 4px;
+  }
+  .nav-item.active .icon { opacity: 1; }
+  .nav-item .icon { margin-right: 7px; font-size: 12px; opacity: 0.75; }
+
+  .donor-group { margin: 4px 0; }
+  .donor-header {
+    display: flex; align-items: center;
+    justify-content: space-between;
+    padding: 6px 10px; cursor: pointer;
+    border-radius: 5px; font-size: 12.5px;
+    font-weight: 600; color: var(--navy);
+    user-select: none;
+  }
+  .donor-header:hover { background: var(--sage-tint); }
+  .donor-header .donor-name { display: flex; align-items: center; gap: 6px; flex: 1; }
+  .donor-header .donor-name::before {
+    content: ""; width: 6px; height: 6px;
+    background: var(--sage); border-radius: 50%;
+  }
+  .donor-badge {
+    font-size: 8.5px; padding: 2px 6px;
+    border-radius: 8px; letter-spacing: 0.5px;
+    font-weight: 700;
+  }
+  .donor-badge.active { background: var(--sage-light); color: var(--sage-deep); }
+  .donor-badge.hist { background: var(--clay-tint); color: var(--clay-deep); }
+
+  .donor-sub-items {
+    display: none;
+    margin: 2px 0 4px 14px;
+    border-left: 1.5px dashed var(--slate-lighter);
+    padding-left: 8px;
+  }
+  .donor-group.expanded > .donor-sub-items { display: block; }
+  .donor-sub-items .nav-item { font-size: 11.5px; padding: 5px 8px; }
+  .donor-group.expanded > .donor-header .donor-name::before { background: var(--coral); }
+  .donor-header .chevron { font-size: 10px; color: var(--slate); transition: transform 0.2s; margin-left: 6px; }
+  .donor-group.expanded > .donor-header .chevron { transform: rotate(90deg); }
+
+  .sidebar-footer {
+    padding: 12px 18px;
+    border-top: 1px solid var(--slate-lighter);
+    font-size: 10px; color: var(--slate);
+    background: var(--cream-warm);
+  }
+  .sidebar-footer .user {
+    display: flex; align-items: center;
+    gap: 8px; margin-bottom: 6px;
+  }
+  .sidebar-footer .avatar {
+    width: 28px; height: 28px;
+    background: var(--clay); color: white;
+    border-radius: 50%; display: flex;
+    align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 700;
+  }
+  .sidebar-footer .user-meta strong {
+    color: var(--navy); font-size: 11.5px;
+    display: block; font-weight: 700;
+  }
+
+  /* MAIN */
+  .main { display: flex; flex-direction: column; overflow: hidden; background: var(--paper); }
+  .topbar {
+    display: flex; justify-content: space-between;
+    align-items: center; padding: 14px 28px;
+    border-bottom: 1px solid var(--slate-lighter);
+    background: white;
+  }
+  .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--slate); flex-wrap: wrap; }
+  .breadcrumb .sep { color: var(--slate-light); }
+  .breadcrumb .current { color: var(--navy); font-weight: 600; }
+  .layer-tag {
+    font-size: 9.5px; padding: 3px 8px;
+    border-radius: 8px; letter-spacing: 0.6px;
+    text-transform: uppercase; font-weight: 700;
+  }
+  .layer-tag.l1 { background: var(--clay-tint); color: var(--clay-deep); }
+  .layer-tag.l2 { background: var(--sage-tint); color: var(--sage-deep); }
+  .layer-tag.l3 { background: var(--gold-tint); color: var(--coral-deep); }
+
+  .topbar-actions { display: flex; gap: 10px; }
+  .btn {
+    padding: 6px 14px; border-radius: 6px;
+    font-size: 12px; font-weight: 600; cursor: pointer;
+    border: 1px solid var(--slate-lighter);
+    background: white; color: var(--navy);
+    font-family: inherit;
+  }
+  .btn:hover { background: var(--cream); }
+  .btn.primary { background: var(--clay); color: white; border-color: var(--clay); }
+  .btn.primary:hover { background: var(--clay-deep); }
+
+  .content {
+    flex: 1; overflow-y: auto;
+    padding: 32px 36px; background: var(--bg);
+  }
+  .section { display: none; max-width: 1500px; width: 100%; }
+  .section.active { display: block; }
+  .section p { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+
+  .hero { margin-bottom: 24px; }
+  .hero .eyebrow {
+    font-size: 11px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--clay-deep);
+    font-weight: 700; margin-bottom: 8px;
+  }
+  .hero h1 {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 30px; color: var(--navy);
+    line-height: 1.15; margin-bottom: 8px;
+  }
+  .hero .lede {
+    font-size: 14px; color: var(--navy-soft);
+    line-height: 1.7;
+    text-align: justify; hyphens: auto;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px; margin-top: 18px;
+  }
+  .card {
+    background: white; border: 1px solid var(--border);
+    border-radius: 10px; padding: 18px 16px;
+    text-align: center;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+  }
+  .card .label {
+    font-size: 10.5px; letter-spacing: 1.4px;
+    color: var(--slate); font-weight: 700;
+    text-transform: uppercase; margin-bottom: 7px;
+  }
+  .card .value {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 26px; font-weight: 700;
+    color: var(--navy); line-height: 1.2;
+  }
+  .card .desc {
+    font-size: 12px; color: var(--slate);
+    margin-top: 7px; line-height: 1.45;
+  }
+
+  .placeholder-banner {
+    background: var(--sage-tint);
+    border: 1px dashed var(--sage);
+    border-radius: 8px; padding: 16px 20px;
+    margin-top: 22px; font-size: 13px;
+    color: var(--sage-deep);
+    display: flex; align-items: flex-start; gap: 12px;
+  }
+  .placeholder-banner .icon { font-size: 22px; line-height: 1; flex-shrink: 0; }
+  .placeholder-banner strong { color: var(--sage-deep); }
+
+  .placeholder-banner.archival {
+    background: var(--clay-tint);
+    border-color: var(--clay);
+    color: var(--clay-deep);
+  }
+  .placeholder-banner.archival strong { color: var(--clay-deep); }
+
+  .budget-row {
+    display: flex; align-items: center;
+    gap: 16px; padding: 13px 18px;
+    background: white; border: 1px solid var(--border);
+    border-radius: 8px; margin-bottom: 6px;
+    font-size: 13px;
+  }
+  .budget-row .item-name { flex: 1; font-weight: 600; }
+  .bar-track {
+    flex: 2; height: 8px; background: var(--slate-lighter);
+    border-radius: 4px; overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%; background: linear-gradient(90deg, var(--sage) 0%, var(--coral) 100%);
+    border-radius: 4px;
+  }
+  .bar-percent {
+    font-weight: 700; min-width: 50px;
+    text-align: right; color: var(--sage-deep);
+    font-size: 13px;
+  }
+
+  .report-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px; margin-top: 14px;
+  }
+  .report-card {
+    background: white; border: 1px solid var(--border);
+    border-radius: 8px; padding: 16px;
+    text-align: center; cursor: pointer;
+    transition: all 0.15s;
+  }
+  .report-card:hover {
+    border-color: var(--sage);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    transform: translateY(-1px);
+  }
+  .report-card .icon { font-size: 26px; margin-bottom: 6px; display: block; }
+  .report-card .title { font-weight: 700; font-size: 13px; color: var(--navy); }
+  .report-card .year { font-size: 11px; color: var(--slate); margin-top: 4px; }
+
+  .section-divider {
+    margin: 26px 0 14px;
+    font-size: 11px; letter-spacing: 1.5px;
+    color: var(--slate); font-weight: 700;
+    text-transform: uppercase;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-divider::after {
+    content: ""; flex: 1; height: 1px;
+    background: var(--slate-lighter);
+  }
+
+  /* PHONE MOCKUP */
+  .phone-mockup {
+    width: 290px; background: var(--navy);
+    border-radius: 32px; padding: 14px 8px 10px;
+    margin: 20px auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  }
+  .phone-notch {
+    width: 60px; height: 5px; background: #000;
+    border-radius: 3px; margin: 0 auto 8px;
+  }
+  .phone-screen {
+    background: white; border-radius: 20px;
+    height: 510px; padding: 14px 14px 8px;
+    display: flex; flex-direction: column;
+    overflow: hidden;
+  }
+  .phone-header {
+    font-size: 14px; font-weight: 700;
+    color: var(--navy); margin-bottom: 12px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .phone-header .sync-status {
+    font-size: 9px; padding: 2px 6px;
+    background: var(--sage-light); color: var(--sage-deep);
+    border-radius: 8px; font-weight: 600;
+  }
+  .phone-body { flex: 1; overflow: auto; }
+  .phone-tabs {
+    display: flex; border-top: 1px solid var(--slate-lighter);
+    padding-top: 6px; margin-top: 8px;
+    justify-content: space-around;
+  }
+  .phone-tab {
+    font-size: 9px; text-align: center;
+    color: var(--slate); padding: 2px 4px;
+  }
+  .phone-tab.active { color: var(--sage); font-weight: 700; }
+  .phone-tab .ic { font-size: 18px; display: block; margin-bottom: 1px; }
+
+  .form-row {
+    background: var(--cream);
+    padding: 8px 11px;
+    border-radius: 8px;
+    margin-bottom: 6px;
+  }
+  .form-row .label {
+    font-size: 9.5px; color: var(--slate);
+    text-transform: uppercase; letter-spacing: 0.8px;
+    font-weight: 700;
+  }
+  .form-row .input {
+    font-size: 12px; color: var(--navy);
+    margin-top: 2px; font-weight: 500;
+  }
+  .form-submit {
+    margin-top: 8px; width: 100%;
+    padding: 8px; background: var(--clay);
+    color: white; border: none;
+    border-radius: 8px; font-weight: 700;
+    font-size: 12px; cursor: pointer;
+  }
+
+  /* About — Theo quote */
+  .theo-quote-banner {
+    background: linear-gradient(135deg, var(--clay-light) 0%, var(--cream) 100%);
+    border-left: 4px solid var(--clay);
+    padding: 18px 24px;
+    border-radius: 0 10px 10px 0;
+    margin: 18px 0 24px;
+    position: relative;
+  }
+  .theo-quote-banner .quote-icon {
+    position: absolute;
+    top: 8px;
+    left: 14px;
+    font-family: 'Lora', Georgia, serif;
+    font-size: 56px;
+    color: var(--clay);
+    line-height: 0.7;
+    opacity: 0.4;
+  }
+  .theo-quote-banner p {
+    font-family: 'Lora', Georgia, serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--clay-deep);
+    line-height: 1.65;
+    padding-left: 36px;
+    margin: 0;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .theo-quote-banner p strong { color: var(--clay); font-style: normal; font-weight: 700; }
+  .theo-quote-banner .quote-attr {
+    margin-top: 10px;
+    padding-left: 36px;
+    font-size: 11px;
+    color: var(--slate);
+    font-style: italic;
+  }
+  .theo-quote-banner .quote-attr strong { color: var(--navy); font-style: normal; }
+
+  /* About — Founding story */
+  .founding-story { margin: 22px 0; }
+  .founding-story h2 {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 19px;
+    color: var(--navy);
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  .founding-story p {
+    font-size: 13.5px;
+    color: var(--navy-soft);
+    line-height: 1.75;
+    margin-bottom: 11px;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .founding-story p strong { color: var(--navy); font-weight: 700; }
+
+  .section-h2 {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 20px;
+    color: var(--navy);
+    margin: 30px 0 14px;
+    font-weight: 700;
+    padding-bottom: 8px;
+    border-bottom: 1.5px solid var(--clay-light);
+  }
+  .section-h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--slate);
+    font-weight: 700;
+    margin: 22px 0 10px;
+  }
+
+  /* Eras band */
+  .eras-band {
+    display: grid;
+    grid-template-columns: 1.2fr 3fr 5fr 3.5fr 2.5fr;
+    height: 72px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .era { padding: 10px 14px; display: flex; flex-direction: column; justify-content: center; }
+  .era-label { font-size: 10px; letter-spacing: 1.3px; text-transform: uppercase; font-weight: 800; opacity: 0.9; }
+  .era-name { font-size: 16px; font-weight: 700; margin-top: 2px; line-height: 1.15; }
+  .era-years { font-size: 12px; opacity: 0.9; margin-top: 2px; }
+  .era-1 { background: var(--cream-warm); color: var(--clay-deep); }
+  .era-2 { background: var(--sage-light); color: var(--sage-deep); }
+  .era-3 { background: var(--clay); color: white; }
+  .era-4 { background: var(--gold-tint); color: var(--coral-deep); }
+  .era-5 { background: var(--pink-tint); color: var(--clay-deep); }
+
+  /* Milestones */
+  .milestones {
+    display: grid;
+    grid-template-columns: repeat(25, 1fr);
+    margin: 10px 0 4px;
+    min-height: 150px;
+    align-items: end;
+    gap: 2px;
+  }
+  .ms { position: relative; padding: 0 2px; display: flex; flex-direction: column; justify-content: flex-end; }
+  .ms .bubble {
+    background: white;
+    border: 1.5px solid var(--clay);
+    border-radius: 6px;
+    padding: 8px 9px;
+    font-size: 11px;
+    line-height: 1.35;
+    color: var(--navy);
+    margin-bottom: 7px;
+    text-align: center;
+  }
+  .ms .bubble.sage { border-color: var(--sage); background: var(--sage-tint); }
+  .ms .bubble.gold { border-color: var(--coral-deep); background: var(--gold-tint); }
+  .ms .bubble.wine { border-color: var(--clay); background: var(--clay-light); }
+  .ms .bubble.pink { border-color: var(--clay-deep); background: var(--pink-tint); }
+  .ms .bubble.adib { background: var(--navy); color: white; border-color: var(--navy); }
+  .ms .bubble .title { font-weight: 700; font-size: 11.5px; display: block; margin-bottom: 3px; }
+  .ms .bubble .desc { font-size: 10px; color: var(--slate); line-height: 1.35; }
+  .ms .bubble.adib .desc { color: rgba(255,255,255,0.88); }
+  .ms .dot {
+    width: 11px; height: 11px; border-radius: 50%;
+    background: var(--clay); border: 2px solid white;
+    box-shadow: 0 0 0 1.5px var(--clay);
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+  .ms.sage .dot { background: var(--sage); box-shadow: 0 0 0 1.5px var(--sage); }
+  .ms.gold .dot { background: var(--coral-deep); box-shadow: 0 0 0 1.5px var(--coral-deep); }
+  .ms.adib .dot { background: var(--navy); box-shadow: 0 0 0 1.5px var(--navy); }
+
+  /* Timeline axis */
+  .timeline-axis {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(25, 1fr);
+    border-top: 2px solid var(--navy-soft);
+    padding-top: 6px;
+    margin-bottom: 4px;
+    height: 28px;
+  }
+  .tick {
+    border-left: 1px solid var(--slate-lighter);
+    font-size: 11.5px;
+    color: var(--slate);
+    padding: 2px 0 0 4px;
+    font-weight: 600;
+    text-align: left;
+  }
+  .tick.major { border-left: 1.5px solid var(--navy-soft); color: var(--navy); font-weight: 700; font-size: 12.5px; }
+
+  /* Swimlanes */
+  .swimlanes {
+    display: grid;
+    grid-template-columns: 230px 1fr;
+    background: var(--slate-lighter);
+    border-radius: 6px;
+    padding: 2px;
+    row-gap: 1px;
+    margin-top: 6px;
+  }
+  .sl-label {
+    background: white;
+    padding: 10px 14px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .sl-label .sub { font-size: 11px; font-weight: 500; color: var(--slate); margin-top: 2px; }
+  .sl-track {
+    background: white;
+    height: 40px;
+    display: grid;
+    grid-template-columns: repeat(25, 1fr);
+    align-items: center;
+  }
+  .sl-bar {
+    height: 26px; border-radius: 5px; display: flex;
+    align-items: center; justify-content: center;
+    font-size: 10.5px; font-weight: 700; color: white;
+    letter-spacing: 0.2px; padding: 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  /* Donor color system — 7 distinct hues, Heart of Hope harmonized.
+     Logic: GF R4 + R8 share purple family (sister grants, lighter/darker).
+            HCPI = wine-red flagship (era Australian Aid).
+            FHI = dusty teal (historical first entry).
+            SUM = burnt amber (cliff/warning).
+            BNN = sage (govt Indonesia).
+            ViiV = soft pink (current/contemporary). */
+  .sl-bar.fhi  { background: #5b8a8e; color: white; }              /* dusty teal */
+  .sl-bar.gf4  { background: #6b4d7a; color: white; }              /* plum (parent) */
+  .sl-bar.hcpi { background: var(--clay); color: white; }          /* wine-red flagship */
+  .sl-bar.gf8  { background: #8a6694; color: white; }              /* mauve (sister of R4) */
+  .sl-bar.sum  { background: #c47a3b; color: white; }              /* burnt amber — cliff */
+  .sl-bar.bnn  { background: var(--sage); color: white; }          /* sage green */
+  .sl-bar.viiv { background: var(--pink); color: var(--clay-deep); } /* soft pink current */
+
+  /* Helmet metaphor banner */
+  .helmet-banner {
+    background: var(--sage-tint);
+    border-radius: 8px;
+    padding: 18px 24px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 18px;
+    align-items: center;
+    margin: 24px 0;
+  }
+  .helmet-banner .icon { font-size: 42px; line-height: 1; }
+  .helmet-banner .text {
+    font-family: 'Lora', Georgia, serif;
+    font-style: italic;
+    font-size: 14.5px;
+    color: var(--sage-deep);
+    line-height: 1.7;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .helmet-banner .text strong { color: var(--sage-deep); font-style: normal; font-weight: 700; }
+  .helmet-banner .attr {
+    margin-top: 6px;
+    font-size: 10.5px;
+    font-style: normal;
+    color: var(--slate);
+    font-family: 'Manrope', sans-serif;
+  }
+
+  /* Mission list */
+  .mission-list {
+    list-style: none;
+    counter-reset: misi;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 4px;
+    max-width: 1400px;
+  }
+  .mission-list li {
+    counter-increment: misi;
+    background: white;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--clay);
+    border-radius: 6px;
+    padding: 13px 16px 13px 40px;
+    font-size: 13px;
+    color: var(--navy-soft);
+    line-height: 1.55;
+    position: relative;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .mission-list li::before {
+    content: counter(misi);
+    position: absolute;
+    left: 14px;
+    top: 11px;
+    width: 18px;
+    height: 18px;
+    background: var(--clay);
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 18px;
+    font-size: 10px;
+    font-weight: 800;
+  }
+
+  /* Founder tribute */
+  .founder-tribute {
+    background: linear-gradient(135deg, var(--navy) 0%, #2a3543 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin: 26px 0 18px;
+  }
+  .founder-tribute h2 {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 22px;
+    color: white;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+  .founder-tribute h2 .small {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--pink);
+    font-family: 'Manrope', sans-serif;
+    margin-bottom: 3px;
+    font-weight: 700;
+  }
+  .founder-tribute p {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.88);
+    line-height: 1.75;
+    margin-bottom: 11px;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .founder-tribute p strong { color: white; font-weight: 700; }
+  .founder-tribute .italic {
+    font-family: 'Lora', Georgia, serif;
+    font-style: italic;
+    color: var(--pink);
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 10px;
+    margin-top: 10px;
+  }
+
+  .source-attr {
+    margin-top: 18px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--slate-lighter);
+    font-size: 11px;
+    color: var(--slate);
+    font-style: italic;
+    line-height: 1.65;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .source-attr strong { color: var(--navy); font-style: normal; }
+
+  /* Tim section */
+  .tim-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 14px; margin-top: 16px;
+  }
+  .tim-card {
+    background: white; border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px; text-align: center;
+  }
+  .tim-avatar {
+    width: 60px; height: 60px; margin: 0 auto 10px;
+    border-radius: 50%; background: var(--sage-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; color: var(--sage-deep); font-weight: 700;
+  }
+  .tim-card.dirut .tim-avatar { background: var(--clay-light); color: var(--clay-deep); }
+  .tim-avatar { overflow: hidden; }
+  .tim-avatar img { width:100%; height:100%; object-fit:cover; display:block; }
+  .tim-name { font-weight: 700; font-size: 13px; }
+  .tim-role { font-size: 11px; color: var(--slate); margin-top: 2px; }
+
+</style>
+<style id="sh-public-overrides">
+/* Responsif: cegah overlap di layar sempit — desktop tetap 'sama persis' */
+@media (max-width: 900px){
+  .app{ grid-template-columns:1fr !important; height:auto !important; }
+  .sidebar{ height:auto !important; border-right:none; border-bottom:1px solid var(--slate-lighter); }
+  .main{ overflow:visible !important; height:auto !important; }
+  .content{ overflow:visible !important; height:auto !important; }
+  [style*="grid-template-columns"]{ grid-template-columns:1fr !important; }
+  [style*="display:flex"],[style*="display: flex"]{ flex-wrap:wrap; }
+}
+img{ max-width:100%; height:auto; }
+
+/* ===== Widget Impact Stats (public_stats) ===== */
+#saha-impact-widget{margin:8px 0 28px}
+.saha-widget{background:var(--paper,#fff);border:1px solid var(--border,#e5e7eb);border-radius:20px;padding:28px 30px;box-shadow:0 1px 2px rgba(44,39,36,.04),0 8px 24px rgba(125,36,51,.06)}
+.saha-widget__head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+.saha-eyebrow{font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--clay,#a83244)}
+.saha-widget__title{font-family:'Lora',Georgia,serif;font-size:1.6rem;font-weight:700;color:var(--clay-deep,#7d2433);margin-top:5px}
+.saha-badge{font-size:.66rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:100px;white-space:nowrap;align-self:center}
+.saha-badge--draft{background:rgba(212,160,23,.15);color:#8a6608;border:1px solid rgba(212,160,23,.45)}
+.saha-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.saha-stat{background:var(--cream,#fbf7f2);border:1px solid var(--border,#e5e7eb);border-radius:15px;padding:20px 18px;position:relative;overflow:hidden}
+.saha-stat::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--gold,#d4a017)}
+.saha-stat--clay::before{background:var(--clay,#a83244)}
+.saha-stat--sage::before{background:var(--sage,#8a9a7b)}
+.saha-stat__num{font-family:'Lora',serif;font-size:2.1rem;font-weight:700;color:var(--clay,#a83244);line-height:1}
+.saha-stat--gold .saha-stat__num{color:#a37d0c}
+.saha-stat--sage .saha-stat__num{color:#5f6e52}
+.saha-stat__label{font-size:.82rem;color:var(--ink,#2c2724);font-weight:700;margin-top:9px;line-height:1.35}
+.saha-stat__sub{font-size:.72rem;color:var(--slate,#64748b);margin-top:5px;line-height:1.4}
+.saha-stat--card{grid-column:span 2;background:linear-gradient(135deg,rgba(168,50,68,.05),rgba(212,160,23,.05))}
+.saha-stat--card::before{background:var(--clay-deep,#7d2433)}
+.saha-stat__cardval{font-family:'Lora',serif;font-size:1.12rem;font-weight:600;color:var(--clay-deep,#7d2433);margin-top:7px;line-height:1.35}
+.saha-widget__foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;margin-top:18px;padding-top:15px;border-top:1px solid var(--border,#e5e7eb);font-size:.74rem;color:var(--slate,#64748b);font-weight:600}
+.saha-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:middle}
+.saha-dot--live{background:var(--sage,#8a9a7b)} .saha-dot--fallback{background:var(--gold,#d4a017)}
+@media(max-width:900px){.saha-grid{grid-template-columns:repeat(2,1fr)}.saha-stat--card{grid-column:span 2}}
+@media(max-width:480px){.saha-grid{grid-template-columns:1fr}.saha-stat--card{grid-column:span 1}}
+
+/* Penanda DRAFT (briefing placeholder-first) */
+.sh-draft-pill{ position:fixed; bottom:14px; right:14px; z-index:99999; background:#7d2433; color:#fff;
+  font-family:'Manrope',sans-serif; font-weight:700; font-size:12px; padding:9px 15px; border-radius:100px;
+  box-shadow:0 6px 20px rgba(125,36,51,.35); display:flex; align-items:center; gap:8px; }
+.sh-draft-pill .dot{ width:8px;height:8px;border-radius:50%;background:#e9c869; }
+.sh-draft-ribbon{ display:inline-flex; align-items:center; gap:7px; margin:0 0 14px; background:rgba(212,160,23,.14);
+  border:1px solid rgba(212,160,23,.45); color:#8a6608; font-family:'Manrope',sans-serif; font-weight:700;
+  font-size:11px; letter-spacing:.05em; text-transform:uppercase; padding:6px 12px; border-radius:8px; }
+</style>
+<style id="sh-topnav">
+html,body{height:auto !important;overflow:visible !important;}
+html,body{overflow-x:hidden !important;max-width:100% !important;}
+.content svg{max-width:100% !important;height:auto !important;}
+.content table{max-width:100%;display:block;overflow-x:auto;}
+img{max-width:100% !important;height:auto;}
+body{background:var(--cream,#fbf7f2);}
+.site-header{position:sticky;top:0;z-index:1000;background:var(--clay-deep,#7d2433);box-shadow:0 2px 14px rgba(125,36,51,.22);}
+.site-header__inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:0 24px;min-height:66px;}
+.site-brand{display:flex;flex-direction:column;text-decoration:none;line-height:1.12;margin-right:auto;cursor:pointer;}
+.site-brand__name{font-family:'Lora',Georgia,serif;font-weight:700;font-size:1.3rem;color:#fff;}
+.site-brand__tag{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.8);margin-top:3px;}
+.top-nav{display:flex;align-items:center;gap:2px;}
+.top-nav .nav-item{display:inline-flex;align-items:center;margin:0;padding:9px 12px;border-radius:8px;color:rgba(255,255,255,.86);text-decoration:none;font-family:var(--sans,'Manrope',sans-serif);font-weight:600;font-size:.88rem;white-space:nowrap;cursor:pointer;background:transparent;border:none;transition:.15s;}
+.top-nav .nav-item .icon{display:none;}
+.top-nav .nav-item:hover{background:rgba(255,255,255,.15);color:#fff;}
+.top-nav .nav-item.active{background:var(--gold,#d4a017);color:#4a3608;}
+.nav-toggle{display:none;background:transparent;border:1.5px solid rgba(255,255,255,.55);color:#fff;font-size:1.25rem;line-height:1;border-radius:8px;padding:7px 11px;cursor:pointer;}
+.content{max-width:1180px;margin:0 auto;padding:30px 24px 60px !important;overflow:visible !important;height:auto !important;background:transparent !important;flex:none !important;}
+.section{max-width:100% !important;}
+.site-footer{background:var(--clay-deep,#7d2433);color:rgba(255,255,255,.82);text-align:center;font-size:.82rem;line-height:1.6;padding:24px;margin-top:50px;}
+.site-footer strong{color:#fff;}
+.tim-feature-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:16px;}
+.tim-feature{display:flex;gap:15px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px;align-items:flex-start;}
+.tim-feature__photo{width:86px;height:86px;border-radius:50%;overflow:hidden;flex-shrink:0;background:var(--clay-light);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:25px;color:var(--clay-deep);}
+.tim-feature__photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.tim-feature__name{font-family:'Lora',Georgia,serif;font-weight:700;font-size:17px;color:var(--clay-deep);line-height:1.2;}
+.tim-feature__role{font-size:12px;color:var(--clay);font-weight:700;margin:3px 0 8px;}
+.tim-feature__bio{font-size:12.5px;color:var(--slate);line-height:1.55;}
+@media(max-width:520px){.tim-feature{flex-direction:column;align-items:center;text-align:center;}}
+@media(max-width:880px){
+  .site-header__inner{flex-wrap:wrap;gap:10px;min-height:56px;padding:10px 18px;}
+  .nav-toggle{display:inline-block;order:2;}
+  .top-nav{display:none;order:3;flex-direction:column;align-items:stretch;width:100%;gap:3px;padding-bottom:8px;}
+  .top-nav.open{display:flex;}
+  .top-nav .nav-item{width:100%;padding:12px 14px;font-size:.95rem;}
+  .content{padding:20px 16px 40px !important;}
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+<div class="site-header__inner">
+<a class="site-brand" id="siteBrand" href="/"><span class="site-brand__name">Sadar Hati Foundation</span><span class="site-brand__tag">est. 2002 · Malang, Jawa Timur</span></a>
+<button class="nav-toggle" id="navToggle" aria-label="Menu">&#9776;</button>
+<nav class="top-nav" id="topNav">
+<a class="nav-item" href="/">About</a>
+<a class="nav-item" href="/program">Program</a>
+<a class="nav-item" href="/sahawood">SAHAWOOD</a>
+<a class="nav-item" href="/tim">Tim</a>
+<a class="nav-item" href="/data">Data & Milestone</a>
+<a class="nav-item" href="/report">Report</a>
+<a class="nav-item active" href="/materi">Materi</a>
+<a class="nav-item" href="/gallery">Gallery</a>
+<a class="nav-item" href="/kontak">Kontak</a>
+</nav>
+</div>
+</header>
+<main class="content">
+<section class="section active" id="l1-materi">
+<div class="hero">
+<div class="eyebrow">Materi Training</div>
+<h1>📚 Materi Training &amp; Pembelajaran</h1>
+<p class="lede">Sadar Hati Foundation memiliki arsip <strong>527+ materi training</strong> hasil akumulasi sejak 2009 — modul HIV-TB integrated, MMT, Advokasi, Pernas OST, Kemenkes guidelines, dan banyak lagi. Halaman ini akan dikembangkan menjadi <strong>LMS (Learning Management System)</strong> publik untuk capacity building komunitas, mahasiswa, dan praktisi.</p>
+</div>
+<h2 class="section-h2">📊 Snapshot Inventori Materi Training</h2>
+
+<div class="hero-stat sage">
+<div>
+<div class="big-label">Training Materials Archive</div>
+<div class="big-num">500+</div>
+</div>
+<div class="side">
+<h3>527 files cataloged · era 2009-2014 · 11 kategori</h3>
+<p>Arsip training Sadar Hati terorganisir dengan <strong>tracking ke sumber arsip</strong> per file. Bukan random collection — setiap materi punya filename, kategori, period, dan provenance jelas untuk audit transparency.</p>
+<p>Foundation untuk migrasi ke <strong>LMS (Learning Management System)</strong> publik. Roadmap 5-phase sudah ditetapkan (lihat section di bawah).</p>
+
+</div>
+</div>
+<div class="cards" style="margin-top:18px;">
+<div class="card"><div class="label">📁 Total Files</div><div class="value">527</div><div class="desc">Cataloged dengan metadata lengkap</div></div>
+<div class="card"><div class="label">📅 Period</div><div class="value" style="font-size:24px;">2009-2014</div><div class="desc">Akumulasi era ASA + HCPI</div></div>
+<div class="card"><div class="label">🗂️ Kategori Utama</div><div class="value">11</div><div class="desc">Lintas topik kesehatan, advokasi, methodology</div></div>
+<div class="card"><div class="label">📦 Format Files</div><div class="value" style="font-size:20px;">PPT · DOC · PDF</div><div class="desc">Plus PPTX · ZIP archives</div></div>
+</div>
+<h2 class="section-h2" style="margin-top:32px;">🎓 Kategori Modul (calon LMS modules)</h2>
+<p style="font-size:13px; color:var(--slate); line-height:1.6; margin:4px 0 14px 0;">6 kategori utama yang akan jadi modul LMS. <strong>🏆 Modul TB-HIV Integrated</strong> = flagship dengan 18 modules — paling siap untuk publish phase 1.</p>
+
+<div style="background: linear-gradient(135deg, var(--clay) 0%, var(--clay-deep) 100%); color: white; border-radius: 14px; padding: 24px 28px; margin: 14px 0; display: grid; grid-template-columns: 180px 1fr; gap: 24px; align-items: center; box-shadow: 0 6px 18px rgba(168,50,68,0.18);">
+<div>
+<div style="font-size: 10.5px; letter-spacing: 1.6px; text-transform: uppercase; opacity: 0.92; margin-bottom: 6px;">🧬 CURRICULUM FLAGSHIP</div>
+<div style="font-family: 'Lora', Georgia, serif; font-size: 72px; font-weight: 700; line-height: 1; color: white;">18</div>
+<div style="font-size: 13px; margin-top: 4px; opacity: 0.95;">integrated modules</div>
+</div>
+<div style="border-left: 2px solid rgba(255,255,255,0.35); padding-left: 24px;">
+<h3 style="font-family: 'Lora', Georgia, serif; font-size: 19px; font-weight: 600; margin: 0 0 8px 0; color: white;">Modul Pelatihan TB-HIV Integrated (Modul 1-48)</h3>
+<p style="font-size: 12.5px; line-height: 1.65; margin: 0; color: rgba(255,255,255,0.95);">Dasar HIV · ART · ARV &amp; Anak · HIV &amp; Perempuan · Infeksi Oportunistik · Perawatan Paliatif · Dasar TB · OAT · Resistansi · Kepatuhan · Tiga I · TB pada Anak · Gizi ART-TB — <strong>most comprehensive Indonesian HIV-TB curriculum era 2010s</strong>.</p>
+</div>
+</div>
+
+<div class="cards" style="margin-top:14px;">
+<div class="card" style="background:var(--gold-tint); border-color:#d4a017;">
+<div class="label">💊 Pernas OST 2012</div>
+<div class="value" style="font-size:18px;">8 files</div>
+<div class="desc">Kemenkes MMT · Riza Sarasvita · Robert Ali · PTRM_KPAN · Bupre Lesson Learned</div>
+</div>
+<div class="card" style="background:var(--cream-warm); border-color:var(--coral-deep);">
+<div class="label">📣 Advokasi IDEA 2012</div>
+<div class="value" style="font-size:18px;">8 files</div>
+<div class="desc">IDEA Jogja Sept 2012 · Cyber Activism · Hak Kewajiban Negara · Gender Budget</div>
+</div>
+<div class="card" style="background:var(--sage-light); border-color:var(--sage);">
+<div class="label">🇦🇺 HCPI Internal Training</div>
+<div class="value" style="font-size:18px;">9 files</div>
+<div class="desc">Nov-Dec 2012 · ARV · HEP C · MMT Suboxone · Pendampingan Perempuan</div>
+</div>
+<div class="card" style="background:#e6dfee; border-color:#6b4d7a;">
+<div class="label">🔬 Epi Info 7 (CDC)</div>
+<div class="value" style="font-size:18px;">9 files</div>
+<div class="desc">CDC's Epi Info 7 public health surveillance software training</div>
+</div>
+<div class="card" style="background:var(--pink-tint); border-color:var(--clay-deep);">
+<div class="label">📖 Pedoman Nasional HIV</div>
+<div class="value" style="font-size:18px;">4 PDF</div>
+<div class="desc">Manajemen Kasus · Pedoman Jejaring · Panduan VCT · Counseling VCT</div>
+</div>
+</div>
+
+<h2 class="section-h2" style="margin-top:36px;">🏛️ Materi Era HCPI · Nov-Dec 2012</h2>
+<p style="font-size:13px; color:var(--slate); line-height:1.6; margin:4px 0 18px 0;">9 materi training era HCPI di akhir 2012 — terkategorisasi dalam <strong>3 bucket strategis</strong>: Clinical Training · Methodology Sharing · Operational Support. Bukan internal-only — banyak yang dibagikan ke partner LSM HR Jatim.</p>
+
+<div style="background: linear-gradient(135deg, var(--clay-tint) 0%, white 100%); border: 2px solid var(--clay); border-radius: 12px; padding: 22px; margin: 18px 0;">
+<div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+<span style="background: var(--clay); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px;">🩺</span>
+<strong style="font-family: 'Lora', Georgia, serif; font-size: 17px; color: var(--clay-deep);">Clinical Training · Medical Education</strong>
+</div>
+<div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+<div style="background:white; border:1px solid var(--clay); border-radius:8px; padding:14px;">
+<div style="font-size:10px; letter-spacing:1.2px; text-transform:uppercase; color:var(--clay-deep); font-weight:700; margin-bottom:6px;">💊 DEC 2012</div>
+<strong style="font-size:12.5px; color:var(--navy); line-height:1.4; display:block; margin-bottom:6px;">ANTIRETROVIRAL HCPI</strong>
+<span style="font-size:11px; color:var(--slate); line-height:1.5;">ARV training comprehensive · clinical protocols</span>
+</div>
+<div style="background:white; border:1px solid var(--clay); border-radius:8px; padding:14px;">
+<div style="font-size:10px; letter-spacing:1.2px; text-transform:uppercase; color:var(--clay-deep); font-weight:700; margin-bottom:6px;">🦠 DEC 2012</div>
+<strong style="font-size:12.5px; color:var(--navy); line-height:1.4; display:block; margin-bottom:6px;">HEP C TRAINING HCPI</strong>
+<span style="font-size:11px; color:var(--slate); line-height:1.5;">Hepatitis C focused training · co-infection management</span>
+</div>
+<div style="background:white; border:1px solid var(--clay); border-radius:8px; padding:14px;">
+<div style="font-size:10px; letter-spacing:1.2px; text-transform:uppercase; color:var(--clay-deep); font-weight:700; margin-bottom:6px;">💉 NOV 2012</div>
+<strong style="font-size:12.5px; color:var(--navy); line-height:1.4; display:block; margin-bottom:6px;">MMT SUBOXONE Semarang</strong>
+<span style="font-size:11px; color:var(--slate); line-height:1.5;">Cross-city MMT/Suboxone knowledge sharing</span>
+</div>
+</div>
+</div>
+
+<div style="background: linear-gradient(135deg, var(--sage-light) 0%, white 100%); border: 2px solid var(--sage); border-radius: 12px; padding: 22px; margin: 18px 0;">
+<div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+<span style="background: var(--sage); color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px;">📚</span>
+<strong style="font-family: 'Lora', Georgia, serif; font-size: 17px; color: var(--sage-deep);">Methodology Sharing · Field Practice</strong>
+</div>
+<div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+<div style="background:white; border:1px solid var(--sage); border-radius:8px; padding:14px;">
+<div style="font-size:10px; letter-spacing:1.2px; text-transform:uppercase; color:var(--sage-deep); font-weight:700; margin-bottom:6px;">📋 NOV 2012</div>
+<strong style="font-size:12.5px; color:var(--navy); line-height:1.4; display:block; margin-bottom:6px;">DEBRIEFING HCPI</strong>
+<span style="font-size:11px; color:var(--slate); line-height:1.5;">Post-mission debriefing methodology</span>
+</div>
+<div style="background:white; border:1px solid var(--sage); border-radius:8px; padding:14px;">
+<div style="font-size:10px; letter-spacing:1.2px; text-transform:uppercase; color:var(--sage-deep); font-weight:700; margin-bottom:6px;">⚧ DEC 2012</div>
+<strong style="font-size:12.5px; color:var(--navy); line-height:1.4; display:block; margin-bottom:6px;">Studi Kasus Gender-IDU</strong>
+<span style="font-size:11px; color:var(--slate); line-height:1.5;">Gender-IDU case studies · case-based learning</span>
+</div>
+<div style="background:white; border:1px solid var(--sage); border-radius:8px; padding:14px;">
+<div style="font-size:10px; letter-spacing:1.2px; text-transform:uppercase; color:var(--sage-deep); font-weight:700; margin-bottom:6px;">👥 DEC 2012</div>
+<strong style="font-size:12.5px; color:var(--navy); line-height:1.4; display:block; margin-bottom:6px;">Pendampingan Perempuan</strong>
+<span style="font-size:11px; color:var(--slate); line-height:1.5;">Female accompaniment methodology</span>
+</div>
+</div>
+</div>
+
+<div style="background: linear-gradient(135deg, var(--gold-tint) 0%, white 100%); border: 2px solid #d4a017; border-radius: 12px; padding: 22px; margin: 18px 0;">
+<div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+<span style="background: #d4a017; color: white; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px;">💪</span>
+<strong style="font-family: 'Lora', Georgia, serif; font-size: 17px; color: #8a4d1f;">Operational Support · Recovery + Staff Wellbeing</strong>
+</div>
+<div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+<div style="background:white; border:1px solid #d4a017; border-radius:8px; padding:14px;">
+<div style="font-size:10px; letter-spacing:1.2px; text-transform:uppercase; color:#8a4d1f; font-weight:700; margin-bottom:6px;">🔄 DEC 2012</div>
+<strong style="font-size:12.5px; color:var(--navy); line-height:1.4; display:block; margin-bottom:6px;">Materi Relapse Sadar Hati</strong>
+<span style="font-size:11px; color:var(--slate); line-height:1.5;">Relapse management framework · recovery support</span>
+</div>
+<div style="background:white; border:1px solid #d4a017; border-radius:8px; padding:14px;">
+<div style="font-size:10px; letter-spacing:1.2px; text-transform:uppercase; color:#8a4d1f; font-weight:700; margin-bottom:6px;">🔄 NOV 2012</div>
+<strong style="font-size:12.5px; color:var(--navy); line-height:1.4; display:block; margin-bottom:6px;">Fix slide relapse manejmn</strong>
+<span style="font-size:11px; color:var(--slate); line-height:1.5;">Relapse management slide refinement</span>
+</div>
+<div style="background:white; border:1px solid #d4a017; border-radius:8px; padding:14px;">
+<div style="font-size:10px; letter-spacing:1.2px; text-transform:uppercase; color:#8a4d1f; font-weight:700; margin-bottom:6px;">🧘 NOV 2012</div>
+<strong style="font-size:12.5px; color:var(--navy); line-height:1.4; display:block; margin-bottom:6px;">Manajemen Burn Out</strong>
+<span style="font-size:11px; color:var(--slate); line-height:1.5;">Staff wellbeing untuk partner Jatim LSM HR network</span>
+</div>
+</div>
+</div>
+<div style="background:var(--cream-warm); border-left:3px solid var(--clay-deep); padding:12px 18px; border-radius:6px; margin-top:14px; font-size:12.5px; line-height:1.55; color:var(--navy);">
+<strong>💡 Insight era HCPI:</strong> 9 materi dalam 2 bulan (Nov-Dec 2012) = <em>knowledge production rate</em> tinggi sebagai response strategis ke <strong>SUM cliff aftermath</strong>. Mix clinical · methodology · operational = balanced capacity building portfolio. Knowledge yang dishare ke partner Jatim = institutional generosity yang membangun network capital.
+        </div>
+
+<h2 class="section-h2" style="margin-top:36px;">🌱 LMS Development Roadmap · 5-Phase Journey</h2>
+<p style="font-size:13px; color:var(--slate); line-height:1.6; margin:4px 0 18px 0;">Roadmap pembangunan LMS publik dengan status indicator per phase. Phase 1 DONE, sisanya planned dengan timeline indikatif.</p>
+<div style="position: relative; padding-left: 32px; margin: 20px 0;">
+
+<div style="position: absolute; left: 14px; top: 14px; bottom: 14px; width: 3px; background: linear-gradient(180deg, var(--sage) 0%, var(--clay) 20%, var(--clay-deep) 50%, var(--slate) 100%); border-radius: 2px;"></div>
+
+<div style="position: relative; margin-bottom: 18px;">
+<span style="position: absolute; left: -32px; top: 4px; background: var(--sage); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; box-shadow: 0 0 0 4px white;">1</span>
+<div style="background: var(--sage-light); border: 2px solid var(--sage); border-radius: 10px; padding: 14px 18px;">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+<strong style="font-family: 'Lora', Georgia, serif; font-size: 15px; color: var(--sage-deep);">Phase 1 · Cataloging</strong>
+<span style="background: var(--sage); color: white; font-size: 10px; padding: 3px 10px; border-radius: 12px; letter-spacing: 0.5px; font-weight: 700;">✅ DONE · 28 Jun 2026</span>
+</div>
+
+</div>
+</div>
+
+<div style="position: relative; margin-bottom: 18px;">
+<span style="position: absolute; left: -32px; top: 4px; background: var(--clay); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; box-shadow: 0 0 0 4px white;">2</span>
+<div style="background: var(--clay-tint); border: 2px solid var(--clay); border-radius: 10px; padding: 14px 18px;">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+<strong style="font-family: 'Lora', Georgia, serif; font-size: 15px; color: var(--clay-deep);">Phase 2 · Curation &amp; Modernization</strong>
+<span style="background: var(--clay); color: white; font-size: 10px; padding: 3px 10px; border-radius: 12px; letter-spacing: 0.5px; font-weight: 700;">Segera · Q3 2026</span>
+</div>
+<p style="font-size: 12.5px; color: var(--navy); line-height: 1.55; margin: 0;">Pilih 30-50 modul utama yang masih relevan · convert ke format modern (PDF + video) · update terminology · refresh visual style.</p>
+</div>
+</div>
+
+<div style="position: relative; margin-bottom: 18px;">
+<span style="position: absolute; left: -32px; top: 4px; background: #c47a3b; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; box-shadow: 0 0 0 4px white;">3</span>
+<div style="background: rgba(196, 122, 59, 0.08); border: 2px solid #c47a3b; border-radius: 10px; padding: 14px 18px;">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+<strong style="font-family: 'Lora', Georgia, serif; font-size: 15px; color: #8a4d1f;">Phase 3 · LMS Platform Build</strong>
+<span style="background: #c47a3b; color: white; font-size: 10px; padding: 3px 10px; border-radius: 12px; letter-spacing: 0.5px; font-weight: 700;">📋 PLANNED · Q4 2026</span>
+</div>
+<p style="font-size: 12.5px; color: var(--navy); line-height: 1.55; margin: 0;">Hosting platform (Moodle / Google Classroom / custom) dengan user registration, progress tracking, sertifikasi. Decision matrix platform di Mba Watiek + tech consultant review.</p>
+</div>
+</div>
+
+<div style="position: relative; margin-bottom: 18px;">
+<span style="position: absolute; left: -32px; top: 4px; background: #6b4d7a; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; box-shadow: 0 0 0 4px white;">4</span>
+<div style="background: #e6dfee; border: 2px solid #6b4d7a; border-radius: 10px; padding: 14px 18px;">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+<strong style="font-family: 'Lora', Georgia, serif; font-size: 15px; color: #4a3358;">Phase 4 · Public Launch</strong>
+<span style="background: #6b4d7a; color: white; font-size: 10px; padding: 3px 10px; border-radius: 12px; letter-spacing: 0.5px; font-weight: 700;">🚀 FUTURE · 2027</span>
+</div>
+<p style="font-size: 12.5px; color: var(--navy); line-height: 1.55; margin: 0;">LMS publik dengan kategori untuk komunitas, mahasiswa, praktisi LSM HR, healthcare workers. Mass launch dengan public advocacy campaign + partnership marketing.</p>
+</div>
+</div>
+
+<div style="position: relative;">
+<span style="position: absolute; left: -32px; top: 4px; background: var(--slate); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; box-shadow: 0 0 0 4px white;">5</span>
+<div style="background: #f0f4f8; border: 2px solid var(--slate); border-radius: 10px; padding: 14px 18px;">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+<strong style="font-family: 'Lora', Georgia, serif; font-size: 15px; color: var(--navy);">Phase 5 · Continuous Update</strong>
+<span style="background: var(--slate); color: white; font-size: 10px; padding: 3px 10px; border-radius: 12px; letter-spacing: 0.5px; font-weight: 700;">♾️ ONGOING · post-2027</span>
+</div>
+<p style="font-size: 12.5px; color: var(--navy); line-height: 1.55; margin: 0;">Tambah materi terbaru (Chemsex, Mental Health, ADHA) sesuai era ViiV current. Iterative refresh tahunan untuk maintain relevance.</p>
+</div>
+</div>
+</div>
+<div style="background:var(--cream-warm); border-left:3px solid var(--sage); padding:12px 18px; border-radius:6px; margin-top:18px; font-size:12.5px; line-height:1.55; color:var(--navy);">
+<strong>💡 LMS Strategic value:</strong> Bukan hanya legacy preservation — adalah <strong>institutional asset multiplier</strong>. Public LMS = donor-facing transparency + revenue stream potential (sertifikasi berbayar) + capacity building scale-up tanpa physical workshop overhead.
+        </div>
+
+<h2 class="section-h2" style="margin-top:36px;">✅ Status Preservasi Arsip</h2>
+<div style="background: linear-gradient(135deg, var(--sage-light) 0%, white 100%); border: 2px solid var(--sage); border-radius: 12px; padding: 22px 26px; margin: 14px 0;">
+<div style="display: grid; grid-template-columns: 60px 1fr; gap: 20px; align-items: center; margin-bottom: 18px;">
+<div style="font-size: 56px; line-height: 1;">✅</div>
+<div>
+<strong style="font-family: 'Lora', Georgia, serif; font-size: 18px; color: var(--sage-deep); display: block; margin-bottom: 4px;">500+ materi training terpreservasi</strong>
+<p style="font-size: 12.5px; color: var(--navy); line-height: 1.55; margin: 0;">Akumulasi training materials era 2009-2014 accessible untuk LMS development, capacity building, dan donor proposal evidence. <strong>Struktur asli 12 subfolder dipertahankan</strong> untuk traceability arsip.</p>
+</div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; padding-top: 14px; border-top: 1px solid var(--sage);">
+<div style="text-align: center;">
+<div style="font-family: 'Lora', Georgia, serif; font-size: 22px; font-weight: 700; color: var(--sage-deep);">527</div>
+<div style="font-size: 10.5px; color: var(--slate); letter-spacing: 0.8px; text-transform: uppercase;">Files</div>
+</div>
+<div style="text-align: center;">
+<div style="font-family: 'Lora', Georgia, serif; font-size: 22px; font-weight: 700; color: var(--sage-deep);">500+</div>
+<div style="font-size: 10.5px; color: var(--slate); letter-spacing: 0.8px; text-transform: uppercase;">Total Materi</div>
+</div>
+<div style="text-align: center;">
+<div style="font-family: 'Lora', Georgia, serif; font-size: 22px; font-weight: 700; color: var(--sage-deep);">12</div>
+<div style="font-size: 10.5px; color: var(--slate); letter-spacing: 0.8px; text-transform: uppercase;">Subfolders</div>
+</div>
+<div style="text-align: center;">
+<div style="font-family: 'Lora', Georgia, serif; font-size: 22px; font-weight: 700; color: var(--sage-deep);">34</div>
+<div style="font-size: 10.5px; color: var(--slate); letter-spacing: 0.8px; text-transform: uppercase;">Curated PPT</div>
+</div>
+</div>
+</div>
+
+</section>
+</main>
+<footer class="site-footer">© 2002–2026 · <strong>Yayasan Sadar Hati</strong> · Malang, Jawa Timur · Harm Reduction &amp; Pendampingan</footer>
+<script>(function(){var t=document.getElementById("navToggle"),n=document.getElementById("topNav");if(t&&n)t.addEventListener("click",function(){n.classList.toggle("open");});})();</script>
+</body>
+</html>
