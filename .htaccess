@@ -1,0 +1,8 @@
+# Sadar Hati Foundation — situs statis publik
+DirectoryIndex index.html
+Options -Indexes
+
+<IfModule mod_mime.c>
+  AddType image/jpeg .jpg .JPG .jpeg
+  AddType image/png .png .PNG
+</IfModule>
