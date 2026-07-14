@@ -904,6 +904,173 @@ body{background:var(--cream,#fbf7f2);}
 </style>
 
 <style>
+          /* Gallery row: 1 title left + 5 thumbnails right */
+          .gallery-row {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 18px;
+            margin: 22px 0;
+            padding: 16px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            align-items: stretch;
+          }
+          @media (max-width: 900px) {
+            .gallery-row { grid-template-columns: 1fr; }
+          }
+          .gallery-row .row-title {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 14px;
+            border-radius: 8px;
+            color: white;
+            position: relative;
+          }
+          .gallery-row .row-title .cat-num {
+            font-size: 11px;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            opacity: 0.88;
+            margin-bottom: 6px;
+            font-weight: 700;
+          }
+          .gallery-row .row-title .big-row-num {
+            position: absolute;
+            top: 10px;
+            right: 14px;
+            font-family: 'Lora', Georgia, serif;
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1;
+            color: rgba(255,255,255,0.18);
+            pointer-events: none;
+          }
+          .gallery-row .thumb-item .ts-badge {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            font-size: 9.5px;
+            font-weight: 700;
+            padding: 3px 7px;
+            border-radius: 10px;
+            letter-spacing: 0.3px;
+            z-index: 2;
+            backdrop-filter: blur(2px);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+          }
+          .gallery-row .row-title h3 {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 17px;
+            font-weight: 700;
+            margin: 0 0 6px 0;
+            color: white;
+            line-height: 1.25;
+          }
+          .gallery-row .row-title .meta {
+            font-size: 11px;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.45;
+          }
+          .gallery-row .row-thumbs {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+          }
+          @media (max-width: 720px) {
+            .gallery-row .row-thumbs { grid-template-columns: repeat(3, 1fr); }
+          }
+          .gallery-row .thumb-item {
+            cursor: pointer;
+            border-radius: 6px;
+            overflow: hidden;
+            aspect-ratio: 1/1;
+            position: relative;
+            transition: transform 0.18s, box-shadow 0.18s;
+            background: var(--cream);
+          }
+          .gallery-row .thumb-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+          }
+          .gallery-row .thumb-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+          }
+          .gallery-row .thumb-item::after {
+            content: "🔍";
+            position: absolute;
+            bottom: 4px;
+            right: 4px;
+            background: rgba(0,0,0,0.55);
+            color: white;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 0.18s;
+          }
+          .gallery-row .thumb-item:hover::after { opacity: 1; }
+
+          /* Lightbox modal */
+          .lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            cursor: zoom-out;
+          }
+          .lightbox.active { display: flex; }
+          .lightbox img {
+            max-width: 95vw;
+            max-height: 90vh;
+            border-radius: 8px;
+            box-shadow: 0 12px 48px rgba(0,0,0,0.6);
+            cursor: default;
+          }
+          .lightbox-caption {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: white;
+            font-size: 13px;
+            padding: 12px 24px;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.7);
+          }
+          .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 28px;
+            color: white;
+            font-size: 32px;
+            font-weight: 700;
+            cursor: pointer;
+            line-height: 1;
+            background: rgba(255,255,255,0.1);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.18s;
+          }
+          .lightbox-close:hover { background: rgba(255,255,255,0.25); }
+        </style>
+<style>
           /* ====== HERO STAT (1 big dominant number + side context) ====== */
           .hero-stat {
             display: grid;
@@ -1152,6 +1319,74 @@ body{background:var(--cream,#fbf7f2);}
           .map-legend .item { display: flex; align-items: center; gap: 8px; }
           .map-legend .dot { width: 14px; height: 14px; border-radius: 50%; }
         </style>
+</head>
+<body>
+<header class="site-header">
+<div class="site-header__inner">
+<a class="brand-logo" id="siteBrand" href="/" aria-label="Yayasan Sadar Hati"><img src="/logo.png" alt="Yayasan Sadar Hati"></a>
+<button class="nav-toggle" id="navToggle" aria-label="Menu">&#9776;</button>
+<nav class="top-nav" id="topNav">
+<a class="nav-item" href="/">About</a>
+<a class="nav-item" href="/program">Program</a>
+<a class="nav-item active" href="/kegiatan">Kegiatan</a>
+<a class="nav-item" href="/sahawood">SAHAWOOD</a>
+<a class="nav-item" href="/tim">Tim</a>
+<a class="nav-item" href="/data">Data & Milestone</a>
+<a class="nav-item" href="/report">Report</a>
+<a class="nav-item" href="/materi">Materi</a>
+<a class="nav-item" href="/kontak">Kontak</a>
+</nav>
+</div>
+</header>
+<main class="content">
+<section class="section active" id="l1-kegiatan">
+<div class="hero">
+<div class="eyebrow">Kegiatan Sadar Hati</div>
+<h1>Kegiatan Terkini</h1>
+<p class="lede">Sepanjang 2025–2026, Sadar Hati aktif menjalankan edukasi, konseling, testing, dan advokasi lintas dinas — dengan fokus pada isu terkini: chemsex, kesehatan mental, dan dukungan bagi Anak Dengan HIV/AIDS (ADHA).</p>
+</div>
+
+<div class="adha-highlight">
+<div class="adha-badge">❤ Hari AIDS Sedunia · 1 Des 2025</div>
+<h3>Bantuan Pendidikan untuk ADHA</h3>
+<p>Bertepatan dengan Hari AIDS Sedunia, Sadar Hati menyerahkan bantuan pendidikan — tas sekolah, buku pelajaran, dan alat tulis — kepada Anak Dengan HIV/AIDS (ADHA). Sebuah komitmen agar setiap anak tetap bisa bersekolah dan menatap masa depan, apa pun tantangan kesehatan yang dihadapi.</p>
+</div>
+
+<h2 class="section-h2" style="margin-top:34px;">🗓️ Lini Masa Kegiatan 2025–2026</h2>
+<div class="keg-list">
+<div class="keg-item"><div class="keg-date">30 Januari 2026</div><div class="keg-title">One Stop Service di Tempat Hiburan</div><div class="keg-desc">Edukasi, konseling, dan testing dalam satu layanan terpadu bagi dampingan berperilaku berisiko di sebuah tempat hiburan Kota Malang.</div></div>
+<div class="keg-item"><div class="keg-date">5 Desember 2025</div><div class="keg-title">One Stop Service — Layanan Terpadu</div><div class="keg-desc">Rangkaian edukasi, konseling, dan testing untuk para dampingan berisiko yang dirangkum menjadi satu layanan di tempat hiburan.</div></div>
+<div class="keg-item"><div class="keg-date">28 November 2025</div><div class="keg-title">Edukasi Pelajar bersama Dispora Par</div><div class="keg-desc">Berkolaborasi dengan Dispora Par Kota Malang memberikan edukasi bahaya narkoba kepada siswa SMA/SMK di Kota Malang.</div></div>
+<div class="keg-item"><div class="keg-date">21 Oktober 2025</div><div class="keg-title">FGD bersama Psikolog</div><div class="keg-desc">Focus Group Discussion bersama psikolog membahas keterkaitan antara chemsex dan kesehatan mental.</div></div>
+<div class="keg-item"><div class="keg-date">11 September 2025</div><div class="keg-title">Pertemuan Lintas Dinas Kota Malang</div><div class="keg-desc">Bertemu dinas-dinas terkait untuk menyampaikan program pokok yang sedang dijalankan Sadar Hati.</div></div>
+<div class="keg-item"><div class="keg-date">16 Juli 2025</div><div class="keg-title">Koordinasi Dinas Kesehatan Kab. Malang</div><div class="keg-desc">Berkoordinasi dengan Dinas Kesehatan Kabupaten Malang untuk sosialisasi dan penguatan kerja sama program.</div></div>
+</div>
+
+<h2 class="section-h2" style="margin-top:34px;">📸 Galeri Kegiatan</h2>
+<div class="keg-gallery">
+<figure class="keg-photo"><img src="/keg1.jpg" alt="Pelatihan Harm Reduction, Chemsex &amp; Kesehatan Mental" loading="lazy"><figcaption>Pelatihan Harm Reduction, Chemsex &amp; Kesehatan Mental</figcaption></figure>
+<figure class="keg-photo"><img src="/keg2.jpg" alt="Workshop &amp; diskusi program" loading="lazy"><figcaption>Workshop &amp; diskusi program</figcaption></figure>
+<figure class="keg-photo"><img src="/keg3.jpg" alt="Sesi edukasi komunitas" loading="lazy"><figcaption>Sesi edukasi komunitas</figcaption></figure>
+<figure class="keg-photo"><img src="/keg4.jpg" alt="Penjangkauan di lapangan" loading="lazy"><figcaption>Penjangkauan di lapangan</figcaption></figure>
+<figure class="keg-photo"><img src="/keg5.jpg" alt="Rapat koordinasi program" loading="lazy"><figcaption>Rapat koordinasi program</figcaption></figure>
+<figure class="keg-photo"><img src="/keg6.jpg" alt="Kebersamaan tim &amp; relawan" loading="lazy"><figcaption>Kebersamaan tim &amp; relawan</figcaption></figure>
+</div>
+<div class="placeholder-banner">
+<span class="icon">🔒</span>
+<div><strong>Catatan:</strong> Sebagian dokumentasi kegiatan kami tampilkan di sini. Foto yang memuat identitas dampingan kami batasi demi menjaga privasi dan martabat mereka.</div>
+</div>
+<div class="section-divider" style="margin-top:42px;">📁 Arsip Dokumentasi · Era 2009–2014</div>
+<p style="font-size:13px; color:var(--slate); line-height:1.6; margin:4px 0 10px 0;">Kilas balik perjalanan Sadar Hati era HCPI (2009–2014) — dokumentasi historis untuk transparansi dan memori institusi.</p>
+<div style="display:flex; gap:24px; align-items:center; margin:18px 0; padding:14px 20px; background:white; border:1px solid var(--border); border-radius:10px;">
+<div style="text-align:center;"><div style="font-family:'Lora',serif; font-size:32px; font-weight:700; color:var(--clay);">2.622</div><div style="font-size:11px; color:var(--slate); letter-spacing:1px; text-transform:uppercase;">Total Foto Terarsip</div></div>
+<div style="text-align:center;"><div style="font-family:'Lora',serif; font-size:32px; font-weight:700; color:var(--sage-deep);">25+</div><div style="font-size:11px; color:var(--slate); letter-spacing:1px; text-transform:uppercase;">Kategori Event</div></div>
+<div style="text-align:center;"><div style="font-family:'Lora',serif; font-size:32px; font-weight:700; color:var(--coral-deep);">2009-2014</div><div style="font-size:11px; color:var(--slate); letter-spacing:1px; text-transform:uppercase;">Period Era HCPI</div></div>
+
+</div>
+
+
+<h2 class="section-h2">🗂️ Kategori Arsip Foto</h2>
+<p style="font-size: 12.5px; color: var(--slate); line-height: 1.6; margin: 8px 0 18px 0; font-style: italic;">5 kategori thematic (atas→bawah <strong>1-5</strong>), masing-masing 5 foto (kiri→kanan natural scan). <strong>Click thumbnail untuk lihat foto besar.</strong> Semua foto cross-verified via image recognition — fokus pada <em>storytelling visual tanpa caption</em>: aktivitas grup, event mass, banner/kontent terlihat. Timestamp era ditampilkan pojok kanan atas per thumbnail.</p>
 <style>
           /* Gallery row: 1 title left + 5 thumbnails right */
           .gallery-row {
@@ -1319,63 +1554,295 @@ body{background:var(--cream,#fbf7f2);}
           }
           .lightbox-close:hover { background: rgba(255,255,255,0.25); }
         </style>
-</head>
-<body>
-<header class="site-header">
-<div class="site-header__inner">
-<a class="brand-logo" id="siteBrand" href="/" aria-label="Yayasan Sadar Hati"><img src="/logo.png" alt="Yayasan Sadar Hati"></a>
-<button class="nav-toggle" id="navToggle" aria-label="Menu">&#9776;</button>
-<nav class="top-nav" id="topNav">
-<a class="nav-item" href="/">About</a>
-<a class="nav-item" href="/program">Program</a>
-<a class="nav-item active" href="/kegiatan">Kegiatan</a>
-<a class="nav-item" href="/sahawood">SAHAWOOD</a>
-<a class="nav-item" href="/tim">Tim</a>
-<a class="nav-item" href="/data">Data & Milestone</a>
-<a class="nav-item" href="/report">Report</a>
-<a class="nav-item" href="/materi">Materi</a>
-<a class="nav-item" href="/gallery">Gallery</a>
-<a class="nav-item" href="/kontak">Kontak</a>
-</nav>
+
+<div class="gallery-row">
+<div class="row-title" style="background: linear-gradient(135deg, #6b4d7a 0%, #4a3358 100%);">
+<span class="big-row-num">1</span>
+<div class="cat-num">Category 1 · USAID Era</div>
+<h3>🎓 SUM Capacity Building</h3>
+<div class="meta">USAID-funded organizational strengthening — Sadar Hati team workshops, team-building, strategic meetings &amp; advocacy content development</div>
 </div>
-</header>
-<main class="content">
-<section class="section active" id="l1-kegiatan">
-<div class="hero">
-<div class="eyebrow">Kegiatan Sadar Hati</div>
-<h1>Kegiatan Terkini</h1>
-<p class="lede">Sepanjang 2025–2026, Sadar Hati aktif menjalankan edukasi, konseling, testing, dan advokasi lintas dinas — dengan fokus pada isu terkini: chemsex, kesehatan mental, dan dukungan bagi Anak Dengan HIV/AIDS (ADHA).</p>
+<div class="row-thumbs">
+<div class="thumb-item" data-caption="Sadar Hati team menggunakan laptop dalam SUM Capacity Building workshop · multi-participant hands-on training session · 2011-2012" onclick="openLightbox(this)">
+<span class="ts-badge">📅 2011-12</span>
+<img alt="Sadar Hati team group laptop training" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/01_SUM_Capacity_Building_Era/01A_Group_Laptops_Training.JPG"/>
+</div>
+<div class="thumb-item" data-caption='5 Sadar Hati team members dalam workshop saung · 1 presenter dengan mic + 4 listeners · staff t-shirt "Saya Siap" terlihat · interactive learning session · SUM Capacity Building era 2011-2012' onclick="openLightbox(this)">
+<span class="ts-badge">📅 2011-12</span>
+<img alt="Sadar Hati team workshop with mic" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/01_SUM_Capacity_Building_Era/01B_v2_Team_Workshop_Mic.JPG"/>
+</div>
+<div class="thumb-item" data-caption="Workshop icebreaker · participants dengan PERLINE materials · ice-breaking stretching session · SUM Capacity Building 2012" onclick="openLightbox(this)">
+<span class="ts-badge">📅 2012</span>
+<img alt="Workshop icebreaker" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/01_SUM_Capacity_Building_Era/01C_Workshop_Icebreaker.JPG"/>
+</div>
+<div class="thumb-item" data-caption="Strategic meeting · 4-person diskusi · western consultant + Sadar Hati team · interview/strategy session · SUM era" onclick="openLightbox(this)">
+<span class="ts-badge">📅 2011-12</span>
+<img alt="Strategic meeting western consultant" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/01_SUM_Capacity_Building_Era/01D_Strategic_Meeting.JPG"/>
+</div>
+<div class="thumb-item" data-caption='Flipchart "Advokasi Kab Malang · Pedoman Pelaksanaan PEKDA HIV &amp; AIDS" · workshop output content · Renstra KPA Kab Mlg · strategi advokasi Kab Malang HIV PERDA · 2011-2012' onclick="openLightbox(this)">
+<span class="ts-badge">📅 2011-12</span>
+<img alt="Advokasi PERDA HIV flipchart" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/01_SUM_Capacity_Building_Era/01E_Advokasi_PERDA_Flipchart.JPG"/>
+</div>
+</div>
 </div>
 
-<div class="adha-highlight">
-<div class="adha-badge">❤ Hari AIDS Sedunia · 1 Des 2025</div>
-<h3>Bantuan Pendidikan untuk ADHA</h3>
-<p>Bertepatan dengan Hari AIDS Sedunia, Sadar Hati menyerahkan bantuan pendidikan — tas sekolah, buku pelajaran, dan alat tulis — kepada Anak Dengan HIV/AIDS (ADHA). Sebuah komitmen agar setiap anak tetap bisa bersekolah dan menatap masa depan, apa pun tantangan kesehatan yang dihadapi.</p>
+<div class="gallery-row">
+<div class="row-title" style="background: linear-gradient(135deg, var(--clay) 0%, var(--clay-deep) 100%);">
+<span class="big-row-num">2</span>
+<div class="cat-num">Category 2 · Era 2009-2012</div>
+<h3>🎗️ Public Mass Events &amp; Advocacy</h3>
+<div class="meta">World AIDS Day · Hari AIDS Sedunia · TB Day Public Action · educational distribution · cultural performance · mass mobilization</div>
+</div>
+<div class="row-thumbs">
+<div class="thumb-item" data-caption="TB Day Public Action · crowd of activists outdoor distributing leaflets · public health advocacy · turun jalan TB-HIV co-infection awareness · Kota Malang" onclick="openLightbox(this)">
+<span class="ts-badge">📅 24 Mar</span>
+<img alt="TB Day public action crowd outdoor" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/08_TB_Day_Public_Action/IMG_0268_public_action_crowd.JPG"/>
+</div>
+<div class="thumb-item" data-caption='World AIDS Day 2009 · komunitas dampingan + family gathering · boy with awareness t-shirt "WHAT DO YOU KNOW ABOUT HIV AIDS?" · era FHI ASA · Desember 2009' onclick="openLightbox(this)">
+<span class="ts-badge">📅 Des 2009</span>
+<img alt="WAD 2009 boy + community + family" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/06_World_AIDS_Day_2009/DSC08305.JPG"/>
+</div>
+<div class="thumb-item" data-caption="World AIDS Day 2009 · pertemuan komunitas perempuan + keluarga dampingan dalam saung · circle discussion · era FHI ASA · Desember 2009" onclick="openLightbox(this)">
+<span class="ts-badge">📅 Des 2009</span>
+<img alt="WAD 2009 community circle" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/06_World_AIDS_Day_2009/DSC08304.JPG"/>
+</div>
+<div class="thumb-item" data-caption='"SARASEHAN HARI AIDS SEDUNIA TAHUN 2012 — Dengan Tema: Lindungi Perempuan dan Anak dari HIV/AIDS" · KOMISI PENANGGULANGAN AIDS KOTA MALANG · speaker dengan peci di podium + panelist desk visible · Malang 29 November 2012' onclick="openLightbox(this)">
+<span class="ts-badge">📅 29 Nov 2012</span>
+<img alt="HAS 2012 Sarasehan speaker banner" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/02_HAS_2012/MG_1474_Sarasehan_HAS_speaker.jpg"/>
+</div>
+<div "jangan="" action'="" activist="" advocacy="" banner="" class="thumb-item" data-caption='Pernas Jogja 2012 · "Women Won\' di="" installation="" kami"="" mass="" nasional="" onclick="openLightbox(this)" pertemuan="" photographing="" placard="" potong="" public="" rahim="" setup="" space="" t="" wait"="" yogyakarta="" ·="">
+<span class="ts-badge">📅 2012</span>
+<img alt="Women Won't Wait banner installation Pernas Jogja" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/05_Pernas_Yogyakarta/IMG_6492_WW_banner_installation.JPG"/>
+</div>
+</div>
 </div>
 
-<h2 class="section-h2" style="margin-top:34px;">🗓️ Lini Masa Kegiatan 2025–2026</h2>
-<div class="keg-list">
-<div class="keg-item"><div class="keg-date">30 Januari 2026</div><div class="keg-title">One Stop Service di Tempat Hiburan</div><div class="keg-desc">Edukasi, konseling, dan testing dalam satu layanan terpadu bagi dampingan berperilaku berisiko di sebuah tempat hiburan Kota Malang.</div></div>
-<div class="keg-item"><div class="keg-date">5 Desember 2025</div><div class="keg-title">One Stop Service — Layanan Terpadu</div><div class="keg-desc">Rangkaian edukasi, konseling, dan testing untuk para dampingan berisiko yang dirangkum menjadi satu layanan di tempat hiburan.</div></div>
-<div class="keg-item"><div class="keg-date">28 November 2025</div><div class="keg-title">Edukasi Pelajar bersama Dispora Par</div><div class="keg-desc">Berkolaborasi dengan Dispora Par Kota Malang memberikan edukasi bahaya narkoba kepada siswa SMA/SMK di Kota Malang.</div></div>
-<div class="keg-item"><div class="keg-date">21 Oktober 2025</div><div class="keg-title">FGD bersama Psikolog</div><div class="keg-desc">Focus Group Discussion bersama psikolog membahas keterkaitan antara chemsex dan kesehatan mental.</div></div>
-<div class="keg-item"><div class="keg-date">11 September 2025</div><div class="keg-title">Pertemuan Lintas Dinas Kota Malang</div><div class="keg-desc">Bertemu dinas-dinas terkait untuk menyampaikan program pokok yang sedang dijalankan Sadar Hati.</div></div>
-<div class="keg-item"><div class="keg-date">16 Juli 2025</div><div class="keg-title">Koordinasi Dinas Kesehatan Kab. Malang</div><div class="keg-desc">Berkoordinasi dengan Dinas Kesehatan Kabupaten Malang untuk sosialisasi dan penguatan kerja sama program.</div></div>
+<div class="gallery-row">
+<div class="row-title" style="background: linear-gradient(135deg, var(--sage) 0%, var(--sage-deep) 100%);">
+<span class="big-row-num">3</span>
+<div class="cat-num">Category 3 · Era 2011-2012</div>
+<h3>📚 Training &amp; Capacity Building</h3>
+<div class="meta">TB-HIV integrated workshop · HR methodology role-play · KDS family-inclusive · Paralegal training · cross-discipline programs</div>
+</div>
+<div class="row-thumbs">
+<div class="thumb-item" data-caption='Skill Building TB-HIV Workshop · banner "Pendidik Pengobatan TB-HIV" + multiple participants U-shape table + presenter at flipchart · 13-14 Juli 2012 · Hotel Pasiar Asri Surabaya · jejaring LSM HR Jatim' onclick="openLightbox(this)">
+<span class="ts-badge">📅 13-14 Jul</span>
+<img alt="TB-HIV Workshop banner participants" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/04_Pelatihan_TB/P1010468_workshop_full.JPG"/>
+</div>
+<div class="thumb-item" data-caption='Harm Reduction Training · role-play workshop · 2 facilitator dengan mic + whiteboard "Pengetahuan" sticky notes · cross-city methodology exchange Yogyakarta · 2011-2012' onclick="openLightbox(this)">
+<span class="ts-badge">📅 2011-12</span>
+<img alt="HR Training Yogyakarta role-play" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/09_HR_Training_Yogyakarta/IMG_0739.JPG"/>
+</div>
+<div class="thumb-item" data-caption="Pelatihan KDS (Kelompok Dukungan Sebaya) · group photo · family-inclusive · ibu memegang anak + child sitting · sistem support sebaya peer-to-peer · 2011-2012" onclick="openLightbox(this)">
+<span class="ts-badge">📅 2011-12</span>
+<img alt="KDS family-inclusive group" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/13_Pelatihan_KDS/IMG_1140.JPG"/>
+</div>
+<div class="thumb-item" data-caption="Pelatihan Mahasiswa · sesi diskusi mahasiswa magang + tim lapangan di warung · academic-practitioner exchange informal · 11 Oktober 2012" onclick="openLightbox(this)">
+<span class="ts-badge">📅 11 Okt 2012</span>
+<img alt="Pelatihan Mahasiswa academic" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/14_Pelatihan_Mahasiswa/20121011_125526.jpg"/>
+</div>
+<div class="thumb-item" data-caption='Paralegal Training · 4 women participants + banner "BUILDING KNOWLEDGE ABOUT HIV AND AIDS" · organizational logos FHI Family Health International · legal advocacy capacity building · 20 September 2011' onclick="openLightbox(this)">
+<span class="ts-badge">📅 20 Sep 2011</span>
+<img alt="Paralegal Training 4 women banner" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/07_Paralegal_Training/SDC18349.JPG"/>
+</div>
+</div>
 </div>
 
-<h2 class="section-h2" style="margin-top:34px;">📸 Galeri Kegiatan</h2>
-<div class="keg-gallery">
-<figure class="keg-photo"><img src="/keg1.jpg" alt="Pelatihan Harm Reduction, Chemsex &amp; Kesehatan Mental" loading="lazy"><figcaption>Pelatihan Harm Reduction, Chemsex &amp; Kesehatan Mental</figcaption></figure>
-<figure class="keg-photo"><img src="/keg2.jpg" alt="Workshop &amp; diskusi program" loading="lazy"><figcaption>Workshop &amp; diskusi program</figcaption></figure>
-<figure class="keg-photo"><img src="/keg3.jpg" alt="Sesi edukasi komunitas" loading="lazy"><figcaption>Sesi edukasi komunitas</figcaption></figure>
-<figure class="keg-photo"><img src="/keg4.jpg" alt="Penjangkauan di lapangan" loading="lazy"><figcaption>Penjangkauan di lapangan</figcaption></figure>
-<figure class="keg-photo"><img src="/keg5.jpg" alt="Rapat koordinasi program" loading="lazy"><figcaption>Rapat koordinasi program</figcaption></figure>
-<figure class="keg-photo"><img src="/keg6.jpg" alt="Kebersamaan tim &amp; relawan" loading="lazy"><figcaption>Kebersamaan tim &amp; relawan</figcaption></figure>
+<div class="gallery-row">
+<div class="row-title" style="background: linear-gradient(135deg, #c47a3b 0%, #8a4d1f 100%);">
+<span class="big-row-num">4</span>
+<div class="cat-num">Category 4 · Era 2011-2012</div>
+<h3>🚐 Mobile VCT &amp; Outreach Lapangan</h3>
+<div class="meta">Layanan keliling komunitas · paket pencegahan · RT/RW grassroots · shelter operasional · field engagement multi-stakeholder</div>
 </div>
-<div class="placeholder-banner">
-<span class="icon">🔒</span>
-<div><strong>Catatan:</strong> Sebagian dokumentasi kegiatan kami tampilkan di sini. Foto yang memuat identitas dampingan kami batasi demi menjaga privasi dan martabat mereka.</div>
+<div class="row-thumbs">
+<div class="thumb-item" data-caption="Mobile VCT Community · layanan VCT keliling di rumah komunitas Sukun · konselor (hijab + headphones) + petugas lapangan · multi-person service delivery · Kota Malang · 20 Oktober 2011" onclick="openLightbox(this)">
+<span class="ts-badge">📅 20 Okt 2011</span>
+<img alt="Mobile VCT Sukun" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/15_Mobile_VCT_Sukun_RSI/SDC18617.JPG"/>
 </div>
+<div class="thumb-item" data-caption="Pertemuan RT/RW · grassroots engagement evening meeting · pemuka warga dengan peci + microphone · sosialisasi HR ke neighborhood structure · 27 Mei 2012 · Gempol Pasuruan" onclick="openLightbox(this)">
+<span class="ts-badge">📅 27 Mei 2012</span>
+<img alt="RT/RW Gempol grassroots" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/11_RT_RW_Gempol/120527_193911.jpg"/>
+</div>
+<div class="thumb-item" data-caption="Shelter Sadar Hati Pandaan · sosialisasi shelter operasional · expansion ke Kab Pasuruan beyond DIC Malang · 13 September 2012" onclick="openLightbox(this)">
+<span class="ts-badge">📅 13 Sep 2012</span>
+<img alt="Shelter Pandaan sosialisasi" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/10_Shelter_Pandaan/20120913_140638.jpg"/>
+</div>
+<div class="thumb-item" data-caption="Pertemuan BNN · peer outreach session di warung · diskusi multi-stakeholder dengan dokumen di meja · 23 Mei 2012" onclick="openLightbox(this)">
+<span class="ts-badge">📅 23 Mei 2012</span>
+<img alt="Pertemuan BNN peer outreach" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/12_Pertemuan_BNN/IMG_1480.JPG"/>
+</div>
+<div class="thumb-item" data-caption="Paket Pencegahan · distribusi paket kondom + IEC + materi edukasi ke dampingan · field outreach standard protocol Sadar Hati" onclick="openLightbox(this)">
+<span class="ts-badge">📅 2011-12</span>
+<img alt="Paket Pencegahan distribusi" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/16_Paket_Pencegahan/Image071.jpg"/>
+</div>
+</div>
+</div>
+
+<div class="gallery-row">
+<div class="row-title" style="background: linear-gradient(135deg, var(--clay-deep) 0%, #5a1521 100%);">
+<span class="big-row-num">5</span>
+<div class="cat-num">Category 5 · Era 2011-2012</div>
+<h3>🤝 Peer Support Groups &amp; Komunitas</h3>
+<div class="meta">KPK Dewandaru · Support Group Pandaan · FGD multi-stakeholder · Dokumenter HCPI · sistema dukungan sebaya peer-to-peer model Sadar Hati signature</div>
+</div>
+<div class="row-thumbs">
+<div class="thumb-item" data-caption='KPK Dewandaru · "Kita Peduli Kami" support group meeting di Dewandaru restaurant · venue komunitas · group photo · 2011-2012' onclick="openLightbox(this)">
+<span class="ts-badge">📅 2011-12</span>
+<img alt="KPK Dewandaru group" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/17_KPK_Dewandaru/DSC00807.jpg"/>
+</div>
+<div class="thumb-item" data-caption="Support Group Pasuruan · pertemuan rutin SG · suasana intim komunitas · blue tarp peer gathering on floor · bukti reach wilayah Pasuruan · 2011-2012 Pandaan" onclick="openLightbox(this)">
+<span class="ts-badge">📅 2011-12</span>
+<img alt="SG Pandaan blue tarp" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/18_SG_Pandaan/ABCD0001.JPG"/>
+</div>
+<div class="thumb-item" data-caption="FGD BNN · Focus Group Discussion bersama BNN · methodology exchange multi-stakeholder · 2011-2012" onclick="openLightbox(this)">
+<span class="ts-badge">📅 2011-12</span>
+<img alt="FGD BNN" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/19_FGD_BNN/Image1308.jpg"/>
+</div>
+<div class="thumb-item" data-caption="Dokumenter HCPI · keseharian operasional Sadar Hati era HCPI · field documentation · 2011-2012" onclick="openLightbox(this)">
+<span class="ts-badge">📅 2011-12</span>
+<img alt="Dokumenter HCPI" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/03_Dokumenter_HCPI/090712-1506(002).jpg"/>
+</div>
+<div class="thumb-item" data-caption="Brochure event photos · Kita Peduli Kami (Klmpk Pecandu) · visual untuk brochure marketing material · 2011-2012" onclick="openLightbox(this)">
+<span class="ts-badge">📅 2011-12</span>
+<img alt="Brochure KPK event" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Photos_HCPI_Era/20_Brochure_Event_Photos/Kita%20Peduli%20Kami%20(Klmpk%20Pecandu).JPG"/>
+</div>
+</div>
+</div>
+
+<div class="lightbox" id="photoLightbox" onclick="closeLightbox(event)">
+<span class="lightbox-close" onclick="closeLightbox(event)">×</span>
+<img alt="" id="lightboxImage" src=""/>
+<div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+<script>
+          function openLightbox(thumbItem) {
+            const img = thumbItem.querySelector('img');
+            const caption = thumbItem.dataset.caption || '';
+            const lightbox = document.getElementById('photoLightbox');
+            document.getElementById('lightboxImage').src = img.src;
+            document.getElementById('lightboxImage').alt = img.alt;
+            document.getElementById('lightboxCaption').textContent = caption;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+          }
+          function closeLightbox(event) {
+            if (event.target.id === 'lightboxImage') return; // clicking image itself doesn't close
+            const lightbox = document.getElementById('photoLightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+          }
+          // ESC key closes lightbox
+          document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+              const lightbox = document.getElementById('photoLightbox');
+              if (lightbox.classList.contains('active')) closeLightbox({ target: lightbox });
+            }
+          });
+        </script>
+
+<div style="background: var(--cream-warm); border-left: 3px solid var(--sage); padding: 12px 18px; border-radius: 6px; margin: 22px 0; font-size: 12px; color: var(--slate); line-height: 1.6;">
+<strong>📋 Catatan curation:</strong> 10 foto di atas dipilih dari 20 kategori event awal melalui image recognition verification — hanya foto yang visual content-nya match dengan tagline yang dipertahankan. <strong>10 kategori lain di-skip</strong> karena (a) foto isi tidak match tagline (mis. folder yang ternyata berisi foto pernikahan tradisional yang tidak relevan operasional), atau (b) interior DIC routine tanpa konteks event spesifik. <strong>Nama personal tim lama tidak ditampilkan</strong> sesuai sensitivity rule.
+        </div>
+<h2 class="section-h2">📅 Sample Event Archive (representative selection)</h2>
+<div class="cards">
+<div class="card" style="background:var(--clay-tint); border-color:var(--clay);">
+<div class="label">🎗️ World AIDS Day 2009</div>
+<div class="value" style="font-size:18px;">WW WAD 2009</div>
+<div class="desc">68 foto · Public mass event komunitas Sadar Hati untuk Hari AIDS Sedunia 2009. Kolaborasi dengan KPA Kota Malang + Dinkes.</div>
+</div>
+<div class="card" style="background:var(--clay-tint); border-color:var(--clay);">
+<div class="label">🎗️ Hari AIDS Sedunia 2012</div>
+<div class="value" style="font-size:18px;">HAS 2012</div>
+<div class="desc">511 foto · Event terbesar Sadar Hati 2012 · 1 Desember 2012 · Jalan Sehat + advocacy public Kota Malang</div>
+</div>
+<div class="card" style="background:var(--sage-light); border-color:var(--sage);">
+<div class="label">🦠 TB Day Public Action</div>
+<div class="value" style="font-size:18px;">TB Day</div>
+<div class="desc">60 foto · Aksi turun jalan TB Day · awareness TB-HIV co-infection di Kota Malang</div>
+</div>
+<div class="card" style="background:var(--sage-light); border-color:var(--sage);">
+<div class="label">📚 Pelatihan TB-HIV</div>
+<div class="value" style="font-size:18px;">Foto Pelat TB</div>
+<div class="desc">101 foto · Training sesi 18-module HIV-TB integrated untuk staff &amp; partner LSM</div>
+</div>
+<div class="card" style="background:var(--gold-tint); border-color:var(--coral-deep);">
+<div class="label">🏥 Mobile VCT Sukun</div>
+<div class="value" style="font-size:18px;">Mobile VCT</div>
+<div class="desc">15 foto · Mobile VCT (Voluntary Counseling &amp; Testing) di Sukun Kota Malang bersama RSI · 2011</div>
+</div>
+<div class="card" style="background:var(--gold-tint); border-color:var(--coral-deep);">
+<div class="label">👮 Pertemuan BNN</div>
+<div class="value" style="font-size:18px;">Pertemuan BNN</div>
+<div class="desc">40 foto · Koordinasi BNN PABM (Pemulihan Adiksi Berbasis Masyarakat) era 2011-2012</div>
+</div>
+<div class="card" style="background:var(--pink-tint); border-color:var(--clay-deep);">
+<div class="label">🤝 KPK at Dewandaru</div>
+<div class="value" style="font-size:18px;">KPK Dewandaru</div>
+<div class="desc">12 foto · Pertemuan support group "Kita Peduli Kami" di Dewandaru — venue komunitas</div>
+</div>
+<div class="card" style="background:var(--pink-tint); border-color:var(--clay-deep);">
+<div class="label">🤝 Support Group Pandaan</div>
+<div class="value" style="font-size:18px;">SG Pandaan</div>
+<div class="desc">11 foto · Support Group operasional di Kecamatan Pandaan Pasuruan — bukti reach Pasuruan</div>
+</div>
+<div class="card" style="background:var(--clay-light); border-color:var(--clay);">
+<div class="label">🏠 Sosialisasi Shelter Pandaan</div>
+<div class="value" style="font-size:18px;">Shelter Pandaan</div>
+<div class="desc">42 foto · Shelter Yayasan Sadar Hati operasional di Pandaan — confirms operational scope expansion</div>
+</div>
+<div class="card" style="background:var(--sage-tint); border-color:var(--sage);">
+<div class="label">🏘️ Pertemuan RT/RW Gempol</div>
+<div class="value" style="font-size:18px;">RT/RW Gempol</div>
+<div class="desc">40 foto · Community-level engagement dengan neighborhood leaders di Gempol Pasuruan</div>
+</div>
+<div class="card" style="background:var(--cream-warm); border-color:#d4a017;">
+<div class="label">⚖️ Paralegal Training</div>
+<div class="value" style="font-size:18px;">Paralegal</div>
+<div class="desc">63 + 15 foto · <strong>NEW DISCOVERY:</strong> Sadar Hati had paralegal training capacity — legal advocacy untuk dampingan</div>
+</div>
+<div class="card" style="background:var(--cream-warm); border-color:#d4a017;">
+<div class="label">🎓 Pelatihan Mahasiswa</div>
+<div class="value" style="font-size:18px;">Pelatihan Mhsw</div>
+<div class="desc">37 foto · Internship matrix engagement — mahasiswa psikologi/sosial magang di Sadar Hati</div>
+</div>
+<div class="card" style="background:var(--clay-tint); border-color:var(--clay);">
+<div class="label">📍 KPK Dewandaru &amp; Komunitas</div>
+<div class="value" style="font-size:18px;">foto dokumenter</div>
+<div class="desc">355 foto · Dokumentasi keseharian operasional Sadar Hati 2011-2012</div>
+</div>
+<div class="card" style="background:var(--sage-light); border-color:var(--sage);">
+<div class="label">📸 Koleksi Era SUM/USAID</div>
+<div class="value" style="font-size:18px;">Era SUM/USAID</div>
+<div class="desc">834 foto · Koleksi dari <strong>kontributor (SUM/USAID Regional Coordinator Malang)</strong> · documenting era SUM project 2011-2012</div>
+</div>
+<div class="card" style="background:var(--gold-tint); border-color:var(--coral-deep);">
+<div class="label">🎯 Jogja Pernas</div>
+<div class="value" style="font-size:18px;">jogjapernas</div>
+<div class="desc">83 foto · Pertemuan Nasional di Yogyakarta · network engagement nasional</div>
+</div>
+<div class="card" style="background:var(--gold-tint); border-color:var(--coral-deep);">
+<div class="label">🎓 HR Training Yogya</div>
+<div class="value" style="font-size:18px;">HR Training Yk</div>
+<div class="desc">45 foto · Harm Reduction training Yogyakarta · cross-city methodology exchange</div>
+</div>
+</div>
+<h2 class="section-h2">🗂️ Kategori Master untuk Gallery Lengkap</h2>
+<ol class="mission-list">
+<li><strong>Founding Era (2002-2008)</strong> — Photos founding tim, awal aktivitas Malang, ASA-FHI era</li>
+<li><strong>Era HCPI 2010-2014</strong> — bulk dari 2.622 foto era ini (current sample di atas)</li>
+<li><strong>Public Advocacy Events</strong> — HAS · TB Day · Jalan Sehat Peduli HIV 2009 · MRAN 2008</li>
+<li><strong>Internal Capacity Building</strong> — Training TB-HIV, MMT, Advokasi IDEA, Pernas OST</li>
+<li><strong>Support Group Activities</strong> — KPK Dewandaru, SG Pandaan, Want to Stop, Stay Clean, OHIDHA</li>
+<li><strong>Community Engagement</strong> — RT/RW meetings, BNN, Puskesmas, Kader PKK, Polda Jatim</li>
+<li><strong>Mobile Services</strong> — Mobile VCT Sukun, outreach hotspot Kota Malang/Pasuruan</li>
+<li><strong>Service Operations</strong> — DIC (Drop In Center), Shelter Pandaan, PTRM Klinik</li>
+<li><strong>Donor/Partner Events</strong> — HCPI · GF · SUM · BNN · SATUNAMA · Penabulu · Surveymeter visits</li>
+<li><strong>ViiV Era 2022-now</strong> — Chemsex education · ADHA support · current activities (in sadarhati.org existing)</li>
+</ol>
+
+
+
 </section>
 </main>
 <footer class="site-footer">© 2002–2026 · <strong>Yayasan Sadar Hati</strong> · Malang, Jawa Timur · Harm Reduction &amp; Pendampingan</footer>
