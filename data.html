@@ -1617,7 +1617,7 @@ body{background:var(--cream,#fbf7f2);}
 <div class="compare-bar"><div class="fill wine" style="width:74.8%">42,31%</div></div>
 </div>
 <div class="compare-insight urgent">
-<strong>+5,9 percentage-point di atas rata-rata nasional</strong> — menjelaskan mengapa Kota Malang ter-identifikasi sebagai <em>wilayah HIV/AIDS terkonsentrasi #2 setelah Surabaya</em> di Jawa Timur (Theo's Draft Profile, Juli 2012). Plus <strong>1.875 kasus HIV kumulatif</strong> Dinkes Kota Malang per Juni 2012. <strong>Urgency program Harm Reduction = evidence-based, bukan asumsi.</strong>
+<strong>+5,9 percentage-point di atas rata-rata nasional</strong> — menjelaskan mengapa Kota Malang ter-identifikasi sebagai <em>wilayah HIV/AIDS terkonsentrasi #2 setelah Surabaya</em> di Jawa Timur (Profil YSH · Theo Zaenuri, Juli 2012). Plus <strong>1.875 kasus HIV kumulatif</strong> Dinkes Kota Malang per Juni 2012. <strong>Urgency program Harm Reduction = evidence-based, bukan asumsi.</strong>
 </div>
 </div>
 
@@ -2196,8 +2196,8 @@ body{background:var(--cream,#fbf7f2);}
  * PATUH KONTRAK & GUARDRAIL (JEMBATAN_public_stats_13Jul2026.md):
  *  - HANYA baca public_stats/current. TIDAK PERNAH menyentuh koleksi data-klien terkunci (data klien).
  *  - Field `null` (reach/testing) => SKIP, jangan tampilkan angka kosong/tebakan.
- *  - `_status != "live"` (sekarang draft_pending_review) => tampilkan badge DRAFT;
- *    aman di staging, JANGAN publish angka ke live tanpa "go" dari tim.
+ *  - `_status != "live"` => tampilkan badge DRAFT (sekarang "live", badge non-aktif);
+ *    saat butuh review ulang, set _status ke selain "live" untuk munculkan badge.
  *  - Fetch gagal (offline/403/error) => pakai FALLBACK hardcoded (nilai sama persis
  *    kontrak) supaya halaman tidak pernah kelihatan rusak/kosong.
  *  - Tidak pakai localStorage/sessionStorage (cache di memori saja).
@@ -2218,7 +2218,7 @@ body{background:var(--cream,#fbf7f2);}
     posisi_regional: '1 dari 8 grantee ViiV Regional ASEAN',
     jaringan_mou: 18, sub_brand_social_enterprise: 8,
     orang_terdampingi_kumulatif: null, testing_hiv_kumulatif: null,
-    _status: 'draft_pending_review', _updated: '2026-07-13'
+    _status: 'live', _updated: '2026-07-13'
   };
 
   // Definisi tile (urut). Tiap tile skip otomatis kalau field-nya null/kosong.
