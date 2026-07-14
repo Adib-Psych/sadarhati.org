@@ -888,6 +888,10 @@ body{background:var(--cream,#fbf7f2);}
 .keg-date{font-size:11.5px;font-weight:700;letter-spacing:.5px;color:var(--clay);text-transform:uppercase;}
 .keg-title{font-family:'Lora',Georgia,serif;font-weight:700;font-size:15.5px;color:var(--clay-deep);margin:2px 0 4px;line-height:1.25;}
 .keg-desc{font-size:13px;color:var(--slate);line-height:1.55;text-align:justify;-webkit-hyphens:auto;hyphens:auto;}
+.keg-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:16px;}
+.keg-photo{margin:0;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:#fff;}
+.keg-photo img{width:100%;height:180px;object-fit:cover;display:block;background:var(--cream);}
+.keg-photo figcaption{padding:9px 12px;font-size:12px;color:var(--slate);line-height:1.4;}
 @media(max-width:1024px){
   .site-header__inner{flex-wrap:wrap;gap:10px;min-height:56px;padding:10px 18px;}
   .nav-toggle{display:inline-block;order:2;}
@@ -1359,9 +1363,18 @@ body{background:var(--cream,#fbf7f2);}
 <div class="keg-item"><div class="keg-date">16 Juli 2025</div><div class="keg-title">Koordinasi Dinas Kesehatan Kab. Malang</div><div class="keg-desc">Berkoordinasi dengan Dinas Kesehatan Kabupaten Malang untuk sosialisasi dan penguatan kerja sama program.</div></div>
 </div>
 
+<h2 class="section-h2" style="margin-top:34px;">📸 Galeri Kegiatan</h2>
+<div class="keg-gallery">
+<figure class="keg-photo"><img src="/keg1.jpg" alt="Pelatihan Harm Reduction, Chemsex &amp; Kesehatan Mental" loading="lazy"><figcaption>Pelatihan Harm Reduction, Chemsex &amp; Kesehatan Mental</figcaption></figure>
+<figure class="keg-photo"><img src="/keg2.jpg" alt="Workshop &amp; diskusi program" loading="lazy"><figcaption>Workshop &amp; diskusi program</figcaption></figure>
+<figure class="keg-photo"><img src="/keg3.jpg" alt="Sesi edukasi komunitas" loading="lazy"><figcaption>Sesi edukasi komunitas</figcaption></figure>
+<figure class="keg-photo"><img src="/keg4.jpg" alt="Penjangkauan di lapangan" loading="lazy"><figcaption>Penjangkauan di lapangan</figcaption></figure>
+<figure class="keg-photo"><img src="/keg5.jpg" alt="Rapat koordinasi program" loading="lazy"><figcaption>Rapat koordinasi program</figcaption></figure>
+<figure class="keg-photo"><img src="/keg6.jpg" alt="Kebersamaan tim &amp; relawan" loading="lazy"><figcaption>Kebersamaan tim &amp; relawan</figcaption></figure>
+</div>
 <div class="placeholder-banner">
 <span class="icon">🔒</span>
-<div><strong>Catatan:</strong> Dokumentasi foto kegiatan lapangan kami tampilkan terbatas demi menjaga privasi dan martabat para dampingan.</div>
+<div><strong>Catatan:</strong> Sebagian dokumentasi kegiatan kami tampilkan di sini. Foto yang memuat identitas dampingan kami batasi demi menjaga privasi dan martabat mereka.</div>
 </div>
 </section>
 </main>
