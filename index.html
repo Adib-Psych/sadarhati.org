@@ -854,10 +854,12 @@ body{background:var(--cream,#fbf7f2);}
 .site-brand__name{font-family:'Lora',Georgia,serif;font-weight:700;font-size:1.3rem;color:#fff;}
 .site-brand__tag{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.8);margin-top:3px;}
 .top-nav{display:flex;align-items:center;gap:2px;}
-.top-nav .nav-item{display:inline-flex;align-items:center;margin:0;padding:9px 12px;border-radius:8px;color:rgba(255,255,255,.86);text-decoration:none;font-family:var(--sans,'Manrope',sans-serif);font-weight:600;font-size:.88rem;white-space:nowrap;cursor:pointer;background:transparent;border:none;transition:.15s;}
+.top-nav .nav-item{display:inline-flex;align-items:center;margin:0;padding:9px 11px;border-radius:8px;color:rgba(255,255,255,.9);text-decoration:none;font-family:var(--sans,'Manrope',sans-serif);font-weight:600;font-size:1rem;white-space:nowrap;cursor:pointer;background:transparent;border:none;transition:.15s;}
 .top-nav .nav-item .icon{display:none;}
 .top-nav .nav-item:hover{background:rgba(255,255,255,.15);color:#fff;}
 .top-nav .nav-item.active{background:var(--gold,#d4a017);color:#4a3608;}
+.brand-logo{display:inline-flex;align-items:center;height:50px;background:#fff;border-radius:9px;padding:5px 11px;box-shadow:0 1px 4px rgba(0,0,0,.18);}
+.brand-logo img{height:100%;width:auto;display:block;}
 .nav-toggle{display:none;background:transparent;border:1.5px solid rgba(255,255,255,.55);color:#fff;font-size:1.25rem;line-height:1;border-radius:8px;padding:7px 11px;cursor:pointer;}
 .content{max-width:1180px;margin:0 auto;padding:30px 24px 60px !important;overflow:visible !important;height:auto !important;background:transparent !important;flex:none !important;}
 .section{max-width:100% !important;}
@@ -869,15 +871,16 @@ body{background:var(--cream,#fbf7f2);}
 .tim-feature__photo img{width:100%;height:100%;object-fit:cover;display:block;}
 .tim-feature__name{font-family:'Lora',Georgia,serif;font-weight:700;font-size:17px;color:var(--clay-deep);line-height:1.2;}
 .tim-feature__role{font-size:12px;color:var(--clay);font-weight:700;margin:3px 0 8px;}
-.tim-feature__bio{font-size:12.5px;color:var(--slate);line-height:1.55;}
+.tim-feature__bio{font-size:12.5px;color:var(--slate);line-height:1.55;text-align:justify;-webkit-hyphens:auto;hyphens:auto;}
 @media(max-width:520px){.tim-feature{flex-direction:column;align-items:center;text-align:center;}}
-@media(max-width:880px){
+@media(max-width:1024px){
   .site-header__inner{flex-wrap:wrap;gap:10px;min-height:56px;padding:10px 18px;}
   .nav-toggle{display:inline-block;order:2;}
   .top-nav{display:none;order:3;flex-direction:column;align-items:stretch;width:100%;gap:3px;padding-bottom:8px;}
   .top-nav.open{display:flex;}
-  .top-nav .nav-item{width:100%;padding:12px 14px;font-size:.95rem;}
+  .top-nav .nav-item{width:100%;padding:13px 14px;font-size:1.06rem;}
   .content{padding:20px 16px 40px !important;}
+  .brand-logo{height:44px;padding:4px 9px;}
 }
 </style>
 
@@ -1301,7 +1304,7 @@ body{background:var(--cream,#fbf7f2);}
 <body>
 <header class="site-header">
 <div class="site-header__inner">
-<a class="site-brand" id="siteBrand" href="/"><span class="site-brand__name">Sadar Hati Foundation</span><span class="site-brand__tag">est. 2002 · Malang, Jawa Timur</span></a>
+<a class="brand-logo" id="siteBrand" href="/" aria-label="Yayasan Sadar Hati"><img src="/logo.png" alt="Yayasan Sadar Hati"></a>
 <button class="nav-toggle" id="navToggle" aria-label="Menu">&#9776;</button>
 <nav class="top-nav" id="topNav">
 <a class="nav-item active" href="/">About</a>
