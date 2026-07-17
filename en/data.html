@@ -47,7 +47,8 @@ body{background:var(--sh-bg)!important;}
 .sh-hero.tall .sh-wrap{padding:80px 28px 76px;}
 .sh-kick{display:inline-block;font-size:11px;letter-spacing:2.4px;text-transform:uppercase;font-weight:800;color:#f0c3a8;margin-bottom:14px;}
 .sh-hero h1{font-family:'Lora',Georgia,serif;font-size:clamp(28px,3.4vw,46px);line-height:1.16;font-weight:700;margin:0;letter-spacing:-.4px;}
-.sh-hero .sh-lede{margin-top:16px;font-size:16.5px;max-width:95ch;color:rgba(255,255,255,.93);text-align:justify;-webkit-hyphens:auto;hyphens:auto;}
+.sh-hero .sh-lede{margin-top:16px;font-size:16.5px;max-width:72ch;color:rgba(255,255,255,.93);text-align:left;}
+.sh-hero.plain .sh-lede{max-width:72ch;}
 .sh-hero .sh-actions{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap;}
 .sh-trust{margin-top:26px;display:flex;gap:10px;flex-wrap:wrap;}
 .sh-trust span{font-size:11.5px;font-weight:700;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.22);padding:6px 13px;border-radius:18px;}
@@ -83,9 +84,9 @@ a.sh-card:hover{transform:translateY(-3px);box-shadow:0 4px 8px rgba(36,31,28,.0
 .sh-pcard .bd{padding:18px 20px 22px;text-align:center;}
 .sh-pcard .date{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--sh-clay);}
 .sh-pcard h3{font-size:15.5px;font-weight:800;margin:6px 0 0;line-height:1.35;color:var(--sh-ink);}
-.sh-pcard p{font-size:13px;color:var(--sh-slate);margin-top:6px;text-align:justify;}
+.sh-pcard p{font-size:13px;color:var(--sh-slate);margin-top:6px;text-align:left;}
 .sh-split{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center;}
-.sh-split p{text-align:justify;-webkit-hyphens:auto;hyphens:auto;color:#443c36;}
+.sh-split p{text-align:left;color:#443c36;}
 .sh-quote{background:#fff;border:1px solid var(--sh-line);border-top:4px solid var(--sh-clay);border-radius:var(--sh-r);padding:28px;box-shadow:var(--sh-shadow);text-align:center;}
 .sh-quote em{font-family:'Lora',Georgia,serif;font-size:16.5px;line-height:1.6;color:#4a3f39;display:block;}
 .sh-quote .who{margin-top:14px;font-size:12.5px;color:var(--sh-slate);font-weight:700;}
@@ -95,7 +96,7 @@ a.sh-card:hover{transform:translateY(-3px);box-shadow:0 4px 8px rgba(36,31,28,.0
 .sh-ctaband .sh-actions{margin-top:24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
 /* content-page wrapper: widen + neutralize old scroll container */
 .sh-cwrap{max-width:1320px;margin:0 auto;padding:44px 28px 20px;}
-.sh-cwrap.content{overflow:visible!important;height:auto!important;flex:none!important;background:transparent!important;}
+.sh-cwrap.content{overflow:visible!important;height:auto!important;flex:none!important;background:transparent!important;max-width:1320px!important;margin:0 auto!important;padding:44px 28px 28px!important;}
 .sh-cwrap .section{max-width:100%!important;}
 /* footer */
 .sh-foot{background:#221a16;color:#cfc4bb;font-size:13.5px;font-family:'Manrope',sans-serif;}
@@ -106,7 +107,7 @@ a.sh-card:hover{transform:translateY(-3px);box-shadow:0 4px 8px rgba(36,31,28,.0
 .sh-foot h4{color:#fff;font-size:12px;letter-spacing:1.6px;text-transform:uppercase;margin-bottom:13px;}
 .sh-foot ul{list-style:none;margin:0;padding:0;}.sh-foot li{margin-bottom:9px;}
 .sh-foot a{color:#cfc4bb;text-decoration:none;}.sh-foot a:hover{color:#fff;}
-.sh-foot .mission{line-height:1.7;text-align:justify;}
+.sh-foot .mission{line-height:1.7;text-align:left;}
 .sh-foot .cchip{display:inline-block;border:1px solid #4b3e37;border-radius:20px;padding:7px 15px;margin:10px 8px 0 0;font-weight:700;color:#fff;text-decoration:none;font-size:12.5px;}
 .sh-foot .cchip:hover{background:var(--sh-maroon);}
 .sh-foot .base{border-top:1px solid #3a2f29;padding:16px 0;font-size:12px;color:#9c8f85;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;}
@@ -977,23 +978,23 @@ body{background:var(--cream,#fbf7f2);}
 .tim-feature__photo img{width:100%;height:100%;object-fit:cover;display:block;}
 .tim-feature__name{font-family:'Lora',Georgia,serif;font-weight:700;font-size:17px;color:var(--clay-deep);line-height:1.2;}
 .tim-feature__role{font-size:12px;color:var(--clay);font-weight:700;margin:3px 0 8px;}
-.tim-feature__bio{font-size:12.5px;color:var(--slate);line-height:1.55;text-align:justify;-webkit-hyphens:auto;hyphens:auto;}
+.tim-feature__bio{font-size:12.5px;color:var(--slate);line-height:1.55;text-align:left;}
 @media(max-width:520px){.tim-feature{flex-direction:column;align-items:center;text-align:center;}}
 .focus-band{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:14px;}
 .focus-card{margin:0;background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
 .focus-card img{width:100%;height:auto;display:block;background:var(--cream);}
-.focus-card figcaption{padding:12px 14px;font-size:12.5px;color:var(--slate);line-height:1.55;text-align:justify;}
+.focus-card figcaption{padding:12px 14px;font-size:12.5px;color:var(--slate);line-height:1.55;text-align:left;}
 .adha-highlight{background:linear-gradient(135deg,var(--clay) 0%,var(--clay-deep) 100%);color:#fff;border-radius:14px;padding:22px 24px;margin-top:16px;}
 .adha-badge{display:inline-block;background:rgba(255,255,255,.18);color:#fff;font-size:11.5px;font-weight:700;letter-spacing:.5px;padding:5px 11px;border-radius:20px;text-transform:uppercase;}
 .adha-highlight h3{font-family:'Lora',Georgia,serif;font-size:20px;margin:12px 0 8px;color:#fff;}
-.adha-highlight p{font-size:13.5px;line-height:1.6;color:rgba(255,255,255,.95);text-align:justify;margin:0;}
+.adha-highlight p{font-size:13.5px;line-height:1.6;color:rgba(255,255,255,.95);text-align:left;margin:0;}
 .keg-list{position:relative;margin:18px 0 0;padding-left:30px;}
 .keg-list::before{content:"";position:absolute;left:6px;top:6px;bottom:10px;width:3px;background:var(--clay-light);border-radius:2px;}
 .keg-item{position:relative;padding:0 0 22px;}
 .keg-item::before{content:"";position:absolute;left:-30px;top:2px;width:15px;height:15px;border-radius:50%;background:var(--clay);border:3px solid var(--cream);}
 .keg-date{font-size:11.5px;font-weight:700;letter-spacing:.5px;color:var(--clay);text-transform:uppercase;}
 .keg-title{font-family:'Lora',Georgia,serif;font-weight:700;font-size:15.5px;color:var(--clay-deep);margin:2px 0 4px;line-height:1.25;}
-.keg-desc{font-size:13px;color:var(--slate);line-height:1.55;text-align:justify;-webkit-hyphens:auto;hyphens:auto;}
+.keg-desc{font-size:13px;color:var(--slate);line-height:1.55;text-align:left;}
 .keg-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:16px;}
 .keg-photo{margin:0;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:#fff;}
 .keg-photo img{width:100%;height:180px;object-fit:cover;display:block;background:var(--cream);}
@@ -1767,7 +1768,7 @@ body{background:var(--cream,#fbf7f2);}
 <div class="jatim-map-panel">
 <h3>Sadar Hati Operational Distribution · HCPI Era 2010-2014</h3>
 <div style="margin: 18px 0; width: 100%;">
-<img alt="Peta Sebaran Operasional Sadar Hati Jawa Timur 2010-2014 — Kota Malang sebagai hub utama, dengan Kab Malang, Pasuruan, Batu, Blitar, dan Sidoarjo sebagai wilayah operasional" loading="lazy" src="Knowledge%20Assets%20SAHA/06_Visual_Archive/Maps/Jatim_Footprint_Map_28Jun2026.png" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); display: block;"/>
+<img alt="Peta Sebaran Operasional Sadar Hati Jawa Timur 2010-2014 — Kota Malang sebagai hub utama, dengan Kab Malang, Pasuruan, Batu, Blitar, dan Sidoarjo sebagai wilayah operasional" loading="lazy" src="/Knowledge%20Assets%20SAHA/06_Visual_Archive/Maps/Jatim_Footprint_Map_28Jun2026.png" style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); display: block;"/>
 </div>
 <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 24px;">
 <div style="background:var(--clay-tint); border:2px solid var(--clay); border-radius:8px; padding:14px;">
