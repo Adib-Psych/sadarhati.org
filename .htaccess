@@ -22,4 +22,17 @@ Options -Indexes
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME}\.html -f
   RewriteRule ^(.+?)/?$ $1.html [L]
+
+  # 3) HTML selalu segar — bypass cache LiteSpeed/CDN (19 Jul 2026)
+  #    Hanya dokumen HTML; gambar/aset tetap di-cache penuh.
+  RewriteRule \.html$ - [E=Cache-Control:no-cache]
+  RewriteCond %{REQUEST_URI} ^/(en/)?$
+  RewriteRule .* - [E=Cache-Control:no-cache]
+</IfModule>
+
+# 3b) Header respons: browser & CDN wajib revalidasi dokumen HTML tiap kunjungan
+<IfModule mod_headers.c>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
 </IfModule>
