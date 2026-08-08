@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://sadarhati.org/</loc><lastmod>2026-07-13</lastmod><priority>1.0</priority></url>
-  <url><loc>https://sadarhati.org/program</loc><lastmod>2026-07-13</lastmod><priority>0.8</priority></url>
-  <url><loc>https://sadarhati.org/kegiatan</loc><lastmod>2026-07-14</lastmod><priority>0.9</priority></url>
-  <url><loc>https://sadarhati.org/sahawood</loc><lastmod>2026-07-13</lastmod><priority>0.8</priority></url>
-  <url><loc>https://sadarhati.org/tim</loc><lastmod>2026-07-13</lastmod><priority>0.8</priority></url>
-  <url><loc>https://sadarhati.org/data</loc><lastmod>2026-07-13</lastmod><priority>0.8</priority></url>
-  <url><loc>https://sadarhati.org/report</loc><lastmod>2026-07-13</lastmod><priority>0.7</priority></url>
-  <url><loc>https://sadarhati.org/materi</loc><lastmod>2026-07-13</lastmod><priority>0.8</priority></url>
-  <url><loc>https://sadarhati.org/kontak</loc><lastmod>2026-07-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://sadarhati.org/</loc><lastmod>2026-08-08</lastmod></url>
+  <url><loc>https://sadarhati.org/tentang</loc><lastmod>2026-08-08</lastmod></url>
+  <url><loc>https://sadarhati.org/program</loc><lastmod>2026-08-08</lastmod></url>
+  <url><loc>https://sadarhati.org/kegiatan</loc><lastmod>2026-08-08</lastmod></url>
+  <url><loc>https://sadarhati.org/sahawood</loc><lastmod>2026-08-08</lastmod></url>
+  <url><loc>https://sadarhati.org/materi</loc><lastmod>2026-08-08</lastmod></url>
+  <url><loc>https://sadarhati.org/data</loc><lastmod>2026-08-08</lastmod></url>
+  <url><loc>https://sadarhati.org/tim</loc><lastmod>2026-08-08</lastmod></url>
+  <url><loc>https://sadarhati.org/kontak</loc><lastmod>2026-08-08</lastmod></url>
+  <url><loc>https://sadarhati.org/partner</loc><lastmod>2026-08-08</lastmod></url>
+  <url><loc>https://sadarhati.org/en/</loc><lastmod>2026-08-08</lastmod></url>
+  <url><loc>https://sadarhati.org/en/tentang</loc><lastmod>2026-08-08</lastmod></url>
+  <url><loc>https://sadarhati.org/en/program</loc><lastmod>2026-08-08</lastmod></url>
+  <url><loc>https://sadarhati.org/en/kegiatan</loc><lastmod>2026-08-08</lastmod></url>
+  <url><loc>https://sadarhati.org/en/sahawood</loc><lastmod>2026-08-08</lastmod></url>
+  <url><loc>https://sadarhati.org/en/materi</loc><lastmod>2026-08-08</lastmod></url>
+  <url><loc>https://sadarhati.org/en/data</loc><lastmod>2026-08-08</lastmod></url>
+  <url><loc>https://sadarhati.org/en/tim</loc><lastmod>2026-08-08</lastmod></url>
+  <url><loc>https://sadarhati.org/en/kontak</loc><lastmod>2026-08-08</lastmod></url>
+  <url><loc>https://sadarhati.org/en/partner</loc><lastmod>2026-08-08</lastmod></url>
 </urlset>
